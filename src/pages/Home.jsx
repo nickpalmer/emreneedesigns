@@ -28,8 +28,9 @@ const Home = () => {
             padding: '32px',
             boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15)'
           }}>
-            <h1 className="text-4xl font-bold text-[#F5E6D3]">Alluring and dynamic fashion handcrafted for your body</h1>
-            <p className="text-lg mt-4 text-[#F5E6D3]">M. Renee Designs is a fashion design website featuring handcrafted clothing and accessories, specializing in bespoke, long-lasting pieces with upcoming menswear and exotics lines.</p>
+            <h1 className="text-4xl font-bold text-[#F5E6D3]">Bespoke Wearable Art</h1>
+            <p className="text-lg mt-4 text-[#F5E6D3]">Heirloom-quality leather pieces handcrafted in Houston from wild-sourced deer and elk hides. Each garment is a one-of-a-kind work of art, designed to move with your body and celebrate its natural beauty.</p>
+            <p className="text-lg mt-4 text-[#F5E6D3]">From intimate one-on-one design fittings to personalized draping and custom hide selection, every piece tells a story—yours and the hide's. An elegance grounded in nature, built to last generations.</p>
           </div>
         </div>
       </div>

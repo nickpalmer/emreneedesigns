@@ -1,11 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import logo from '../assets/images/logo.svg';
 import nameLogo from '../assets/images/name-logo.svg';
 import { useScrollDirection } from '../hooks/useScrollDirection';
 
 const Header = () => {
   const scrollDirection = useScrollDirection();
+  const location = useLocation();
+
+  const isActive = (path) => {
+    return location.pathname === path;
+  };
 
   return (
     <header
@@ -26,19 +31,19 @@ const Header = () => {
         <nav>
           <ul className="flex list-none" style={{ margin: 0, padding: 0, gap: '8px' }}>
             <li>
-              <Link to="/" className="block text-[#F5E6D3] hover:text-[#B86125] transition-colors" style={{ padding: '12px 24px', textDecoration: 'none' }}>Home</Link>
+              <Link to="/" className={`block text-[#F5E6D3] hover:text-[#B86125] transition-colors ${isActive('/') ? 'underline' : ''}`} style={{ padding: '12px 24px', textDecoration: isActive('/') ? 'underline' : 'none' }}>Home</Link>
             </li>
             <li>
-              <Link to="/about" className="block text-[#F5E6D3] hover:text-[#B86125] transition-colors" style={{ padding: '12px 24px', textDecoration: 'none' }}>About</Link>
+              <Link to="/about" className={`block text-[#F5E6D3] hover:text-[#B86125] transition-colors ${isActive('/about') ? 'underline' : ''}`} style={{ padding: '12px 24px', textDecoration: isActive('/about') ? 'underline' : 'none' }}>About</Link>
             </li>
             <li>
-              <Link to="/designs" className="block text-[#F5E6D3] hover:text-[#B86125] transition-colors" style={{ padding: '12px 24px', textDecoration: 'none' }}>Designs</Link>
+              <Link to="/designs" className={`block text-[#F5E6D3] hover:text-[#B86125] transition-colors ${isActive('/designs') ? 'underline' : ''}`} style={{ padding: '12px 24px', textDecoration: isActive('/designs') ? 'underline' : 'none' }}>Designs</Link>
             </li>
             <li>
-              <Link to="/custom" className="block text-[#F5E6D3] hover:text-[#B86125] transition-colors" style={{ padding: '12px 24px', textDecoration: 'none' }}>Custom</Link>
+              <Link to="/custom" className={`block text-[#F5E6D3] hover:text-[#B86125] transition-colors ${isActive('/custom') ? 'underline' : ''}`} style={{ padding: '12px 24px', textDecoration: isActive('/custom') ? 'underline' : 'none' }}>Custom</Link>
             </li>
             <li>
-              <Link to="/contact" className="block text-[#F5E6D3] hover:text-[#B86125] transition-colors" style={{ padding: '12px 24px', textDecoration: 'none' }}>Contact</Link>
+              <Link to="/contact" className={`block text-[#F5E6D3] hover:text-[#B86125] transition-colors ${isActive('/contact') ? 'underline' : ''}`} style={{ padding: '12px 24px', textDecoration: isActive('/contact') ? 'underline' : 'none' }}>Contact</Link>
             </li>
           </ul>
         </nav>
