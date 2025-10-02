@@ -26,10 +26,11 @@ const Home = () => {
           <div className="shadow-lg" style={{
             backgroundColor: 'rgba(184, 97, 37, 0.75)',
             padding: '32px',
-            boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15)'
+            boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15)',
+            borderRadius: '16px'
           }}>
             <h1 className="text-4xl font-bold text-[#F5E6D3]">Bespoke Wearable Art</h1>
-            <p className="text-lg mt-4 text-[#F5E6D3]">Heirloom-quality leather pieces handcrafted in Houston from wild-sourced deer and elk hides. Each garment is a one-of-a-kind work of art, designed to move with your body and celebrate its natural beauty.</p>
+            <p className="text-lg mt-4 text-[#F5E6D3]">Heirloom-quality leather pieces handcrafted in Houston from wild-sourced deer and elk hides and other exotics. Each garment is a one-of-a-kind work of art, designed to move with your body and celebrate its natural beauty.</p>
             <p className="text-lg mt-4 text-[#F5E6D3]">From intimate one-on-one design fittings to personalized draping and custom hide selection, every piece tells a story—yours and the hide's. An elegance grounded in nature, built to last generations.</p>
           </div>
         </div>

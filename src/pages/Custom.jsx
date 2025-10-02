@@ -23,7 +23,8 @@ const Custom = () => {
           <div className="shadow-lg" style={{
             backgroundColor: 'rgba(184, 97, 37, 0.75)',
             padding: '32px',
-            boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15)'
+            boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15)',
+            borderRadius: '16px'
           }}>
             <h1 className="text-4xl font-bold text-[#F5E6D3]">Custom Designs</h1>
             <p className="text-lg mt-4 text-[#F5E6D3]">"Custom design fittings are one on one, creating bespoke epic fashion from the hides of your choice, draped to flatter your form and suit your function"</p>
