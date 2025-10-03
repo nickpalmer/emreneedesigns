@@ -1,6 +1,14 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+:root {
+  --header-height: 60px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --header-height: 86px;
+  }
+}
 
 @layer base {
   body {

@@ -11,6 +11,25 @@ import home_05 from '../assets/images/home_05_BoleroVest.jpg';
 import home_06 from '../assets/images/home_06_Photo_Jun_09.jpg';
 import HorizontalScrollCarousel from '../components/HorizontalScrollCarousel';
 
+const heroImageStyle = `
+  .designs-hero-image {
+    max-height: 50vh;
+    height: auto;
+    padding-left: 0;
+  }
+  @media (min-width: 768px) {
+    .designs-hero-image {
+      height: calc(100vh - var(--header-height)) !important;
+      width: auto !important;
+      max-height: none !important;
+      padding-left: 15px !important;
+      padding-top: 15px !important;
+      padding-bottom: 15px !important;
+      object-fit: cover;
+    }
+  }
+`;
+
 const products = [
   {
     name: 'Queen Collar Full Grain Leather Coat (front)',
@@ -35,43 +54,52 @@ const products = [
   {
     name: 'Halter Top Leather Dress',
     image: home_06
-  },
-  {
-    name: 'Leather Messenger Bags',
-    image: home_03
-  },
-  {
-    name: 'Leather Journals',
-    image: store_07
   }
 ];
 
 const Designs = () => {
 
   return (
-    <div style={{ backgroundColor: '#286140' }}>
-      <div className="flex items-center" style={{ height: 'calc(100vh - 86px)' }}>
+    <div>
+      <style>{heroImageStyle}</style>
+      <div className="grid grid-cols-1 md:grid-cols-2" style={{ minHeight: 'calc(100vh - var(--header-height))' }}>
         <img
           src={store_01}
           alt="M. Renee Designs"
-          className="object-cover object-center"
-          style={{ height: '100%', width: 'auto', paddingLeft: '15px' }}
+          className="designs-hero-image object-cover object-center w-full h-auto md:h-full"
         />
-        <div className="flex flex-col justify-center flex-1" style={{ padding: '15px' }}>
+        <div className="flex flex-col justify-center" style={{ padding: '15px' }}>
           <div className="shadow-lg" style={{
-            backgroundColor: 'rgba(184, 97, 37, 0.75)',
-            padding: '32px',
+            backgroundColor: 'rgba(184, 97, 37, 1)',
+            padding: '20px',
             boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15)',
             borderRadius: '16px'
           }}>
-            <h1 className="text-4xl font-bold text-[#F5E6D3]">Designs</h1>
-            <p className="text-lg mt-4 text-[#F5E6D3]">Natural ~ Refined ~ Fantastical</p>
-            <p className="mt-4 text-[#F5E6D3]">Emily creates limited run collections of handcrafted leatherware, each piece made from wild-sourced deer and elk hides. Every collection celebrates the natural beauty and unique characteristics of the materials, ensuring that each item is truly one-of-a-kind.</p>
+            <h1 className="text-2xl md:text-4xl font-bold text-[#F5E6D3]">Designs</h1>
+            <p className="text-base md:text-lg mt-4 text-[#F5E6D3]">Natural ~ Refined ~ Fantastical</p>
+            <p className="text-sm md:text-base mt-4 text-[#F5E6D3]">Emily creates limited run collections of handcrafted leatherware, each piece made from wild-sourced deer and elk hides. Every collection celebrates the natural beauty and unique characteristics of the materials, ensuring that each item is truly one-of-a-kind.</p>
           </div>
         </div>
       </div>
 
-      <HorizontalScrollCarousel items={products} showTitles={true} />
+      <div className="hidden md:block">
+        <HorizontalScrollCarousel items={products} showTitles={true} />
+      </div>
+      <div className="md:hidden" style={{ padding: '15px' }}>
+        <div className="grid grid-cols-1 gap-6">
+          {products.map((product, index) => (
+            <div key={index} className="text-center">
+              <img
+                src={product.image}
+                alt={product.name}
+                className="w-full h-auto object-cover"
+                style={{ borderRadius: '8px', maxHeight: 'calc(100vh - var(--header-height))', objectFit: 'contain' }}
+              />
+              <h2 className="text-lg font-bold text-[#F5E6D3] mt-3">{product.name}</h2>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
