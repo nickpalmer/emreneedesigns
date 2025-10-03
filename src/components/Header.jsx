@@ -57,7 +57,7 @@ const Header = () => {
           <Link to="/" className={`transition-all duration-300 ${isCompact ? 'opacity-0 w-0 overflow-hidden' : 'opacity-100'}`}>
             <img
               src={logo}
-              alt="M. Renee Designs Logo"
+              alt="M. Reneé Designs Logo"
               className={`w-auto object-contain transition-all duration-300 ${
                 isCompact ? 'max-h-[32px] md:max-h-[50px]' : 'max-h-[40px] md:max-h-[60px]'
               }`}
@@ -67,11 +67,11 @@ const Header = () => {
           <Link to="/">
             <img
               src={nameLogo}
-              alt="M. Renee Designs Name"
+              alt="M. Reneé Designs Name"
               className={`w-auto object-contain transition-all duration-300 ${
                 isCompact ? 'max-h-[32px] md:max-h-[50px]' : 'max-h-[40px] md:max-h-[60px]'
               }`}
-              style={{ margin: isCompact ? 'auto' : '0' }}
+              style={{ margin: isCompact ? 'auto' : '0', padding: isCompact ? '0' : '' }}
             />
           </Link>
         </div>

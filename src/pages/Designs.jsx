@@ -66,7 +66,7 @@ const Designs = () => {
         <div className="md:w-1/2">
           <img
             src={store_01}
-            alt="M. Renee Designs"
+            alt="M. Reneé Designs"
             className="designs-hero-image object-cover object-center w-full h-auto md:h-full"
           />
         </div>

@@ -11,10 +11,10 @@ const Footer = () => {
     }}>
       <div className="px-2 md:px-4 h-full flex items-center justify-between text-[#F5E6D3]">
         <div className="flex items-center gap-2 md:gap-4">
-          <img src={logo} alt="M. Renee Designs Logo" style={{ maxHeight: '40px', width: 'auto', objectFit: 'contain', paddingLeft: '8px' }} />
-          <img src={nameLogo} alt="M. Renee Designs Name" style={{ maxHeight: '40px', width: 'auto', objectFit: 'contain' }} />
+          <img src={logo} alt="M. Reneé Designs Logo" style={{ maxHeight: '40px', width: 'auto', objectFit: 'contain', paddingLeft: '8px' }} />
+          <img src={nameLogo} alt="M. Reneé Designs Name" style={{ maxHeight: '40px', width: 'auto', objectFit: 'contain' }} />
         </div>
-        <p className="text-xs md:text-sm">&copy; {new Date().getFullYear()} M. Renee Designs. All rights reserved.</p>
+        <p className="text-xs md:text-sm">&copy; {new Date().getFullYear()} M. Reneé Designs. All rights reserved.</p>
       </div>
     </footer>
   );

@@ -3,7 +3,7 @@ import React from 'react';
 const Contact = () => {
   const getEmail = () => {
     const user = 'emily';
-    const domain = 'mReneeDesigns.com';
+    const domain = 'mReneéDesigns.com';
     return `${user}@${domain}`;
   };
 

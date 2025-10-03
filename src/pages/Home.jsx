@@ -43,7 +43,7 @@ const Home = () => {
         <div className="hero-image-container">
           <img
             src={home_01}
-            alt="M. Renee Designs Fashion"
+            alt="M. Reneé Designs Fashion"
             className="hero-image object-cover object-center md:object-left-top w-full h-auto md:h-full"
           />
         </div>
