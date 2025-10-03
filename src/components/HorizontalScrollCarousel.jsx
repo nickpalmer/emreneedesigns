@@ -33,12 +33,9 @@ const HorizontalScrollCarousel = ({
       const totalTranslate = initialOffset + images.scrollWidth - finalOffset;
 
       // Only apply transform when container is in view
-      console.log('containerTop: ' + containerTop + ' h: ' + containerHeight);
       if (containerTop <= 0 && containerTop > -containerHeight) {
         const scrollProgress = Math.abs(containerTop) / containerHeight;
-        console.log('p:', scrollProgress);
         const translateX = initialOffset - (scrollProgress * totalTranslate);
-        console.log('t:' + (initialOffset - (scrollProgress * totalTranslate)));
         images.style.transform = `translateX(${translateX}px)`;
       } else if (containerTop > 0) {
         // Reset to initial centered position
@@ -64,7 +61,9 @@ const HorizontalScrollCarousel = ({
                   className="object-cover"
                   style={{
                     maxHeight: '85vh',
-                    maxWidth: index === items.length - 1 ? '100vw' : undefined
+                    maxWidth: index === items.length - 1 ? '100vw' : undefined,
+                    boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15)',
+                    borderRadius: '8px'
                   }}
                 />
                 <h2 className="text-xl font-bold text-[#F5E6D3] text-center mt-4">{item.name}</h2>
@@ -77,7 +76,9 @@ const HorizontalScrollCarousel = ({
                 className="object-cover"
                 style={{
                   height: imageMaxHeight,
-                  maxWidth: index === items.length - 1 ? '100vw' : undefined
+                  maxWidth: index === items.length - 1 ? '100vw' : undefined,
+                  boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15)',
+                  borderRadius: '8px'
                 }}
               />
             )

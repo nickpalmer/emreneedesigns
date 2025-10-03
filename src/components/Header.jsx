@@ -20,23 +20,11 @@ const Header = () => {
       const currentScrollY = window.pageYOffset;
       const scrollDiff = Math.abs(currentScrollY - lastScrollY);
 
-      console.log('handleScroll:', {
-        currentScrollY,
-        lastScrollY,
-        scrollDiff,
-        scrollChanged: scrollDiff > 50,
-        isTouched,
-        isHovered,
-        scrollDirection
-      });
-
       if (scrollDiff > 50) {
         if (isTouched) {
-          console.log('Clearing isTouched');
           setIsTouched(false);
         }
         if (scrollDirection === "down" && isHovered && !isTouched) {
-          console.log('Clearing isHovered');
           setIsHovered(false);
         }
         setLastScrollY(currentScrollY);
@@ -48,15 +36,6 @@ const Header = () => {
   }, [scrollDirection, isTouched, isHovered, lastScrollY]);
 
   const isCompact = scrollDirection === "down" && !isHovered && !isTouched;
-
-  React.useEffect(() => {
-    console.log('Header state:', {
-      scrollDirection,
-      isHovered,
-      isTouched,
-      isCompact
-    });
-  }, [scrollDirection, isHovered, isTouched, isCompact]);
 
   return (
     <header
@@ -75,7 +54,7 @@ const Header = () => {
         isCompact ? 'py-1 justify-center w-full' : 'px-2 md:px-4 py-2 md:py-[11px] justify-between'
       }`}>
         <div className={`flex items-center gap-2 md:gap-4 ${isCompact ? 'justify-center' : ''}`}>
-          <Link to="/" className={`transition-all duration-300 hidden sm:block ${isCompact ? 'opacity-0 w-0 overflow-hidden' : 'opacity-100'}`}>
+          <Link to="/" className={`transition-all duration-300 ${isCompact ? 'opacity-0 w-0 overflow-hidden' : 'opacity-100'}`}>
             <img
               src={logo}
               alt="M. Renee Designs Logo"
@@ -92,6 +71,7 @@ const Header = () => {
               className={`w-auto object-contain transition-all duration-300 ${
                 isCompact ? 'max-h-[32px] md:max-h-[50px]' : 'max-h-[40px] md:max-h-[60px]'
               }`}
+              style={{ margin: isCompact ? 'auto' : '0' }}
             />
           </Link>
         </div>

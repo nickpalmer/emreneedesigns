@@ -62,13 +62,15 @@ const Designs = () => {
   return (
     <div>
       <style>{heroImageStyle}</style>
-      <div className="grid grid-cols-1 md:grid-cols-2" style={{ minHeight: 'calc(100vh - var(--header-height))' }}>
-        <img
-          src={store_01}
-          alt="M. Renee Designs"
-          className="designs-hero-image object-cover object-center w-full h-auto md:h-full"
-        />
-        <div className="flex flex-col justify-center" style={{ padding: '15px' }}>
+      <div className="flex flex-col md:flex-row md:min-h-[calc(100vh-var(--header-height))]">
+        <div className="md:w-1/2">
+          <img
+            src={store_01}
+            alt="M. Renee Designs"
+            className="designs-hero-image object-cover object-center w-full h-auto md:h-full"
+          />
+        </div>
+        <div className="md:w-1/2 flex flex-col md:justify-center" style={{ padding: '15px 15px 0 15px' }}>
           <div className="shadow-lg" style={{
             backgroundColor: 'rgba(184, 97, 37, 1)',
             padding: '20px',
@@ -93,7 +95,7 @@ const Designs = () => {
                 src={product.image}
                 alt={product.name}
                 className="w-full h-auto object-cover"
-                style={{ borderRadius: '8px', maxHeight: 'calc(100vh - var(--header-height))', objectFit: 'contain' }}
+                style={{ borderRadius: '8px', maxHeight: 'calc(100vh - var(--header-height))', objectFit: 'contain', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15)' }}
               />
               <h2 className="text-lg font-bold text-[#F5E6D3] mt-3">{product.name}</h2>
             </div>

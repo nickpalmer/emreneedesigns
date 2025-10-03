@@ -24,8 +24,8 @@ const Contact = () => {
 
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-2" style={{ minHeight: 'calc(100vh - var(--header-height))' }}>
-        <div className="hidden md:flex items-center justify-center" style={{ padding: '15px', minHeight: '75vh' }}>
+      <div className="flex flex-col md:flex-row md:min-h-[calc(100vh-var(--header-height))]">
+        <div className="md:w-1/2 hidden md:flex items-center justify-center" style={{ padding: '15px', minHeight: '75vh' }}>
           <iframe
             src="https://www.instagram.com/mrenee_designs/embed"
             style={{
@@ -41,7 +41,7 @@ const Contact = () => {
             allow="encrypted-media"
           ></iframe>
         </div>
-        <div className="flex flex-col justify-center" style={{ padding: '15px' }}>
+        <div className="md:w-1/2 flex flex-col md:justify-center" style={{ padding: '15px 15px 0 15px' }}>
           <div className="shadow-lg" style={{
             backgroundColor: 'rgba(184, 97, 37, 1)',
             padding: '20px',
@@ -96,6 +96,21 @@ const Contact = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="md:hidden" style={{ padding: '15px' }}>
+        <iframe
+          src="https://www.instagram.com/mrenee_designs/embed"
+          style={{
+            width: '100%',
+            height: '500px',
+            border: 'none',
+            overflow: 'hidden'
+          }}
+          scrolling="no"
+          frameBorder="0"
+          allowTransparency="true"
+          allow="encrypted-media"
+        ></iframe>
       </div>
     </div>
   );

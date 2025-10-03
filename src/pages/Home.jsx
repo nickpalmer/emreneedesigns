@@ -32,7 +32,7 @@ const heroImageStyle = `
   }
 `;
 
-const carouselImages = [home_02, home_05, home_06, store_01, store_02];
+const carouselImages = [home_02, home_05, home_06, store_02, store_01];
 
 const Home = () => {
 
@@ -72,7 +72,7 @@ const Home = () => {
               src={image}
               alt={`Gallery image ${index + 1}`}
               className="w-full h-auto object-cover"
-              style={{ borderRadius: '8px', maxHeight: 'calc(100vh - var(--header-height))', objectFit: 'contain' }}
+              style={{ borderRadius: '8px', maxHeight: 'calc(100vh - var(--header-height))', objectFit: 'contain', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15)' }}
             />
           ))}
         </div>
