@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import store_01 from '../assets/images/store_01_IMG_7890.jpg';
 import store_02 from '../assets/images/store_02_IMG_9654.jpg';
 import store_03 from '../assets/images/store_03_IMG_9653.jpg';
@@ -30,34 +31,39 @@ const heroImageStyle = `
   }
 `;
 
-const products = [
-  {
-    name: 'Queen Collar Full Grain Leather Coat (front)',
-    image: store_05
-  },
-  {
-    name: 'Queen Collar Full Grain Leather Coat (back)',
-    image: store_04
-  },
-  {
-    name: 'Queen Peplum Vest',
-    image: store_02
-  },
-  {
-    name: 'Backless Leather Dress',
-    image: store_06
-  },
-  {
-    name: 'Bolero Vest',
-    image: home_05
-  },
-  {
-    name: 'Halter Top Leather Dress',
-    image: home_06
-  }
-];
+const useProducts = () => {
+  const { t } = useTranslation();
+  return [
+    {
+      name: t('designs.product1'),
+      image: store_05
+    },
+    {
+      name: t('designs.product2'),
+      image: store_04
+    },
+    {
+      name: t('designs.product3'),
+      image: store_02
+    },
+    {
+      name: t('designs.product4'),
+      image: store_06
+    },
+    {
+      name: t('designs.product5'),
+      image: home_05
+    },
+    {
+      name: t('designs.product6'),
+      image: home_06
+    }
+  ];
+};
 
 const Designs = () => {
+  const { t } = useTranslation();
+  const products = useProducts();
 
   return (
     <div>
@@ -78,9 +84,9 @@ const Designs = () => {
             borderRadius: '16px',
             color: 'var(--textbox-text)'
           }}>
-            <h1 className="text-2xl md:text-4xl font-bold">Designs</h1>
-            <p className="text-base md:text-lg mt-4">Natural ~ Refined ~ Fantastical</p>
-            <p className="text-sm md:text-base mt-4">Emily creates limited run collections of handcrafted leatherware, each piece made from wild-sourced deer and elk hides. Every collection celebrates the natural beauty and unique characteristics of the materials, ensuring that each item is truly one-of-a-kind.</p>
+            <h1 className="text-2xl md:text-4xl font-bold">{t('designs.title')}</h1>
+            <p className="text-base md:text-lg mt-4">{t('designs.subtitle')}</p>
+            <p className="text-sm md:text-base mt-4">{t('designs.description')}</p>
           </div>
         </div>
       </div>

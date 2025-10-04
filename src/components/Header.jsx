@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Logo from './Logo';
 import NameLogo from './NameLogo';
 import { useScrollDirection } from '../hooks/useScrollDirection';
 
 const Header = () => {
+  const { t } = useTranslation();
   const scrollDirection = useScrollDirection();
   const location = useLocation();
   const [isHovered, setIsHovered] = React.useState(false);
@@ -86,19 +88,19 @@ const Header = () => {
         }`}>
           <ul className="flex list-none gap-[2px] md:gap-1" style={{ margin: 0, padding: 0 }}>
             <li>
-              <Link to="/" className={`block transition-colors text-xs md:text-base ${isActive('/') ? 'underline' : ''}`} style={{ padding: '8px 8px', textDecoration: isActive('/') ? 'underline' : 'none', color: 'var(--header-footer-text)' }}>Home</Link>
+              <Link to="/" className={`block transition-colors text-xs md:text-base ${isActive('/') ? 'underline' : ''}`} style={{ padding: '8px 8px', textDecoration: isActive('/') ? 'underline' : 'none', color: 'var(--header-footer-text)' }}>{t('nav.home')}</Link>
             </li>
             <li>
-              <Link to="/about" className={`block transition-colors text-xs md:text-base ${isActive('/about') ? 'underline' : ''}`} style={{ padding: '8px 8px', textDecoration: isActive('/about') ? 'underline' : 'none', color: 'var(--header-footer-text)' }}>About</Link>
+              <Link to="/about" className={`block transition-colors text-xs md:text-base ${isActive('/about') ? 'underline' : ''}`} style={{ padding: '8px 8px', textDecoration: isActive('/about') ? 'underline' : 'none', color: 'var(--header-footer-text)' }}>{t('nav.about')}</Link>
             </li>
             <li>
-              <Link to="/designs" className={`block transition-colors text-xs md:text-base ${isActive('/designs') ? 'underline' : ''}`} style={{ padding: '8px 8px', textDecoration: isActive('/designs') ? 'underline' : 'none', color: 'var(--header-footer-text)' }}>Designs</Link>
+              <Link to="/designs" className={`block transition-colors text-xs md:text-base ${isActive('/designs') ? 'underline' : ''}`} style={{ padding: '8px 8px', textDecoration: isActive('/designs') ? 'underline' : 'none', color: 'var(--header-footer-text)' }}>{t('nav.designs')}</Link>
             </li>
             <li>
-              <Link to="/custom" className={`block transition-colors text-xs md:text-base ${isActive('/custom') ? 'underline' : ''}`} style={{ padding: '8px 8px', textDecoration: isActive('/custom') ? 'underline' : 'none', color: 'var(--header-footer-text)' }}>Custom</Link>
+              <Link to="/custom" className={`block transition-colors text-xs md:text-base ${isActive('/custom') ? 'underline' : ''}`} style={{ padding: '8px 8px', textDecoration: isActive('/custom') ? 'underline' : 'none', color: 'var(--header-footer-text)' }}>{t('nav.custom')}</Link>
             </li>
             <li>
-              <Link to="/contact" className={`block transition-colors text-xs md:text-base ${isActive('/contact') ? 'underline' : ''}`} style={{ padding: '8px 8px', textDecoration: isActive('/contact') ? 'underline' : 'none', color: 'var(--header-footer-text)' }}>Contact</Link>
+              <Link to="/contact" className={`block transition-colors text-xs md:text-base ${isActive('/contact') ? 'underline' : ''}`} style={{ padding: '8px 8px', textDecoration: isActive('/contact') ? 'underline' : 'none', color: 'var(--header-footer-text)' }}>{t('nav.contact')}</Link>
             </li>
           </ul>
         </nav>

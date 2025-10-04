@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ColorPicker from './components/ColorPicker';
+import TranslationEditor from './components/TranslationEditor';
 import Home from './pages/Home';
 import About from './pages/About';
 import Designs from './pages/Designs';
@@ -25,6 +26,7 @@ const App = () => {
         </main>
         <Footer />
         <ColorPicker />
+        <TranslationEditor />
       </div>
     </Router>
   );

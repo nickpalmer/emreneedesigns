@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import custom_01 from '../assets/images/custom_01_Emily_Renee_Smith.jpg';
 import custom_02 from '../assets/images/custom_02_Photo_Apr_19.jpg';
 import custom_03 from '../assets/images/custom_03_Photo_Aug_15.jpg';
@@ -26,6 +27,7 @@ const heroImageStyle = `
 const carouselImages = [custom_02, custom_03, custom_04];
 
 const Custom = () => {
+  const { t } = useTranslation();
 
   return (
     <div>
@@ -46,15 +48,15 @@ const Custom = () => {
             borderRadius: '16px',
             color: 'var(--textbox-text)'
           }}>
-            <h1 className="text-2xl md:text-4xl font-bold">Custom Designs</h1>
-            <p className="text-base md:text-lg mt-4">"Custom design fittings are one on one, creating bespoke epic fashion from the hides of your choice, draped to flatter your form and suit your function"</p>
-            <h2 className="text-xl md:text-2xl font-bold mt-4">Empowerment through personalized fashion design</h2>
-            <p className="text-base md:text-lg mt-4">Deep roots. Strong wings.</p>
-            <p className="text-sm md:text-base mt-4">Our services include custom design fittings (one-on-one), bespoke epic fashion creation, custom hide selection, personalized draping and fitting, and functional and flattering designs.</p>
+            <h1 className="text-2xl md:text-4xl font-bold">{t('custom.title')}</h1>
+            <p className="text-base md:text-lg mt-4">"{t('custom.tagline')}"</p>
+            <h2 className="text-xl md:text-2xl font-bold mt-4">{t('custom.subtitle')}</h2>
+            <p className="text-base md:text-lg mt-4">{t('custom.motto')}</p>
+            <p className="text-sm md:text-base mt-4">{t('custom.description')}</p>
             <p className="text-sm md:text-base mt-4">
-              To have bespoke clothing made for you please{' '}
+              {t('custom.cta')}{' '}
               <Link to="/contact" className="transition-colors" style={{ textDecoration: 'underline', color: 'var(--textbox-text)' }}>
-                contact us
+                {t('custom.cta.link')}
               </Link>
             </p>
           </div>

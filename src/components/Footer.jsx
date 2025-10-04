@@ -1,8 +1,11 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import Logo from './Logo';
 import NameLogo from './NameLogo';
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <footer style={{
       backgroundColor: 'var(--header-footer-bg)',
@@ -14,7 +17,7 @@ const Footer = () => {
           <Logo style={{ maxHeight: '40px', width: 'auto', objectFit: 'contain', paddingLeft: '8px' }} />
           <NameLogo style={{ maxHeight: '40px', width: 'auto', objectFit: 'contain' }} />
         </div>
-        <p className="text-xs md:text-sm">&copy; {new Date().getFullYear()} M. Renee Designs. All rights reserved.</p>
+        <p className="text-xs md:text-sm">&copy; {new Date().getFullYear()} {t('footer.copyright')}</p>
       </div>
     </footer>
   );

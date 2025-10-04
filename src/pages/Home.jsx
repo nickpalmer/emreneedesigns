@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import home_01 from '../assets/images/home_01_zoeSm.jpg';
 import home_02 from '../assets/images/home_02_3C5330C5.jpeg';
 import home_03 from '../assets/images/home_03_IMG_9621.jpg';
@@ -31,6 +32,7 @@ const heroImageStyle = `
 const carouselImages = [home_02, home_05, home_06, store_02, store_01];
 
 const Home = () => {
+  const { t } = useTranslation();
 
   return (
     <div>
@@ -51,9 +53,9 @@ const Home = () => {
             borderRadius: '16px',
             color: 'var(--textbox-text)'
           }}>
-            <h1 className="text-2xl md:text-4xl font-bold">Bespoke Wearable Art</h1>
-            <p className="text-base md:text-lg mt-4">Heirloom-quality leather pieces handcrafted in Houston from wild-sourced deer and elk hides and other exotics. Each garment is a one-of-a-kind work of art, designed to move with your body and celebrate its natural beauty.</p>
-            <p className="text-base md:text-lg mt-4">From intimate one-on-one design fittings to personalized draping and custom hide selection, every piece tells a story—yours and the hide's. An elegance grounded in nature, built to last generations.</p>
+            <h1 className="text-2xl md:text-4xl font-bold">{t('home.hero.title')}</h1>
+            <p className="text-base md:text-lg mt-4">{t('home.hero.description1')}</p>
+            <p className="text-base md:text-lg mt-4">{t('home.hero.description2')}</p>
           </div>
         </div>
       </div>
