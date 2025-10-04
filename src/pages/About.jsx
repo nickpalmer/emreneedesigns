@@ -30,26 +30,27 @@ const About = () => {
         <div className="flex justify-center">
           <img
             src={about_02}
-            alt="Emily Reneé"
+            alt="Emily Renee"
             className="about-hero-image object-cover object-center w-full h-auto md:h-full"
           />
         </div>
         <div className="flex flex-col justify-center" style={{ padding: '15px' }}>
           <div className="shadow-lg" style={{
-            backgroundColor: 'rgba(184, 97, 37, 1)',
+            backgroundColor: 'var(--textbox-bg)',
             padding: '20px',
             boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15)',
-            borderRadius: '16px'
+            borderRadius: '16px',
+            color: 'var(--textbox-text)'
           }}>
-            <h2 className="text-xl md:text-2xl font-bold text-[#F5E6D3]">Emily Reneé</h2>
-            <p className="text-base md:text-lg mt-4 text-[#F5E6D3] italic">Emily Reneé is a designer focused on creating beautiful, functional leather goods that connect people to the joy of their bodies.</p>
-            <p className="text-sm md:text-base mt-4 text-[#F5E6D3]">Marrying form and function in design began at a young age for Emily Reneé.</p>
+            <h2 className="text-xl md:text-2xl font-bold">Emily Renee</h2>
+            <p className="text-base md:text-lg mt-4 italic">Emily Renee is a designer focused on creating beautiful, functional leather goods that connect people to the joy of their bodies.</p>
+            <p className="text-sm md:text-base mt-4">Marrying form and function in design began at a young age for Emily Renee.</p>
             <img src={custom_01} alt="Custom design work" className="object-cover w-full mt-4" style={{ height: 'auto', borderRadius: '8px', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15)' }} />
-            <p className="text-sm md:text-base mt-4 text-[#F5E6D3]">I began sewing as a child under the guidance of my mother, eventually combining fashion and function to tailor outfits—even making my own prom dress. In 2014, after working with leather-bound journals and costumes, I began creating custom-fitted leatherwear for real people—and never looked back.</p>
-            <p className="text-sm md:text-base mt-4 text-[#F5E6D3]">Today, I still make bespoke pieces for private clients and also offer small-batch ready-to-wear collections.</p>
-            <p className="text-sm md:text-base mt-4 text-[#F5E6D3]">I create each piece myself in Houston, Texas, primarily using wild-sourced deer and elk hides and other exotics known for their supple feel and raw beauty. These hides carry the stories of their former life—scars, marks, wildness—and I shape them into wearable art designed to move with your body. They feel as luxurious as they look; an elegance grounded in nature.</p>
-            <p className="text-sm md:text-base mt-4 text-[#F5E6D3]">I'm not part of the fast fashion world—I'm here for the long-lasting, heirloom beauty.</p>
-            <img src={about_01} alt="Emily Reneé" className="object-cover w-full mt-4" style={{ height: 'auto', borderRadius: '8px', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15)' }} />
+            <p className="text-sm md:text-base mt-4">I began sewing as a child under the guidance of my mother, eventually combining fashion and function to tailor outfits—even making my own prom dress. In 2014, after working with leather-bound journals and costumes, I began creating custom-fitted leatherwear for real people—and never looked back.</p>
+            <p className="text-sm md:text-base mt-4">Today, I still make bespoke pieces for private clients and also offer small-batch ready-to-wear collections.</p>
+            <p className="text-sm md:text-base mt-4">I create each piece myself in Houston, Texas, primarily using wild-sourced deer and elk hides and other exotics known for their supple feel and raw beauty. These hides carry the stories of their former life—scars, marks, wildness—and I shape them into wearable art designed to move with your body. They feel as luxurious as they look; an elegance grounded in nature.</p>
+            <p className="text-sm md:text-base mt-4">I'm not part of the fast fashion world—I'm here for the long-lasting, heirloom beauty.</p>
+            <img src={about_01} alt="Emily Renee" className="object-cover w-full mt-4" style={{ height: 'auto', borderRadius: '8px', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15)' }} />
           </div>
         </div>
       </div>

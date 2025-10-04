@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import logo from '../assets/images/logo.svg';
-import nameLogo from '../assets/images/name-logo.svg';
+import Logo from './Logo';
+import NameLogo from './NameLogo';
 import { useScrollDirection } from '../hooks/useScrollDirection';
 
 const Header = () => {
@@ -39,10 +39,11 @@ const Header = () => {
 
   return (
     <header
-      className={`sticky top-0 z-50 bg-[#286140] transition-all duration-300 ease-in-out ${
+      className={`sticky top-0 z-50 transition-all duration-300 ease-in-out ${
         isCompact ? 'h-[50px] md:h-[70px]' : 'h-[60px] md:h-[86px] w-full'
       }`}
       style={{
+        backgroundColor: 'var(--header-footer-bg)',
         boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2)',
         width: isCompact ? '100px' : '100%'
       }}
@@ -55,44 +56,49 @@ const Header = () => {
       }`}>
         <div className={`flex items-center gap-2 md:gap-4 ${isCompact ? 'justify-center' : ''}`}>
           <Link to="/" className={`transition-all duration-300 ${isCompact ? 'opacity-0 w-0 overflow-hidden' : 'opacity-100'}`}>
-            <img
-              src={logo}
-              alt="M. Reneé Designs Logo"
-              className={`w-auto object-contain transition-all duration-300 ${
+            <Logo
+              className={`transition-all duration-300 ${
                 isCompact ? 'max-h-[32px] md:max-h-[50px]' : 'max-h-[40px] md:max-h-[60px]'
               }`}
-              style={{ paddingLeft: isCompact ? '0' : '8px' }}
+              style={{
+                paddingLeft: isCompact ? '0' : '8px',
+                width: 'auto',
+                height: '100%'
+              }}
             />
           </Link>
           <Link to="/">
-            <img
-              src={nameLogo}
-              alt="M. Reneé Designs Name"
-              className={`w-auto object-contain transition-all duration-300 ${
+            <NameLogo
+              className={`transition-all duration-300 ${
                 isCompact ? 'max-h-[32px] md:max-h-[50px]' : 'max-h-[40px] md:max-h-[60px]'
               }`}
-              style={{ margin: isCompact ? 'auto' : '0', padding: isCompact ? '0' : '' }}
+              style={{
+                margin: isCompact ? 'auto' : '0',
+                padding: isCompact ? '0' : '',
+                width: 'auto',
+                height: '100%'
+              }}
             />
           </Link>
         </div>
         <nav className={`transition-all duration-300 ${
           isCompact ? 'opacity-0 pointer-events-none w-0 overflow-hidden' : 'opacity-100'
         }`}>
-          <ul className="flex list-none" style={{ margin: 0, padding: 0, gap: '4px' }}>
+          <ul className="flex list-none gap-[2px] md:gap-1" style={{ margin: 0, padding: 0 }}>
             <li>
-              <Link to="/" className={`block text-[#F5E6D3] hover:text-[#B86125] transition-colors text-xs md:text-base ${isActive('/') ? 'underline' : ''}`} style={{ padding: '8px 8px', textDecoration: isActive('/') ? 'underline' : 'none' }}>Home</Link>
+              <Link to="/" className={`block transition-colors text-xs md:text-base ${isActive('/') ? 'underline' : ''}`} style={{ padding: '8px 8px', textDecoration: isActive('/') ? 'underline' : 'none', color: 'var(--header-footer-text)' }}>Home</Link>
             </li>
             <li>
-              <Link to="/about" className={`block text-[#F5E6D3] hover:text-[#B86125] transition-colors text-xs md:text-base ${isActive('/about') ? 'underline' : ''}`} style={{ padding: '8px 8px', textDecoration: isActive('/about') ? 'underline' : 'none' }}>About</Link>
+              <Link to="/about" className={`block transition-colors text-xs md:text-base ${isActive('/about') ? 'underline' : ''}`} style={{ padding: '8px 8px', textDecoration: isActive('/about') ? 'underline' : 'none', color: 'var(--header-footer-text)' }}>About</Link>
             </li>
             <li>
-              <Link to="/designs" className={`block text-[#F5E6D3] hover:text-[#B86125] transition-colors text-xs md:text-base ${isActive('/designs') ? 'underline' : ''}`} style={{ padding: '8px 8px', textDecoration: isActive('/designs') ? 'underline' : 'none' }}>Designs</Link>
+              <Link to="/designs" className={`block transition-colors text-xs md:text-base ${isActive('/designs') ? 'underline' : ''}`} style={{ padding: '8px 8px', textDecoration: isActive('/designs') ? 'underline' : 'none', color: 'var(--header-footer-text)' }}>Designs</Link>
             </li>
             <li>
-              <Link to="/custom" className={`block text-[#F5E6D3] hover:text-[#B86125] transition-colors text-xs md:text-base ${isActive('/custom') ? 'underline' : ''}`} style={{ padding: '8px 8px', textDecoration: isActive('/custom') ? 'underline' : 'none' }}>Custom</Link>
+              <Link to="/custom" className={`block transition-colors text-xs md:text-base ${isActive('/custom') ? 'underline' : ''}`} style={{ padding: '8px 8px', textDecoration: isActive('/custom') ? 'underline' : 'none', color: 'var(--header-footer-text)' }}>Custom</Link>
             </li>
             <li>
-              <Link to="/contact" className={`block text-[#F5E6D3] hover:text-[#B86125] transition-colors text-xs md:text-base ${isActive('/contact') ? 'underline' : ''}`} style={{ padding: '8px 8px', textDecoration: isActive('/contact') ? 'underline' : 'none' }}>Contact</Link>
+              <Link to="/contact" className={`block transition-colors text-xs md:text-base ${isActive('/contact') ? 'underline' : ''}`} style={{ padding: '8px 8px', textDecoration: isActive('/contact') ? 'underline' : 'none', color: 'var(--header-footer-text)' }}>Contact</Link>
             </li>
           </ul>
         </nav>

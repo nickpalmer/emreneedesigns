@@ -6,7 +6,14 @@
       "Bash(git remote set-url:*)",
       "Bash(gh auth:*)",
       "WebSearch",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "WebFetch(domain:stackoverflow.com)",
+      "Bash(for color in FDFDFD FCFCFC FCFCFB FBFBFB FAFAFA)",
+      "Bash(do echo \"=== $color ===\")",
+      "Bash(grep:*)",
+      "Bash(done)",
+      "Bash(for color in FCFCFC FCFCFB FBFBFB FAFAFA)",
+      "Bash(for color in E3E2DF E4E3E1 F0F0EC)"
     ],
     "deny": [],
     "ask": []

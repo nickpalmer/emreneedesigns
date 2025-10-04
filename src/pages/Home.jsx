@@ -10,23 +10,19 @@ import store_02 from '../assets/images/store_02_IMG_9654.jpg';
 import HorizontalScrollCarousel from '../components/HorizontalScrollCarousel';
 
 const heroImageStyle = `
-  .hero-image-container {
-    max-height: 50vh;
-  }
   .hero-image {
     max-height: 50vh;
+    height: auto;
+    padding-left: 0;
   }
   @media (min-width: 768px) {
-    .hero-image-container {
-      padding-top: 15px;
-      height: calc(100vh - var(--header-height)) !important;
-      max-height: none !important;
-    }
     .hero-image {
-      height: 100% !important;
+      height: calc(100vh - var(--header-height)) !important;
       width: auto !important;
-      max-width: 60vw !important;
       max-height: none !important;
+      padding-left: 15px !important;
+      padding-top: 15px !important;
+      padding-bottom: 15px !important;
       object-fit: cover;
     }
   }
@@ -39,24 +35,25 @@ const Home = () => {
   return (
     <div>
       <style>{heroImageStyle}</style>
-      <div className="grid grid-cols-1 md:grid-cols-2" style={{ minHeight: 'calc(100vh - var(--header-height))' }}>
-        <div className="hero-image-container">
+      <div className="flex flex-col md:flex-row md:min-h-[calc(100vh-var(--header-height))]">
+        <div className="md:w-1/2 flex justify-center">
           <img
             src={home_01}
-            alt="M. Reneé Designs Fashion"
-            className="hero-image object-cover object-center md:object-left-top w-full h-auto md:h-full"
+            alt="M. Renee Designs Fashion"
+            className="hero-image object-cover object-center w-full h-auto md:h-full"
           />
         </div>
-        <div className="flex flex-col justify-center" style={{ padding: '15px' }}>
+        <div className="md:w-1/2 flex flex-col md:justify-center" style={{ padding: '15px 15px 0 15px' }}>
           <div className="shadow-lg" style={{
-            backgroundColor: 'rgba(184, 97, 37, 1)',
+            backgroundColor: 'var(--textbox-bg)',
             padding: '20px',
             boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15)',
-            borderRadius: '16px'
+            borderRadius: '16px',
+            color: 'var(--textbox-text)'
           }}>
-            <h1 className="text-2xl md:text-4xl font-bold text-[#F5E6D3]">Bespoke Wearable Art</h1>
-            <p className="text-base md:text-lg mt-4 text-[#F5E6D3]">Heirloom-quality leather pieces handcrafted in Houston from wild-sourced deer and elk hides and other exotics. Each garment is a one-of-a-kind work of art, designed to move with your body and celebrate its natural beauty.</p>
-            <p className="text-base md:text-lg mt-4 text-[#F5E6D3]">From intimate one-on-one design fittings to personalized draping and custom hide selection, every piece tells a story—yours and the hide's. An elegance grounded in nature, built to last generations.</p>
+            <h1 className="text-2xl md:text-4xl font-bold">Bespoke Wearable Art</h1>
+            <p className="text-base md:text-lg mt-4">Heirloom-quality leather pieces handcrafted in Houston from wild-sourced deer and elk hides and other exotics. Each garment is a one-of-a-kind work of art, designed to move with your body and celebrate its natural beauty.</p>
+            <p className="text-base md:text-lg mt-4">From intimate one-on-one design fittings to personalized draping and custom hide selection, every piece tells a story—yours and the hide's. An elegance grounded in nature, built to last generations.</p>
           </div>
         </div>
       </div>

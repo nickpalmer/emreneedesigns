@@ -40,19 +40,20 @@ const Custom = () => {
         </div>
         <div className="md:w-1/2 flex flex-col md:justify-center" style={{ padding: '15px 15px 0 15px' }}>
           <div className="shadow-lg" style={{
-            backgroundColor: 'rgba(184, 97, 37, 1)',
+            backgroundColor: 'var(--textbox-bg)',
             padding: '20px',
             boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15)',
-            borderRadius: '16px'
+            borderRadius: '16px',
+            color: 'var(--textbox-text)'
           }}>
-            <h1 className="text-2xl md:text-4xl font-bold text-[#F5E6D3]">Custom Designs</h1>
-            <p className="text-base md:text-lg mt-4 text-[#F5E6D3]">"Custom design fittings are one on one, creating bespoke epic fashion from the hides of your choice, draped to flatter your form and suit your function"</p>
-            <h2 className="text-xl md:text-2xl font-bold text-[#F5E6D3] mt-4">Empowerment through personalized fashion design</h2>
-            <p className="text-base md:text-lg mt-4 text-[#F5E6D3]">Deep roots. Strong wings.</p>
-            <p className="text-sm md:text-base mt-4 text-[#F5E6D3]">Our services include custom design fittings (one-on-one), bespoke epic fashion creation, custom hide selection, personalized draping and fitting, and functional and flattering designs.</p>
-            <p className="text-sm md:text-base mt-4 text-[#F5E6D3]">
+            <h1 className="text-2xl md:text-4xl font-bold">Custom Designs</h1>
+            <p className="text-base md:text-lg mt-4">"Custom design fittings are one on one, creating bespoke epic fashion from the hides of your choice, draped to flatter your form and suit your function"</p>
+            <h2 className="text-xl md:text-2xl font-bold mt-4">Empowerment through personalized fashion design</h2>
+            <p className="text-base md:text-lg mt-4">Deep roots. Strong wings.</p>
+            <p className="text-sm md:text-base mt-4">Our services include custom design fittings (one-on-one), bespoke epic fashion creation, custom hide selection, personalized draping and fitting, and functional and flattering designs.</p>
+            <p className="text-sm md:text-base mt-4">
               To have bespoke clothing made for you please{' '}
-              <Link to="/contact" className="text-[#F5E6D3] hover:text-[#286140] transition-colors" style={{ textDecoration: 'underline' }}>
+              <Link to="/contact" className="transition-colors" style={{ textDecoration: 'underline', color: 'var(--textbox-text)' }}>
                 contact us
               </Link>
             </p>

@@ -2,6 +2,24 @@
 
 :root {
   --header-height: 60px;
+
+  /* Header & Footer Colors */
+  --header-footer-bg: #286140;
+  --header-footer-text: #F5E6D3;
+  --header-footer-hover: #B86125;
+
+  /* Gradient Colors */
+  --gradient-top: #6B6B6B;
+  --gradient-bottom: #C2C2C2;
+
+  /* Text Box Colors */
+  --textbox-bg: #B86125;
+  --textbox-text: #F5E6D3;
+
+  /* Logo Colors */
+  --logo-color: #833921;
+  --logo-tail-tip-color: #FDFDFD;
+  --name-logo-color: #F5E6D3;
 }
 
 @media (min-width: 768px) {

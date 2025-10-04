@@ -66,20 +66,21 @@ const Designs = () => {
         <div className="md:w-1/2">
           <img
             src={store_01}
-            alt="M. Reneé Designs"
+            alt="M. Renee Designs"
             className="designs-hero-image object-cover object-center w-full h-auto md:h-full"
           />
         </div>
         <div className="md:w-1/2 flex flex-col md:justify-center" style={{ padding: '15px 15px 0 15px' }}>
           <div className="shadow-lg" style={{
-            backgroundColor: 'rgba(184, 97, 37, 1)',
+            backgroundColor: 'var(--textbox-bg)',
             padding: '20px',
             boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15)',
-            borderRadius: '16px'
+            borderRadius: '16px',
+            color: 'var(--textbox-text)'
           }}>
-            <h1 className="text-2xl md:text-4xl font-bold text-[#F5E6D3]">Designs</h1>
-            <p className="text-base md:text-lg mt-4 text-[#F5E6D3]">Natural ~ Refined ~ Fantastical</p>
-            <p className="text-sm md:text-base mt-4 text-[#F5E6D3]">Emily creates limited run collections of handcrafted leatherware, each piece made from wild-sourced deer and elk hides. Every collection celebrates the natural beauty and unique characteristics of the materials, ensuring that each item is truly one-of-a-kind.</p>
+            <h1 className="text-2xl md:text-4xl font-bold">Designs</h1>
+            <p className="text-base md:text-lg mt-4">Natural ~ Refined ~ Fantastical</p>
+            <p className="text-sm md:text-base mt-4">Emily creates limited run collections of handcrafted leatherware, each piece made from wild-sourced deer and elk hides. Every collection celebrates the natural beauty and unique characteristics of the materials, ensuring that each item is truly one-of-a-kind.</p>
           </div>
         </div>
       </div>
@@ -97,7 +98,7 @@ const Designs = () => {
                 className="w-full h-auto object-cover"
                 style={{ borderRadius: '8px', maxHeight: 'calc(100vh - var(--header-height))', objectFit: 'contain', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15)' }}
               />
-              <h2 className="text-lg font-bold text-[#F5E6D3] mt-3">{product.name}</h2>
+              <h2 className="text-lg font-bold mt-3" style={{ color: 'var(--textbox-text)' }}>{product.name}</h2>
             </div>
           ))}
         </div>

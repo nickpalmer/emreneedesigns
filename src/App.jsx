@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import ColorPicker from './components/ColorPicker';
 import Home from './pages/Home';
 import About from './pages/About';
 import Designs from './pages/Designs';
@@ -11,7 +12,7 @@ import Contact from './pages/Contact';
 const App = () => {
   return (
     <Router>
-      <div className="flex flex-col min-h-screen" style={{ background: 'linear-gradient(to bottom, #6B6B6B, #C2C2C2)' }}>
+      <div className="flex flex-col min-h-screen" style={{ background: 'linear-gradient(to bottom, var(--gradient-top), var(--gradient-bottom))' }}>
         <Header />
         <main className="flex-grow" style={{ background: 'transparent' }}>
           <Routes>
@@ -23,6 +24,7 @@ const App = () => {
           </Routes>
         </main>
         <Footer />
+        <ColorPicker />
       </div>
     </Router>
   );
