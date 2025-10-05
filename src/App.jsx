@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ColorPicker from './components/ColorPicker';
@@ -22,6 +22,10 @@ const App = () => {
             <Route path="/designs" element={<Designs />} />
             <Route path="/custom" element={<Custom />} />
             <Route path="/contact" element={<Contact />} />
+
+            {/* Redirects from old site routes */}
+            <Route path="/store" element={<Navigate to="/designs" replace />} />
+            <Route path="/store/*" element={<Navigate to="/designs" replace />} />
           </Routes>
         </main>
         <Footer />
