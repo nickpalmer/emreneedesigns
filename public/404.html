@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>M. Renee Designs</title>
+    <script>
+      // Store the path in sessionStorage and redirect to index.html
+      // GitHub Pages will serve this page for any 404, and we'll restore the route in index.html
+      sessionStorage.setItem('redirectPath', window.location.pathname + window.location.search + window.location.hash);
+      window.location.replace('/');
+    </script>
+  </head>
+  <body>
+    <!-- GitHub Pages 404 handler - redirecting... -->
+  </body>
+</html>

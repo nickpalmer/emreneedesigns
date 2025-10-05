@@ -13,7 +13,8 @@
       "Bash(grep:*)",
       "Bash(done)",
       "Bash(for color in FCFCFC FCFCFB FBFBFB FAFAFA)",
-      "Bash(for color in E3E2DF E4E3E1 F0F0EC)"
+      "Bash(for color in E3E2DF E4E3E1 F0F0EC)",
+      "Bash(cat:*)"
     ],
     "deny": [],
     "ask": []
