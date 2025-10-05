@@ -13,6 +13,7 @@
     "deploy": "gh-pages -d dist --nojekyll --cname mrd.nick.codes",
     "predeploy-production": "npm run build && cp CNAME.production dist/CNAME",
     "deploy-production": "gh-pages -d dist --nojekyll --remote production --branch gh-pages",
+    "deploy-all": "npm run deploy && npm run deploy-production",
     "help": "gh-pages --help"
   },
   "dependencies": {
