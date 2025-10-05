@@ -11,6 +11,8 @@
     "tailwind-init": "tailwindcss init -p",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist --nojekyll --cname mrd.nick.codes",
+    "predeploy-production": "npm run build && cp CNAME.production dist/CNAME",
+    "deploy-production": "gh-pages -d dist --nojekyll --remote production --branch gh-pages",
     "help": "gh-pages --help"
   },
   "dependencies": {

@@ -15,7 +15,9 @@
       "Bash(for color in FCFCFC FCFCFB FBFBFB FAFAFA)",
       "Bash(for color in E3E2DF E4E3E1 F0F0EC)",
       "Bash(cat:*)",
-      "WebFetch(domain:mreneedesigns.com)"
+      "WebFetch(domain:mreneedesigns.com)",
+      "Bash(git remote add:*)",
+      "Bash(npm run deploy-production:*)"
     ],
     "deny": [],
     "ask": []
