@@ -11,6 +11,9 @@ A modern, responsive website for M. Renee Designs - showcasing bespoke wearable 
 
 ### Design & Functionality
 - **Responsive Design** - Optimized for mobile, tablet, and desktop
+- **Progressive Image Loading** - Blur-up effect and lazy loading for improved performance on slow connections
+- **Instagram Feed Loader** - Loading spinner for iframe content
+- **Automatic Image Optimization** - Images compressed during build (80% quality JPEG, optimized PNG/SVG)
 - **Color Picker** - Live theme customization (only visible on localhost or nick.codes domains)
 - **Translation Editor** - Edit all website copy in real-time (only visible on localhost or nick.codes domains)
 - **Dynamic Logos** - SVG logos with customizable colors

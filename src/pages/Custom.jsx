@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import ProgressiveImage from '../components/ProgressiveImage';
 import custom_01 from '../assets/images/custom_01_Emily_Renee_Smith.jpg';
 import custom_02 from '../assets/images/custom_02_Photo_Apr_19.jpg';
 import custom_03 from '../assets/images/custom_03_Photo_Aug_15.jpg';
@@ -34,7 +35,7 @@ const Custom = () => {
       <style>{heroImageStyle}</style>
       <div className="flex flex-col md:flex-row md:min-h-[calc(100vh-var(--header-height))]">
         <div className="md:w-1/2 md:flex md:items-center md:justify-center">
-          <img
+          <ProgressiveImage
             src={custom_01}
             alt="Custom design work"
             className="custom-hero-image object-cover object-center w-full h-auto"
@@ -69,7 +70,7 @@ const Custom = () => {
       <div className="md:hidden" style={{ padding: '15px' }}>
         <div className="grid grid-cols-1 gap-4">
           {carouselImages.map((image, index) => (
-            <img
+            <ProgressiveImage
               key={index}
               src={image}
               alt={`Custom work ${index + 1}`}

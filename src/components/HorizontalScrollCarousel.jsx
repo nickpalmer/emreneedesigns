@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import ProgressiveImage from './ProgressiveImage';
 
 const HorizontalScrollCarousel = ({
   items,
@@ -55,7 +56,7 @@ const HorizontalScrollCarousel = ({
           {items.map((item, index) => (
             showTitles ? (
               <div key={index} style={{ height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                <img
+                <ProgressiveImage
                   src={item.image}
                   alt={item.name}
                   className="object-cover"
@@ -69,7 +70,7 @@ const HorizontalScrollCarousel = ({
                 <h2 className="text-xl font-bold text-[#F5E6D3] text-center mt-4">{item.name}</h2>
               </div>
             ) : (
-              <img
+              <ProgressiveImage
                 key={index}
                 src={item.image || item}
                 alt={item.name || `Image ${index + 1}`}

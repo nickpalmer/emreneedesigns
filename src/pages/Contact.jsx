@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import IframeLoader from '../components/IframeLoader';
 
 const Contact = () => {
   const { t } = useTranslation();
@@ -28,7 +29,7 @@ const Contact = () => {
     <div>
       <div className="flex flex-col md:flex-row md:min-h-[calc(100vh-var(--header-height))]">
         <div className="md:w-1/2 hidden md:flex items-center justify-center" style={{ padding: '15px', minHeight: '75vh' }}>
-          <iframe
+          <IframeLoader
             src="https://www.instagram.com/mrenee_designs/embed"
             style={{
               width: '100%',
@@ -41,7 +42,7 @@ const Contact = () => {
             frameBorder="0"
             allowTransparency="true"
             allow="encrypted-media"
-          ></iframe>
+          />
         </div>
         <div className="md:w-1/2 flex flex-col md:justify-center" style={{ padding: '15px 15px 0 15px' }}>
           <div className="shadow-lg" style={{
@@ -103,7 +104,7 @@ const Contact = () => {
         </div>
       </div>
       <div className="md:hidden" style={{ padding: '15px' }}>
-        <iframe
+        <IframeLoader
           src="https://www.instagram.com/mrenee_designs/embed"
           style={{
             width: '100%',
@@ -115,7 +116,7 @@ const Contact = () => {
           frameBorder="0"
           allowTransparency="true"
           allow="encrypted-media"
-        ></iframe>
+        />
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import ProgressiveImage from '../components/ProgressiveImage';
 import store_01 from '../assets/images/store_01_IMG_7890.jpg';
 import store_02 from '../assets/images/store_02_IMG_9654.jpg';
 import store_03 from '../assets/images/store_03_IMG_9653.jpg';
@@ -70,7 +71,7 @@ const Designs = () => {
       <style>{heroImageStyle}</style>
       <div className="flex flex-col md:flex-row md:min-h-[calc(100vh-var(--header-height))]">
         <div className="md:w-1/2">
-          <img
+          <ProgressiveImage
             src={store_01}
             alt="M. Renee Designs"
             className="designs-hero-image object-cover object-center w-full h-auto md:h-full"
@@ -98,7 +99,7 @@ const Designs = () => {
         <div className="grid grid-cols-1 gap-6">
           {products.map((product, index) => (
             <div key={index} className="text-center">
-              <img
+              <ProgressiveImage
                 src={product.image}
                 alt={product.name}
                 className="w-full h-auto object-cover"

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import ProgressiveImage from '../components/ProgressiveImage';
 import home_01 from '../assets/images/home_01_zoeSm.jpg';
 import home_02 from '../assets/images/home_02_3C5330C5.jpeg';
 import home_03 from '../assets/images/home_03_IMG_9621.jpg';
@@ -39,7 +40,7 @@ const Home = () => {
       <style>{heroImageStyle}</style>
       <div className="flex flex-col md:flex-row md:min-h-[calc(100vh-var(--header-height))]">
         <div className="md:w-1/2 flex justify-center">
-          <img
+          <ProgressiveImage
             src={home_01}
             alt="M. Renee Designs Fashion"
             className="hero-image object-cover object-center w-full h-auto md:h-full"
@@ -66,7 +67,7 @@ const Home = () => {
       <div className="md:hidden" style={{ padding: '15px' }}>
         <div className="grid grid-cols-1 gap-4">
           {carouselImages.map((image, index) => (
-            <img
+            <ProgressiveImage
               key={index}
               src={image}
               alt={`Gallery image ${index + 1}`}
