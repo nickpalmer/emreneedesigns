@@ -4,22 +4,22 @@
   --header-height: 60px;
 
   /* Header & Footer Colors */
-  --header-footer-bg: #286140;
-  --header-footer-text: #F5E6D3;
-  --header-footer-hover: #B86125;
+  --header-footer-bg: #026365;
+  --header-footer-text: #e6f3f1;
+  --header-footer-hover: #522020;
 
   /* Gradient Colors */
-  --gradient-top: #6B6B6B;
-  --gradient-bottom: #C2C2C2;
+  --gradient-top: #bbbfc2;
+  --gradient-bottom: #223032;
 
   /* Text Box Colors */
-  --textbox-bg: #B86125;
+  --textbox-bg: #0d282d;
   --textbox-text: #F5E6D3;
 
   /* Logo Colors */
-  --logo-color: #833921;
-  --logo-tail-tip-color: #FDFDFD;
-  --name-logo-color: #F5E6D3;
+  --logo-color: #bc6f2c;
+  --logo-tail-tip-color: #d0dcde;
+  --name-logo-color: #e6f4f3;
 }
 
 @media (min-width: 768px) {
