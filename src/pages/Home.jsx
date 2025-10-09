@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import ProgressiveImage from '../components/ProgressiveImage';
+import ResponsiveVideo from '../components/ResponsiveVideo';
 import home_01 from '../assets/images/home_01_zoeSm.jpg';
 import home_02 from '../assets/images/home_02_3C5330C5.jpeg';
 import home_03 from '../assets/images/home_03_IMG_9621.jpg';
@@ -59,6 +60,18 @@ const Home = () => {
             <p className="text-base md:text-lg mt-4">{t('home.hero.description2')}</p>
           </div>
         </div>
+      </div>
+
+      <div style={{ padding: '15px' }}>
+        <ResponsiveVideo
+          className="w-full h-auto"
+          style={{
+            borderRadius: '16px',
+            boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15)',
+            maxHeight: '70vh',
+            objectFit: 'contain'
+          }}
+        />
       </div>
 
       <div className="hidden md:block">
