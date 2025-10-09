@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import ProgressiveImage from '../components/ProgressiveImage';
+import FormattedText from '../components/FormattedText';
 import custom_01 from '../assets/images/custom_01_Emily_Renee_Smith.jpg';
 import custom_02 from '../assets/images/custom_02_Photo_Apr_19.jpg';
 import custom_03 from '../assets/images/custom_03_Photo_Aug_15.jpg';
@@ -50,10 +51,16 @@ const Custom = () => {
             color: 'var(--textbox-text)'
           }}>
             <h1 className="text-2xl md:text-4xl font-bold">{t('custom.title')}</h1>
-            <p className="text-base md:text-lg mt-4">"{t('custom.tagline')}"</p>
+            <FormattedText className="text-base md:text-lg mt-4">
+              "{t('custom.tagline')}"
+            </FormattedText>
             <h2 className="text-xl md:text-2xl font-bold mt-4">{t('custom.subtitle')}</h2>
-            <p className="text-base md:text-lg mt-4">{t('custom.motto')}</p>
-            <p className="text-sm md:text-base mt-4">{t('custom.description')}</p>
+            <FormattedText className="text-base md:text-lg mt-4">
+              {t('custom.motto')}
+            </FormattedText>
+            <FormattedText className="text-sm md:text-base mt-4">
+              {t('custom.description')}
+            </FormattedText>
             <p className="text-sm md:text-base mt-4">
               {t('custom.cta')}{' '}
               <Link to="/contact" className="transition-colors" style={{ textDecoration: 'underline', color: 'var(--textbox-text)' }}>

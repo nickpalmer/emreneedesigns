@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import ProgressiveImage from '../components/ProgressiveImage';
+import FormattedText from '../components/FormattedText';
 import store_01 from '../assets/images/store_01_IMG_7890.jpg';
 import store_02 from '../assets/images/store_02_IMG_9654.jpg';
 import store_03 from '../assets/images/store_03_IMG_9653.jpg';
@@ -86,8 +87,12 @@ const Designs = () => {
             color: 'var(--textbox-text)'
           }}>
             <h1 className="text-2xl md:text-4xl font-bold">{t('designs.title')}</h1>
-            <p className="text-base md:text-lg mt-4">{t('designs.subtitle')}</p>
-            <p className="text-sm md:text-base mt-4">{t('designs.description')}</p>
+            <FormattedText className="text-base md:text-lg mt-4">
+              {t('designs.subtitle')}
+            </FormattedText>
+            <FormattedText className="text-sm md:text-base mt-4">
+              {t('designs.description')}
+            </FormattedText>
           </div>
         </div>
       </div>
