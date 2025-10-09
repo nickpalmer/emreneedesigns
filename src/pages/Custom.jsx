@@ -52,7 +52,7 @@ const Custom = () => {
           }}>
             <h1 className="text-2xl md:text-4xl font-bold">{t('custom.title')}</h1>
             <FormattedText className="text-base md:text-lg mt-4">
-              "{t('custom.tagline')}"
+              {`"${t('custom.tagline')}"`}
             </FormattedText>
             <h2 className="text-xl md:text-2xl font-bold mt-4">{t('custom.subtitle')}</h2>
             <FormattedText className="text-base md:text-lg mt-4">
