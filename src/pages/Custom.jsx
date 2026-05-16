@@ -48,7 +48,7 @@ const Custom = () => {
 
   return (
     <div>
-      <ParallaxHero image={custom_22} alt="Custom design work" initialOffset={-200}>
+      <ParallaxHero image={custom_22} alt="Custom design work" initialOffset={-210}>
         <div className="shadow-lg" style={{
           backgroundColor: 'var(--textbox-bg)',
           padding: '20px',
