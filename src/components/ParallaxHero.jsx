@@ -6,12 +6,21 @@ const ParallaxHero = ({ image, alt, children, objectPosition = 'center', backgro
   const containerRef = useRef(null);
   const imageRef = useRef(null);
   const [isMobile, setIsMobile] = useState(() => window.innerWidth < MOBILE_BREAKPOINT);
+  const [isLandscape, setIsLandscape] = useState(false);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  useEffect(() => {
+    const img = new Image();
+    img.onload = () => {
+      setIsLandscape(img.naturalWidth > img.naturalHeight);
+    };
+    img.src = image;
+  }, [image]);
 
   useEffect(() => {
     let ticking = false;
@@ -38,7 +47,9 @@ const ParallaxHero = ({ image, alt, children, objectPosition = 'center', backgro
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const effectiveBackgroundSize = isMobile ? '130% auto' : backgroundSize;
+  const effectiveBackgroundSize = isMobile
+    ? (isLandscape ? 'auto 130%' : '130% auto')
+    : backgroundSize;
   const effectivePosition = isMobile ? 'center' : objectPosition;
 
   return (
