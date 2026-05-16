@@ -46,7 +46,7 @@ const Custom = () => {
 
   return (
     <div>
-      <ParallaxHero image={custom_22} alt="Custom design work">
+      <ParallaxHero image={custom_22} alt="Custom design work" initialOffset={-200}>
         <div className="shadow-lg" style={{
           backgroundColor: 'var(--textbox-bg)',
           padding: '20px',
@@ -54,69 +54,73 @@ const Custom = () => {
           borderRadius: '16px',
           color: 'var(--textbox-text)'
         }}>
-          <h1 className="text-2xl md:text-4xl font-bold">{t('custom.title')}</h1>
-          <FormattedText className="text-base md:text-lg mt-2 italic">
-            {t('custom.tagline')}
-          </FormattedText>
-          <FormattedText className="text-sm md:text-base mt-4">
-            {t('custom.description')}
-          </FormattedText>
+          {/* Desktop: two-column layout (text left, gallery right) */}
+          <div className="flex flex-col md:flex-row gap-4">
+            <div className="w-full md:w-1/2">
+              <h1 className="text-2xl md:text-4xl font-bold">{t('custom.title')}</h1>
+              <FormattedText className="text-base md:text-lg mt-2 italic">
+                {t('custom.tagline')}
+              </FormattedText>
+              <FormattedText className="text-sm md:text-base mt-4">
+                {t('custom.description')}
+              </FormattedText>
 
-          <div className="mt-6 space-y-4 text-sm md:text-base">
-            <div>
-              <p className="font-semibold italic">{t('custom.refined.title')}</p>
-              <ul className="list-disc list-inside mt-1 space-y-1">
-                {t('custom.refined.items').split('\n').map((item, i) => (
-                  <li key={i}>{item}</li>
-                ))}
-              </ul>
+              <div className="mt-6 space-y-4 text-sm md:text-base">
+                <div>
+                  <p className="font-semibold italic">{t('custom.refined.title')}</p>
+                  <ul className="list-disc list-inside mt-1 space-y-1">
+                    {t('custom.refined.items').split('\n').map((item, i) => (
+                      <li key={i}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <p className="font-semibold italic">{t('custom.natural.title')}</p>
+                  <ul className="list-disc list-inside mt-1 space-y-1">
+                    {t('custom.natural.items').split('\n').map((item, i) => (
+                      <li key={i}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <p className="font-semibold italic">{t('custom.fantastical.title')}</p>
+                  <ul className="list-disc list-inside mt-1 space-y-1">
+                    {t('custom.fantastical.items').split('\n').map((item, i) => (
+                      <li key={i}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <FormattedText className="text-sm md:text-base mt-6">
+                {t('custom.discretion')}
+              </FormattedText>
+              <FormattedText className="text-xs md:text-sm mt-4 italic">
+                {t('custom.timeline')}
+              </FormattedText>
+              <a
+                href="mailto:emily@mReneeDesigns.com?subject=Custom%20Design%20Inquiry"
+                className="inline-block mt-6 px-6 py-3 text-sm md:text-base font-semibold rounded-lg transition-colors text-center"
+                style={{
+                  backgroundColor: 'var(--textbox-text)',
+                  color: 'var(--textbox-bg)',
+                }}
+              >
+                {t('custom.cta')}
+              </a>
             </div>
-            <div>
-              <p className="font-semibold italic">{t('custom.natural.title')}</p>
-              <ul className="list-disc list-inside mt-1 space-y-1">
-                {t('custom.natural.items').split('\n').map((item, i) => (
-                  <li key={i}>{item}</li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <p className="font-semibold italic">{t('custom.fantastical.title')}</p>
-              <ul className="list-disc list-inside mt-1 space-y-1">
-                {t('custom.fantastical.items').split('\n').map((item, i) => (
-                  <li key={i}>{item}</li>
-                ))}
-              </ul>
-            </div>
+            {/* Desktop: gallery in right column */}
+            {!isMobile && (
+              <div className="w-full md:w-1/2">
+                <LightboxGallery
+                  images={galleryImages}
+                  altPrefix="Custom work"
+                  noPadding
+                  gridClassName="grid grid-cols-2 gap-3"
+                />
+              </div>
+            )}
           </div>
-
-          <FormattedText className="text-sm md:text-base mt-6">
-            {t('custom.discretion')}
-          </FormattedText>
-          <FormattedText className="text-xs md:text-sm mt-4 italic">
-            {t('custom.timeline')}
-          </FormattedText>
-          <a
-            href="mailto:emily@mReneeDesigns.com?subject=Custom%20Design%20Inquiry"
-            className="inline-block mt-6 px-6 py-3 text-sm md:text-base font-semibold rounded-lg transition-colors text-center"
-            style={{
-              backgroundColor: 'var(--textbox-text)',
-              color: 'var(--textbox-bg)',
-            }}
-          >
-            {t('custom.cta')}
-          </a>
-
-          {/* Desktop: gallery inside textbox in 2 columns */}
-          {!isMobile && (
-            <div style={{ marginTop: '16px' }}>
-              <LightboxGallery
-                images={galleryImages}
-                altPrefix="Custom work"
-                noPadding
-                gridClassName="grid grid-cols-2 gap-3"
-              />
-            </div>
-          )}
         </div>
       </ParallaxHero>
 

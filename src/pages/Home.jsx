@@ -28,19 +28,23 @@ import home_21 from '../assets/images/home_21_long-banner.jpg';
 
 const galleryImages = [home_02, home_03, home_04, home_05, home_06, home_07, home_08, home_09, home_10, home_11, home_12, home_13, home_14, home_15, home_16, home_17, home_18, home_19, home_20, home_21];
 
+const textboxStyle = {
+  backgroundColor: 'var(--textbox-bg)',
+  padding: '20px',
+  boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15)',
+  borderRadius: '16px',
+  color: 'var(--textbox-text)',
+  maxWidth: '600px',
+  margin: '0 auto',
+};
+
 const Home = () => {
   const { t } = useTranslation();
 
   return (
     <div>
       <ParallaxHero image={home_01} alt="M. Renee Designs Fashion">
-        <div className="shadow-lg" style={{
-          backgroundColor: 'var(--textbox-bg)',
-          padding: '20px',
-          boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15)',
-          borderRadius: '16px',
-          color: 'var(--textbox-text)'
-        }}>
+        <div className="shadow-lg" style={textboxStyle}>
           <h1 className="text-3xl md:text-5xl font-bold">{t('home.hero.title')}</h1>
           <h2 className="text-xl md:text-2xl font-semibold mt-2">{t('home.hero.subtitle')}</h2>
           <FormattedText className="text-base md:text-lg mt-4">
@@ -72,13 +76,7 @@ const Home = () => {
       </div>
 
       <div style={{ padding: '15px' }}>
-        <div className="shadow-lg" style={{
-          backgroundColor: 'var(--textbox-bg)',
-          padding: '20px',
-          boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15)',
-          borderRadius: '16px',
-          color: 'var(--textbox-text)'
-        }}>
+        <div className="shadow-lg" style={textboxStyle}>
           <FormattedText className="text-base md:text-lg">
             {t('home.hero.description2')}
           </FormattedText>

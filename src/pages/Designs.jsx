@@ -91,11 +91,9 @@ const sections = [
 const Designs = () => {
   const { t } = useTranslation();
 
-  let photoSectionCount = 0;
-
   return (
     <div>
-      <ParallaxHero image={looks_05} alt="M. Renee Designs" objectPosition="center top" backgroundSize="75% auto">
+      <ParallaxHero image={looks_05} alt="M. Renee Designs" objectPosition="center top" backgroundSize="75% auto" initialOffset={-200}>
         <div className="shadow-lg" style={textboxStyle}>
           <h1 className="text-2xl md:text-4xl font-bold">{t('designs.title')}</h1>
           <p className="text-base md:text-lg mt-2 italic">{t('designs.subtitle')}</p>
@@ -121,14 +119,11 @@ const Designs = () => {
           );
         }
 
-        const isReversed = photoSectionCount % 2 === 1;
-        photoSectionCount++;
-
         return (
           <div key={index} style={{ padding: '15px' }}>
             <div className="shadow-lg" style={textboxStyle}>
-              <div className={`flex flex-col ${isReversed ? 'md:flex-row-reverse' : 'md:flex-row'} gap-4`}>
-                <div className="w-full md:w-2/5">
+              <div className="flex flex-col md:flex-row gap-4">
+                <div className="w-full md:w-1/2">
                   {section.titleKey && (
                     <p className="font-semibold text-sm md:text-base">{t(section.titleKey)}</p>
                   )}
@@ -136,7 +131,7 @@ const Designs = () => {
                     {t(section.descriptionKey)}
                   </FormattedText>
                 </div>
-                <div className="w-full md:w-3/5">
+                <div className="w-full md:w-1/2">
                   <LightboxGallery
                     images={section.images}
                     altPrefix={section.titleKey ? t(section.titleKey) : 'Design'}

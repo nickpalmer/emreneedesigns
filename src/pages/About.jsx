@@ -42,59 +42,65 @@ const About = () => {
           borderRadius: '16px',
           color: 'var(--textbox-text)'
         }}>
-          <h2 className="text-xl md:text-2xl font-bold">{t('about.title')}</h2>
-          <FormattedText className="text-sm md:text-base mt-4">
-            {t('about.intro')}
-          </FormattedText>
-          <FormattedText className="text-sm md:text-base mt-4">
-            {t('about.paragraph1')}
-          </FormattedText>
-          <FormattedText className="text-sm md:text-base mt-4">
-            {t('about.paragraph2')}
-          </FormattedText>
-          <FormattedText className="text-sm md:text-base mt-4">
-            {t('about.paragraph3')}
-          </FormattedText>
-          <FormattedText className="text-sm md:text-base mt-4">
-            {t('about.paragraph4')}
-          </FormattedText>
-          <div className="flex flex-wrap gap-4 mt-6">
-            <a
-              href="mailto:emily@mReneeDesigns.com?subject=Trunk%20Show%20Inquiry"
-              className="inline-block px-6 py-3 text-sm md:text-base font-semibold rounded-lg transition-colors text-center"
-              style={{
-                backgroundColor: 'var(--textbox-text)',
-                color: 'var(--textbox-bg)',
-              }}
-            >
-              {t('about.cta')}
-            </a>
-            <a
-              href="https://www.instagram.com/mrenee_designs"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block px-6 py-3 text-sm md:text-base font-semibold rounded-lg transition-colors text-center"
-              style={{
-                backgroundColor: 'var(--textbox-text)',
-                color: 'var(--textbox-bg)',
-              }}
-            >
-              {t('about.instagram')}
-            </a>
-          </div>
-          <ProgressiveImage src={about_footer} alt="Emily Renee" className="object-cover w-full mt-4" style={{ height: 'auto', borderRadius: '8px', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15)' }} />
-
-          {/* Desktop: gallery inside textbox in 2 columns */}
-          {!isMobile && (
-            <div style={{ marginTop: '16px' }}>
-              <LightboxGallery
-                images={galleryImages}
-                altPrefix="About"
-                noPadding
-                gridClassName="grid grid-cols-2 gap-3"
-              />
+          {/* Desktop: two-column layout (text left, gallery right) */}
+          <div className="flex flex-col md:flex-row gap-4">
+            <div className="w-full md:w-1/2">
+              <h2 className="text-xl md:text-2xl font-bold">{t('about.title')}</h2>
+              <FormattedText className="text-sm md:text-base mt-4">
+                {t('about.intro')}
+              </FormattedText>
+              <FormattedText className="text-sm md:text-base mt-4">
+                {t('about.paragraph1')}
+              </FormattedText>
+              <FormattedText className="text-sm md:text-base mt-4">
+                {t('about.paragraph2')}
+              </FormattedText>
+              <FormattedText className="text-sm md:text-base mt-4">
+                {t('about.paragraph3')}
+              </FormattedText>
+              <FormattedText className="text-sm md:text-base mt-4">
+                {t('about.paragraph4')}
+              </FormattedText>
+              <div className="flex flex-wrap gap-4 mt-6">
+                <a
+                  href="mailto:emily@mReneeDesigns.com?subject=Trunk%20Show%20Inquiry"
+                  className="inline-block px-6 py-3 text-sm md:text-base font-semibold rounded-lg transition-colors text-center"
+                  style={{
+                    backgroundColor: 'var(--textbox-text)',
+                    color: 'var(--textbox-bg)',
+                  }}
+                >
+                  {t('about.cta')}
+                </a>
+                <a
+                  href="https://www.instagram.com/mrenee_designs"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block px-6 py-3 text-sm md:text-base font-semibold rounded-lg transition-colors text-center"
+                  style={{
+                    backgroundColor: 'var(--textbox-text)',
+                    color: 'var(--textbox-bg)',
+                  }}
+                >
+                  {t('about.instagram')}
+                </a>
+              </div>
             </div>
-          )}
+            {/* Desktop: gallery in right column */}
+            {!isMobile && (
+              <div className="w-full md:w-1/2">
+                <LightboxGallery
+                  images={galleryImages}
+                  altPrefix="About"
+                  noPadding
+                  gridClassName="grid grid-cols-2 gap-3"
+                />
+              </div>
+            )}
+          </div>
+
+          {/* Full-width photo spanning both columns */}
+          <ProgressiveImage src={about_footer} alt="Emily Renee" className="object-cover w-full mt-4" style={{ height: 'auto', borderRadius: '8px', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15)' }} />
         </div>
       </ParallaxHero>
 

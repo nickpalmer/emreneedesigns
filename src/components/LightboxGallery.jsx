@@ -46,7 +46,7 @@ const LightboxGallery = ({ images, altPrefix = 'Gallery image', noPadding = fals
                 src={image}
                 alt={`${altPrefix} ${index + 1}`}
                 className="w-full object-cover transition-transform duration-300 hover:scale-110"
-                style={{ height: '200px' }}
+                style={{ aspectRatio: '3/4' }}
               />
             </div>
           ))}

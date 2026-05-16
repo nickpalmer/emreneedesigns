@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 
 const MOBILE_BREAKPOINT = 768;
 
-const ParallaxHero = ({ image, alt, children, objectPosition = 'center', backgroundSize = 'cover' }) => {
+const ParallaxHero = ({ image, alt, children, objectPosition = 'center', backgroundSize = 'cover', initialOffset = 0 }) => {
   const containerRef = useRef(null);
   const imageRef = useRef(null);
   const [isMobile, setIsMobile] = useState(() => window.innerWidth < MOBILE_BREAKPOINT);
@@ -29,7 +29,7 @@ const ParallaxHero = ({ image, alt, children, objectPosition = 'center', backgro
       if (!containerRef.current || !imageRef.current) return;
       const rect = containerRef.current.getBoundingClientRect();
       if (rect.bottom > 0 && rect.top < window.innerHeight) {
-        const offset = -rect.top * 0.3;
+        const offset = -rect.top * 0.3 + initialOffset;
         imageRef.current.style.transform = `translateY(${offset}px)`;
       }
       ticking = false;
