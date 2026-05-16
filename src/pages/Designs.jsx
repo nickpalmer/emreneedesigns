@@ -44,17 +44,17 @@ const sections = [
   {
     titleKey: 'designs.elvira.title',
     descriptionKey: 'designs.elvira.description',
-    images: [looks_04, looks_16, looks_17, looks_18, looks_19],
+    images: [looks_17, looks_18, looks_19],
   },
   {
     titleKey: 'designs.queen.title',
     descriptionKey: 'designs.queen.description',
-    images: [looks_01, looks_02, looks_23],
+    images: [looks_01, looks_02, looks_03],
   },
   {
     titleKey: null,
     descriptionKey: 'designs.queen.variation',
-    images: [looks_03],
+    images: [looks_04, looks_24],
   },
   {
     titleKey: 'designs.duster.title',
@@ -64,17 +64,17 @@ const sections = [
   {
     titleKey: 'designs.skirt.title',
     descriptionKey: 'designs.skirt.description',
-    images: [looks_24, looks_25, looks_26, looks_27, looks_28],
+    images: [looks_25, looks_26, looks_27, looks_28],
   },
   {
     titleKey: 'designs.bustier.title',
     descriptionKey: 'designs.bustier.description',
-    images: [looks_06, looks_07],
+    images: [looks_08, looks_07],
   },
   {
     titleKey: 'designs.halterDress.title',
     descriptionKey: 'designs.halterDress.description',
-    images: [looks_08, looks_09, looks_10, looks_11, looks_12, looks_13, looks_14, looks_15],
+    images: [looks_06, looks_09, looks_10, looks_11, looks_12, looks_13, looks_14, looks_15, looks_16],
   },
   {
     titleKey: 'designs.halterTop.title',
