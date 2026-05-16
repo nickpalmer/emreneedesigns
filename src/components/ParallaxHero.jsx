@@ -1,8 +1,17 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
+
+const MOBILE_BREAKPOINT = 768;
 
 const ParallaxHero = ({ image, alt, children, objectPosition = 'center', backgroundSize = 'cover' }) => {
   const containerRef = useRef(null);
   const imageRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < MOBILE_BREAKPOINT);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     let ticking = false;
@@ -29,6 +38,9 @@ const ParallaxHero = ({ image, alt, children, objectPosition = 'center', backgro
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const effectiveBackgroundSize = isMobile ? '130% auto' : backgroundSize;
+  const effectivePosition = isMobile ? 'center' : objectPosition;
+
   return (
     <div style={{ overflow: 'hidden', width: '100%' }}>
       <div
@@ -51,8 +63,8 @@ const ParallaxHero = ({ image, alt, children, objectPosition = 'center', backgro
             width: '100%',
             height: '130%',
             backgroundImage: `url(${image})`,
-            backgroundPosition: objectPosition,
-            backgroundSize,
+            backgroundPosition: effectivePosition,
+            backgroundSize: effectiveBackgroundSize,
             backgroundRepeat: 'no-repeat',
             willChange: 'transform',
           }}
