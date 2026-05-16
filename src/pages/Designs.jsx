@@ -123,7 +123,7 @@ const Designs = () => {
           <div key={index} style={{ padding: '15px' }}>
             <div className="shadow-lg" style={textboxStyle}>
               {section.titleKey && (
-                <h3 className="text-base md:text-lg font-semibold text-center mb-4">{t(section.titleKey)}</h3>
+                <h2 className="text-base md:text-lg font-semibold text-center mb-4 w-full">{t(section.titleKey)}</h2>
               )}
               <div className="flex flex-col md:flex-row gap-4">
                 <div className="w-full md:w-1/3 flex flex-col items-center">
