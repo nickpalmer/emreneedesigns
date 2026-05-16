@@ -17,6 +17,7 @@ export default defineConfig({
       },
       mozjpeg: {
         quality: 80,
+        progressive: true,
       },
       pngquant: {
         quality: [0.8, 0.9],
