@@ -31,71 +31,138 @@ import looks_25 from '../assets/images/looks_25_skirt-black-coko.jpg';
 import looks_26 from '../assets/images/looks_26_skirt-black-shawl.jpg';
 import looks_27 from '../assets/images/looks_27_skirt-chocolate.JPG';
 import looks_28 from '../assets/images/looks_28_skirt-shawl.JPG';
-import looks_29 from '../assets/images/looks_29_skirt-tobacco.JPG';
 
-const galleryImages = [looks_02, looks_03, looks_04, looks_05, looks_06, looks_07, looks_08, looks_09, looks_10, looks_11, looks_12, looks_13, looks_14, looks_15, looks_16, looks_17, looks_18, looks_19, looks_20, looks_21, looks_22, looks_23, looks_24, looks_25, looks_26, looks_27, looks_28, looks_29];
+const textboxStyle = {
+  backgroundColor: 'var(--textbox-bg)',
+  padding: '20px',
+  boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15)',
+  borderRadius: '16px',
+  color: 'var(--textbox-text)',
+};
+
+const sections = [
+  {
+    titleKey: 'designs.elvira.title',
+    descriptionKey: 'designs.elvira.description',
+    images: [looks_04, looks_16, looks_17, looks_18, looks_19],
+  },
+  {
+    titleKey: 'designs.queen.title',
+    descriptionKey: 'designs.queen.description',
+    images: [looks_01, looks_02, looks_23],
+  },
+  {
+    titleKey: null,
+    descriptionKey: 'designs.queen.variation',
+    images: [looks_03],
+  },
+  {
+    titleKey: 'designs.duster.title',
+    descriptionKey: 'designs.duster.description',
+    images: [],
+  },
+  {
+    titleKey: 'designs.skirt.title',
+    descriptionKey: 'designs.skirt.description',
+    images: [looks_24, looks_25, looks_26, looks_27, looks_28],
+  },
+  {
+    titleKey: 'designs.bustier.title',
+    descriptionKey: 'designs.bustier.description',
+    images: [looks_06, looks_07],
+  },
+  {
+    titleKey: 'designs.halterDress.title',
+    descriptionKey: 'designs.halterDress.description',
+    images: [looks_08, looks_09, looks_10, looks_11, looks_12, looks_13, looks_14, looks_15],
+  },
+  {
+    titleKey: 'designs.halterTop.title',
+    descriptionKey: 'designs.halterTop.description',
+    images: [looks_20, looks_21, looks_22, looks_23],
+  },
+  {
+    titleKey: 'designs.fringe.title',
+    descriptionKey: 'designs.fringe.description',
+    images: [],
+  },
+];
 
 const Designs = () => {
   const { t } = useTranslation();
 
+  let photoSectionCount = 0;
+
   return (
     <div>
-      <ParallaxHero image={looks_01} alt="M. Renee Designs" backgroundSize="75% auto">
-        <div className="shadow-lg" style={{
-          backgroundColor: 'var(--textbox-bg)',
-          padding: '20px',
-          boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15)',
-          borderRadius: '16px',
-          color: 'var(--textbox-text)'
-        }}>
+      <ParallaxHero image={looks_05} alt="M. Renee Designs" backgroundSize="75% auto">
+        <div className="shadow-lg" style={textboxStyle}>
           <h1 className="text-2xl md:text-4xl font-bold">{t('designs.title')}</h1>
           <p className="text-base md:text-lg mt-2 italic">{t('designs.subtitle')}</p>
           <p className="text-xs md:text-sm mt-4 italic">{t('designs.description')}</p>
-
-          <div className="mt-4 space-y-4 text-sm md:text-base">
-            <div>
-              <p className="font-semibold">{t('designs.elvira.title')}</p>
-              <FormattedText className="mt-1">{t('designs.elvira.description')}</FormattedText>
-            </div>
-            <div>
-              <p className="font-semibold">{t('designs.queen.title')}</p>
-              <FormattedText className="mt-1">{t('designs.queen.description')}</FormattedText>
-              <FormattedText className="mt-1">{t('designs.queen.variation')}</FormattedText>
-            </div>
-            <div>
-              <p className="font-semibold">{t('designs.duster.title')}</p>
-              <FormattedText className="mt-1">{t('designs.duster.description')}</FormattedText>
-            </div>
-            <div>
-              <p className="font-semibold">{t('designs.skirt.title')}</p>
-              <FormattedText className="mt-1">{t('designs.skirt.description')}</FormattedText>
-            </div>
-            <div>
-              <p className="font-semibold">{t('designs.bustier.title')}</p>
-              <FormattedText className="mt-1">{t('designs.bustier.description')}</FormattedText>
-            </div>
-            <div>
-              <p className="font-semibold">{t('designs.halterDress.title')}</p>
-              <FormattedText className="mt-1">{t('designs.halterDress.description')}</FormattedText>
-            </div>
-            <div>
-              <p className="font-semibold">{t('designs.halterTop.title')}</p>
-              <FormattedText className="mt-1">{t('designs.halterTop.description')}</FormattedText>
-            </div>
-            <div>
-              <p className="font-semibold">{t('designs.fringe.title')}</p>
-              <FormattedText className="mt-1">{t('designs.fringe.description')}</FormattedText>
-            </div>
-            <div>
-              <p className="font-semibold">{t('designs.madeToOrder.title')}</p>
-              <FormattedText className="mt-1">{t('designs.madeToOrder.description')}</FormattedText>
-            </div>
-            <FormattedText className="mt-4 text-xs md:text-sm italic">{t('designs.timeline')}</FormattedText>
-          </div>
         </div>
       </ParallaxHero>
 
-      <LightboxGallery images={galleryImages} altPrefix="Design" />
+      {sections.map((section, index) => {
+        const hasImages = section.images.length > 0;
+
+        if (!hasImages) {
+          return (
+            <div key={index} style={{ padding: '15px', maxWidth: '800px', margin: '0 auto' }}>
+              <div className="shadow-lg" style={textboxStyle}>
+                {section.titleKey && (
+                  <p className="font-semibold text-sm md:text-base">{t(section.titleKey)}</p>
+                )}
+                <FormattedText className="text-sm md:text-base mt-1">
+                  {t(section.descriptionKey)}
+                </FormattedText>
+              </div>
+            </div>
+          );
+        }
+
+        const isReversed = photoSectionCount % 2 === 1;
+        photoSectionCount++;
+
+        return (
+          <div
+            key={index}
+            className={`flex flex-col ${isReversed ? 'md:flex-row-reverse' : 'md:flex-row'}`}
+            style={{ padding: '15px', gap: '15px', alignItems: 'flex-start' }}
+          >
+            <div className="w-full md:w-2/5">
+              <div className="shadow-lg" style={textboxStyle}>
+                {section.titleKey && (
+                  <p className="font-semibold text-sm md:text-base">{t(section.titleKey)}</p>
+                )}
+                <FormattedText className="text-sm md:text-base mt-1">
+                  {t(section.descriptionKey)}
+                </FormattedText>
+              </div>
+            </div>
+            <div className="w-full md:w-3/5">
+              <LightboxGallery
+                images={section.images}
+                altPrefix={section.titleKey ? t(section.titleKey) : 'Design'}
+                noPadding
+              />
+            </div>
+          </div>
+        );
+      })}
+
+      {/* Made to Order */}
+      <div style={{ padding: '15px', maxWidth: '800px', margin: '0 auto' }}>
+        <div className="shadow-lg" style={textboxStyle}>
+          <p className="font-semibold text-sm md:text-base">{t('designs.madeToOrder.title')}</p>
+          <FormattedText className="text-sm md:text-base mt-1">
+            {t('designs.madeToOrder.description')}
+          </FormattedText>
+          <FormattedText className="mt-4 text-xs md:text-sm italic">
+            {t('designs.timeline')}
+          </FormattedText>
+        </div>
+      </div>
     </div>
   );
 };

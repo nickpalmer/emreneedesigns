@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import ProgressiveImage from './ProgressiveImage';
 
-const LightboxGallery = ({ images, altPrefix = 'Gallery image' }) => {
+const LightboxGallery = ({ images, altPrefix = 'Gallery image', noPadding = false }) => {
   const [lightboxIndex, setLightboxIndex] = useState(null);
   const isOpen = lightboxIndex !== null;
 
@@ -30,7 +30,7 @@ const LightboxGallery = ({ images, altPrefix = 'Gallery image' }) => {
 
   return (
     <>
-      <div style={{ padding: '15px' }}>
+      <div style={noPadding ? undefined : { padding: '15px' }}>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
           {images.map((image, index) => (
             <div
