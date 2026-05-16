@@ -5,20 +5,22 @@ const resources = {
   en: {
     translation: {
       // Home page
-      "home.hero.title": "Refined.  Natural.  Fantastical.",
-      "home.hero.description1": "M Renee Designs is a Houston-based slow fashion atelier specializing in handcrafted leather garments made from wild-sourced deer and elk hides. Each piece is designed and constructed start to finish by the artist, with a focus on fit, movement, and longevity.\n\nMost pieces are made to order, yet select pieces are available ready to wear.",
+      "home.hero.title": "M. Renee Designs",
+      "home.hero.subtitle": "Refined.  Natural.  Fantastical.",
+      "home.hero.description1": "M Renee Designs is a Houston-based slow fashion atelier specializing in handcrafted leather garments made from wild-sourced deer and elk hides.\n\nEach piece is designed and constructed start to finish by the artist, with a focus on fit, movement, and longevity.\n\nMost pieces are made to order, yet select pieces are available ready to wear.",
       "home.hero.description2": "From wild animals, these hides are so close to nature you can sense the earthy aliveness, feel it like the comfort of a hug, decadently supple. M designs *with* the natural hide, draping it on the body– more collaborating with hide and body than directing design from a 2d sketch. Raw edges contrast with elegant sweeping lines; and it is this combination of earthy rawness and irregular natural shapes with technically refined design that creates a fantastical effect.",
       "home.hero.cta": "Inquire",
 
       // About page
-      "about.title": "M Renee Designs",
+      "about.title": "About M Renee",
       "about.tagline": "Refined. Natural. Fantastical.",
       "about.intro": "M started sewing clothes as a child since what she desired to wear wasn't in stores, learning the technical skills to create her vision.",
-      "about.paragraph1": "Growing up in rural Louisiana with a self-directed education shaped both her technical independence and her creative perspective—M has always designed outside of trend cycles, building garments from vision rather than reference.\nM Renee found ways– from the very beginning– to mix and match elements of traditional craftsmanship to realize her artistic visions, aided by guidance from her mother, a skilled seamstress. Elegance of line is a natural gift difficult to explain or to teach, but perceived instantly when experienced.",
-      "about.paragraph2": "A nature loving wildling ever ready to jump in the water or on horseback, a hands-on healer valuing authenticity, M had no taste for the turn-over and trends of the fashion industry… but, making clothes in *leather* was a different story!\n\nIn her 20s, M's trajectory changed decisively when she made a leather garment as part of a Mardi Gras costume in New Orleans. She loved it, and continued wearing it in daily life, surprised by joy as it became *more* beautiful with wear instead of breaking down: timeless, practical, and expressive.\nThat leather look was one of a limited wardrobe she took for a two year traveling abroad adventure. From experience, she realized that leather offered something fabric could not: minimal maintenance and a sensory relationship to the body that improves with wear.\nStrangers repeatedly approached to ask where they could buy what she was wearing. That organic demand birthed this venture.",
+      "about.paragraph1": "Growing up in rural Louisiana with a self-directed education shaped both her technical independence and her creative perspective—M has always designed outside of trend cycles, building garments from vision rather than reference.\n\nM Renee found ways– from the very beginning– to mix and match elements of traditional craftsmanship to realize her artistic visions, aided by guidance from her mother, a skilled seamstress. Elegance of line is a natural gift difficult to explain or to teach, but perceived instantly when experienced.",
+      "about.paragraph2": "A nature loving wildling ever ready to jump in the water or on horseback, a hands-on healer valuing authenticity, M had no taste for the turn-over and trends of the fashion industry… but, making clothes in *leather* was a different story!\n\nIn her 20s, M's trajectory changed decisively when she made a leather garment as part of a Mardi Gras costume in New Orleans. She loved it, and continued wearing it in daily life, surprised by joy as it became *more* beautiful with wear instead of breaking down: timeless, practical, and expressive.\n\nThat leather look was one of a limited wardrobe she took for a two year traveling abroad adventure. From experience, she realized that leather offered something fabric could not: minimal maintenance and a sensory relationship to the body that improves with wear.\n\nStrangers repeatedly approached to ask where they could buy what she was wearing. That organic demand birthed this venture.",
       "about.paragraph3": "*Refined* skill and *Natural* materials converge as *Fantastical* artistic fashion: M Renee Designs, Est. 2014.\n\nIn her Houston workshop, M Renee creates bespoke slow fashion that feels as good as it looks.",
       "about.paragraph4": "Clients may apply to host a trunk show of current inventory for personal shopping where the designer will be available for custom order consultations. Host in your home, event space, or boutique.",
       "about.cta": "Inquire about a Trunk Show",
+      "about.instagram": "Follow on Instagram",
 
       // Designs page
       "designs.title": "Ready to Wear Looks",

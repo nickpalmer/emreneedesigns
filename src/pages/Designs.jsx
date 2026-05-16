@@ -1,7 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import ProgressiveImage from '../components/ProgressiveImage';
 import FormattedText from '../components/FormattedText';
+import ParallaxHero from '../components/ParallaxHero';
+import LightboxGallery from '../components/LightboxGallery';
 import looks_01 from '../assets/images/looks_01_queen2.jpg';
 import looks_02 from '../assets/images/looks_02_queen3.jpg';
 import looks_03 from '../assets/images/looks_03_queen4.jpg';
@@ -31,115 +32,70 @@ import looks_26 from '../assets/images/looks_26_skirt-black-shawl.jpg';
 import looks_27 from '../assets/images/looks_27_skirt-chocolate.JPG';
 import looks_28 from '../assets/images/looks_28_skirt-shawl.JPG';
 import looks_29 from '../assets/images/looks_29_skirt-tobacco.JPG';
-import HorizontalScrollCarousel from '../components/HorizontalScrollCarousel';
 
-const heroImageStyle = `
-  .designs-hero-image {
-    max-height: 50vh;
-    height: auto;
-    padding-left: 0;
-  }
-  @media (min-width: 768px) {
-    .designs-hero-image {
-      height: calc(100vh - var(--header-height)) !important;
-      width: auto !important;
-      max-height: none !important;
-      padding-left: 15px !important;
-      padding-top: 15px !important;
-      padding-bottom: 15px !important;
-      object-fit: cover;
-    }
-  }
-`;
-
-const carouselImages = [looks_02, looks_03, looks_04, looks_05, looks_06, looks_07, looks_08, looks_09, looks_10, looks_11, looks_12, looks_13, looks_14, looks_15, looks_16, looks_17, looks_18, looks_19, looks_20, looks_21, looks_22, looks_23, looks_24, looks_25, looks_26, looks_27, looks_28, looks_29];
+const galleryImages = [looks_02, looks_03, looks_04, looks_05, looks_06, looks_07, looks_08, looks_09, looks_10, looks_11, looks_12, looks_13, looks_14, looks_15, looks_16, looks_17, looks_18, looks_19, looks_20, looks_21, looks_22, looks_23, looks_24, looks_25, looks_26, looks_27, looks_28, looks_29];
 
 const Designs = () => {
   const { t } = useTranslation();
 
   return (
     <div>
-      <style>{heroImageStyle}</style>
-      <div className="flex flex-col md:flex-row md:min-h-[calc(100vh-var(--header-height))]">
-        <div className="md:w-1/2">
-          <ProgressiveImage
-            src={looks_01}
-            alt="M. Renee Designs"
-            className="designs-hero-image object-cover object-center w-full h-auto md:h-full"
-          />
-        </div>
-        <div className="md:w-1/2 flex flex-col md:justify-center" style={{ padding: '15px 15px 0 15px' }}>
-          <div className="shadow-lg" style={{
-            backgroundColor: 'var(--textbox-bg)',
-            padding: '20px',
-            boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15)',
-            borderRadius: '16px',
-            color: 'var(--textbox-text)'
-          }}>
-            <h1 className="text-2xl md:text-4xl font-bold">{t('designs.title')}</h1>
-            <p className="text-base md:text-lg mt-2 italic">{t('designs.subtitle')}</p>
-            <p className="text-xs md:text-sm mt-4 italic">{t('designs.description')}</p>
+      <ParallaxHero image={looks_01} alt="M. Renee Designs">
+        <div className="shadow-lg" style={{
+          backgroundColor: 'var(--textbox-bg)',
+          padding: '20px',
+          boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15)',
+          borderRadius: '16px',
+          color: 'var(--textbox-text)'
+        }}>
+          <h1 className="text-2xl md:text-4xl font-bold">{t('designs.title')}</h1>
+          <p className="text-base md:text-lg mt-2 italic">{t('designs.subtitle')}</p>
+          <p className="text-xs md:text-sm mt-4 italic">{t('designs.description')}</p>
 
-            <div className="mt-4 space-y-4 text-sm md:text-base">
-              <div>
-                <p className="font-semibold">{t('designs.elvira.title')}</p>
-                <FormattedText className="mt-1">{t('designs.elvira.description')}</FormattedText>
-              </div>
-              <div>
-                <p className="font-semibold">{t('designs.queen.title')}</p>
-                <FormattedText className="mt-1">{t('designs.queen.description')}</FormattedText>
-                <FormattedText className="mt-1">{t('designs.queen.variation')}</FormattedText>
-              </div>
-              <div>
-                <p className="font-semibold">{t('designs.duster.title')}</p>
-                <FormattedText className="mt-1">{t('designs.duster.description')}</FormattedText>
-              </div>
-              <div>
-                <p className="font-semibold">{t('designs.skirt.title')}</p>
-                <FormattedText className="mt-1">{t('designs.skirt.description')}</FormattedText>
-              </div>
-              <div>
-                <p className="font-semibold">{t('designs.bustier.title')}</p>
-                <FormattedText className="mt-1">{t('designs.bustier.description')}</FormattedText>
-              </div>
-              <div>
-                <p className="font-semibold">{t('designs.halterDress.title')}</p>
-                <FormattedText className="mt-1">{t('designs.halterDress.description')}</FormattedText>
-              </div>
-              <div>
-                <p className="font-semibold">{t('designs.halterTop.title')}</p>
-                <FormattedText className="mt-1">{t('designs.halterTop.description')}</FormattedText>
-              </div>
-              <div>
-                <p className="font-semibold">{t('designs.fringe.title')}</p>
-                <FormattedText className="mt-1">{t('designs.fringe.description')}</FormattedText>
-              </div>
-              <div>
-                <p className="font-semibold">{t('designs.madeToOrder.title')}</p>
-                <FormattedText className="mt-1">{t('designs.madeToOrder.description')}</FormattedText>
-              </div>
-              <FormattedText className="mt-4 text-xs md:text-sm italic">{t('designs.timeline')}</FormattedText>
+          <div className="mt-4 space-y-4 text-sm md:text-base">
+            <div>
+              <p className="font-semibold">{t('designs.elvira.title')}</p>
+              <FormattedText className="mt-1">{t('designs.elvira.description')}</FormattedText>
             </div>
+            <div>
+              <p className="font-semibold">{t('designs.queen.title')}</p>
+              <FormattedText className="mt-1">{t('designs.queen.description')}</FormattedText>
+              <FormattedText className="mt-1">{t('designs.queen.variation')}</FormattedText>
+            </div>
+            <div>
+              <p className="font-semibold">{t('designs.duster.title')}</p>
+              <FormattedText className="mt-1">{t('designs.duster.description')}</FormattedText>
+            </div>
+            <div>
+              <p className="font-semibold">{t('designs.skirt.title')}</p>
+              <FormattedText className="mt-1">{t('designs.skirt.description')}</FormattedText>
+            </div>
+            <div>
+              <p className="font-semibold">{t('designs.bustier.title')}</p>
+              <FormattedText className="mt-1">{t('designs.bustier.description')}</FormattedText>
+            </div>
+            <div>
+              <p className="font-semibold">{t('designs.halterDress.title')}</p>
+              <FormattedText className="mt-1">{t('designs.halterDress.description')}</FormattedText>
+            </div>
+            <div>
+              <p className="font-semibold">{t('designs.halterTop.title')}</p>
+              <FormattedText className="mt-1">{t('designs.halterTop.description')}</FormattedText>
+            </div>
+            <div>
+              <p className="font-semibold">{t('designs.fringe.title')}</p>
+              <FormattedText className="mt-1">{t('designs.fringe.description')}</FormattedText>
+            </div>
+            <div>
+              <p className="font-semibold">{t('designs.madeToOrder.title')}</p>
+              <FormattedText className="mt-1">{t('designs.madeToOrder.description')}</FormattedText>
+            </div>
+            <FormattedText className="mt-4 text-xs md:text-sm italic">{t('designs.timeline')}</FormattedText>
           </div>
         </div>
-      </div>
+      </ParallaxHero>
 
-      <div className="hidden md:block">
-        <HorizontalScrollCarousel items={carouselImages} />
-      </div>
-      <div className="md:hidden" style={{ padding: '15px' }}>
-        <div className="grid grid-cols-1 gap-6">
-          {carouselImages.map((image, index) => (
-            <ProgressiveImage
-              key={index}
-              src={image}
-              alt={`Design ${index + 1}`}
-              className="w-full h-auto object-cover"
-              style={{ borderRadius: '8px', maxHeight: 'calc(100vh - var(--header-height))', objectFit: 'contain', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15)' }}
-            />
-          ))}
-        </div>
-      </div>
+      <LightboxGallery images={galleryImages} altPrefix="Design" />
     </div>
   );
 };

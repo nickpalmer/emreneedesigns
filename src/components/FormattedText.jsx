@@ -36,7 +36,7 @@ const FormattedText = ({ children, className = '' }) => {
         const lines = paragraph.split(/\n/);
 
         return (
-          <p key={pIndex} className={className}>
+          <p key={pIndex} className={className} style={pIndex > 0 ? { marginTop: '1em' } : undefined}>
             {lines.map((line, lIndex) => (
               <React.Fragment key={lIndex}>
                 {parseInlineStyles(line)}
