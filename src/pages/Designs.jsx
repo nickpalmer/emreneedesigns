@@ -94,7 +94,7 @@ const Designs = () => {
   return (
     <div>
       <ParallaxHero image={looks_05} alt="M. Renee Designs" objectPosition="center top" backgroundSize="75% auto" initialOffset={-200}>
-        <div className="shadow-lg" style={textboxStyle}>
+        <div className="shadow-lg" style={{ ...textboxStyle, maxWidth: '600px', margin: '0 auto' }}>
           <h1 className="text-2xl md:text-4xl font-bold">{t('designs.title')}</h1>
           <p className="text-base md:text-lg mt-2 italic">{t('designs.subtitle')}</p>
           <p className="text-xs md:text-sm mt-4 italic">{t('designs.description')}</p>
