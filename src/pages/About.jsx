@@ -22,6 +22,7 @@ const MOBILE_BREAKPOINT = 768;
 
 const sideGalleryImages = [about_01, about_02, about_03, about_04];
 const bottomGalleryImages = [about_05, about_06, about_07, about_08, about_09, about_10, about_11];
+const allGalleryImages = [...sideGalleryImages, ...bottomGalleryImages];
 
 const About = () => {
   const { t } = useTranslation();
@@ -115,9 +116,9 @@ const About = () => {
         </div>
       </ParallaxHero>
 
-      {/* Mobile: side gallery images outside textbox */}
+      {/* Mobile: all images in one gallery */}
       {isMobile && (
-        <LightboxGallery images={sideGalleryImages} altPrefix="About" />
+        <LightboxGallery images={allGalleryImages} altPrefix="About" />
       )}
     </div>
   );

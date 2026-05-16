@@ -32,7 +32,9 @@ import custom_26 from '../assets/images/custom_26_zdeertails.JPG';
 
 const MOBILE_BREAKPOINT = 768;
 
-const galleryImages = [custom_01, custom_02, custom_03, custom_04, custom_05, custom_06, custom_07, custom_08, custom_09, custom_10, custom_11, custom_12, custom_13, custom_14, custom_15, custom_16, custom_17, custom_18, custom_19, custom_20, custom_21, custom_23, custom_24, custom_25, custom_26];
+const sideGalleryImages = [custom_01, custom_02, custom_03, custom_04];
+const bottomGalleryImages = [custom_05, custom_06, custom_07, custom_08, custom_09, custom_10, custom_11, custom_12, custom_13, custom_14, custom_15, custom_16, custom_17, custom_18, custom_19, custom_20, custom_21, custom_23, custom_24, custom_25, custom_26];
+const allGalleryImages = [...sideGalleryImages, ...bottomGalleryImages];
 
 const Custom = () => {
   const { t } = useTranslation();
@@ -109,11 +111,11 @@ const Custom = () => {
                 {t('custom.cta')}
               </a>
             </div>
-            {/* Desktop: gallery in right column */}
+            {/* Desktop: side gallery in right column (first 4 images) */}
             {!isMobile && (
               <div className="w-full md:w-1/2">
                 <LightboxGallery
-                  images={galleryImages}
+                  images={sideGalleryImages}
                   altPrefix="Custom work"
                   noPadding
                   gridClassName="grid grid-cols-2 gap-3"
@@ -121,12 +123,24 @@ const Custom = () => {
               </div>
             )}
           </div>
+
+          {/* Full-width gallery under the side content */}
+          {!isMobile && (
+            <div style={{ marginTop: '16px' }}>
+              <LightboxGallery
+                images={bottomGalleryImages}
+                altPrefix="Custom work"
+                noPadding
+                gridClassName="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3"
+              />
+            </div>
+          )}
         </div>
       </ParallaxHero>
 
-      {/* Mobile: gallery outside textbox */}
+      {/* Mobile: all images in one gallery */}
       {isMobile && (
-        <LightboxGallery images={galleryImages} altPrefix="Custom work" />
+        <LightboxGallery images={allGalleryImages} altPrefix="Custom work" />
       )}
     </div>
   );
