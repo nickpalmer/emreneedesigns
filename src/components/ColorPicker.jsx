@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { HexColorPicker } from 'react-colorful';
 
 const ColorPicker = () => {
@@ -9,6 +9,9 @@ const ColorPicker = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   const [activeColor, setActiveColor] = useState(null);
+  const [showExportText, setShowExportText] = useState(false);
+  const [exportText, setExportText] = useState('');
+  const exportTextareaRef = useRef(null);
   const [colors, setColors] = useState({
     // Header & Footer
     headerFooterBg: getComputedStyle(document.documentElement).getPropertyValue('--header-footer-bg').trim(),
@@ -91,8 +94,8 @@ const ColorPicker = () => {
     setShowColorPicker(true);
   };
 
-  const exportColors = () => {
-    const css = `:root {
+  const buildExportCss = () => {
+    return `:root {
   /* Header & Footer Colors */
   --header-footer-bg: ${colors.headerFooterBg};
   --header-footer-text: ${colors.headerFooterText};
@@ -111,9 +114,22 @@ const ColorPicker = () => {
   --logo-tail-tip-color: ${colors.logoTailTipColor};
   --name-logo-color: ${colors.nameLogoColor};
 }`;
+  };
 
-    navigator.clipboard.writeText(css);
-    alert('Colors copied to clipboard! You can now paste them into an email.');
+  const exportColors = () => {
+    const css = buildExportCss();
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(css).then(() => {
+        alert('Colors copied to clipboard! You can now paste them into an email.');
+      }).catch(() => {
+        setExportText(css);
+        setShowExportText(true);
+      });
+    } else {
+      setExportText(css);
+      setShowExportText(true);
+    }
   };
 
   const importColors = () => {
@@ -297,6 +313,90 @@ const ColorPicker = () => {
             zIndex: 1000,
           }}
         />
+      )}
+
+      {/* Export Text Fallback Dialog */}
+      {showExportText && (
+        <>
+          <div
+            onClick={() => setShowExportText(false)}
+            style={{
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundColor: 'rgba(0, 0, 0, 0.5)',
+              zIndex: 1003,
+            }}
+          />
+          <div
+            style={{
+              position: 'fixed',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              backgroundColor: 'white',
+              borderRadius: '12px',
+              padding: '24px',
+              maxWidth: '90vw',
+              width: '500px',
+              boxShadow: '0 8px 24px rgba(0, 0, 0, 0.4)',
+              zIndex: 1004,
+            }}
+          >
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+              <h3 style={{ margin: 0, color: '#333' }}>Copy these colors</h3>
+              <button
+                onClick={() => setShowExportText(false)}
+                style={{ background: 'none', border: 'none', fontSize: '24px', cursor: 'pointer', color: '#666' }}
+              >
+                ✕
+              </button>
+            </div>
+            <p style={{ color: '#666', fontSize: '14px', margin: '0 0 12px 0' }}>Select all the text below and copy it:</p>
+            <textarea
+              ref={exportTextareaRef}
+              readOnly
+              value={exportText}
+              onFocus={(e) => e.target.select()}
+              style={{
+                width: '100%',
+                height: '250px',
+                fontFamily: 'monospace',
+                fontSize: '13px',
+                padding: '12px',
+                borderRadius: '8px',
+                border: '1px solid #ddd',
+                resize: 'none',
+                boxSizing: 'border-box',
+              }}
+            />
+            <button
+              onClick={() => {
+                if (exportTextareaRef.current) {
+                  exportTextareaRef.current.select();
+                  document.execCommand('copy');
+                  alert('Colors copied to clipboard!');
+                }
+              }}
+              style={{
+                marginTop: '12px',
+                width: '100%',
+                padding: '12px',
+                backgroundColor: '#286140',
+                color: '#F5E6D3',
+                border: 'none',
+                borderRadius: '8px',
+                cursor: 'pointer',
+                fontSize: '16px',
+                fontWeight: '500',
+              }}
+            >
+              Copy to Clipboard
+            </button>
+          </div>
+        </>
       )}
 
       {/* Color Picker Dialog */}
