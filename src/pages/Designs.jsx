@@ -68,7 +68,7 @@ const Designs = () => {
             className="designs-hero-image object-cover object-center w-full h-auto md:h-full"
           />
         </div>
-        <div className="md:w-1/2 flex flex-col md:justify-center overflow-y-auto" style={{ padding: '15px 15px 0 15px', maxHeight: 'calc(100vh - var(--header-height))' }}>
+        <div className="md:w-1/2 flex flex-col md:justify-center" style={{ padding: '15px 15px 0 15px' }}>
           <div className="shadow-lg" style={{
             backgroundColor: 'var(--textbox-bg)',
             padding: '20px',
