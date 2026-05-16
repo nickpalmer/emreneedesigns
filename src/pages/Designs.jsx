@@ -123,20 +123,22 @@ const Designs = () => {
           <div key={index} style={{ padding: '15px' }}>
             <div className="shadow-lg" style={textboxStyle}>
               <div className="flex flex-col md:flex-row gap-4">
-                <div className="w-full md:w-1/2">
+                <div className="w-full md:w-1/3 flex flex-col items-center">
                   {section.titleKey && (
-                    <p className="font-semibold text-sm md:text-base">{t(section.titleKey)}</p>
+                    <p className="font-semibold text-base md:text-lg text-center">{t(section.titleKey)}</p>
                   )}
-                  <FormattedText className="text-sm md:text-base mt-1">
-                    {t(section.descriptionKey)}
-                  </FormattedText>
+                  <div className="flex-1 flex items-center">
+                    <FormattedText className="text-sm md:text-base mt-2 text-center">
+                      {t(section.descriptionKey)}
+                    </FormattedText>
+                  </div>
                 </div>
-                <div className="w-full md:w-1/2">
+                <div className="w-full md:w-2/3">
                   <LightboxGallery
                     images={section.images}
                     altPrefix={section.titleKey ? t(section.titleKey) : 'Design'}
                     noPadding
-                    gridClassName="grid grid-cols-2 gap-3"
+                    gridClassName="grid grid-cols-2 md:grid-cols-3 gap-3"
                   />
                 </div>
               </div>
