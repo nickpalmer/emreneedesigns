@@ -20,7 +20,8 @@ import about_11 from '../assets/images/about_11_photoshoot-bts.JPG';
 
 const MOBILE_BREAKPOINT = 768;
 
-const galleryImages = [about_01, about_02, about_03, about_04, about_05, about_06, about_07, about_08, about_09, about_10, about_11];
+const sideGalleryImages = [about_01, about_02, about_03, about_04];
+const bottomGalleryImages = [about_05, about_06, about_07, about_08, about_09, about_10, about_11];
 
 const About = () => {
   const { t } = useTranslation();
@@ -86,11 +87,11 @@ const About = () => {
                 </a>
               </div>
             </div>
-            {/* Desktop: gallery in right column */}
+            {/* Desktop: side gallery in right column (first 4 images) */}
             {!isMobile && (
               <div className="w-full md:w-1/2">
                 <LightboxGallery
-                  images={galleryImages}
+                  images={sideGalleryImages}
                   altPrefix="About"
                   noPadding
                   gridClassName="grid grid-cols-2 gap-3"
@@ -101,12 +102,22 @@ const About = () => {
 
           {/* Full-width photo spanning both columns */}
           <ProgressiveImage src={about_footer} alt="Emily Renee" className="object-cover w-full mt-4" style={{ height: 'auto', borderRadius: '8px', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15)' }} />
+
+          {/* Full-width gallery under the photo */}
+          <div style={{ marginTop: '16px' }}>
+            <LightboxGallery
+              images={bottomGalleryImages}
+              altPrefix="About"
+              noPadding
+              gridClassName="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3"
+            />
+          </div>
         </div>
       </ParallaxHero>
 
-      {/* Mobile: gallery outside textbox */}
+      {/* Mobile: side gallery images outside textbox */}
       {isMobile && (
-        <LightboxGallery images={galleryImages} altPrefix="About" />
+        <LightboxGallery images={sideGalleryImages} altPrefix="About" />
       )}
     </div>
   );
