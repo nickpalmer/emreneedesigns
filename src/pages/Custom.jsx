@@ -71,7 +71,6 @@ const Custom = () => {
             borderRadius: '16px',
             color: 'var(--textbox-text)'
           }}>
-            <h2 className="text-lg md:text-xl font-bold">{t('custom.subtitle')}</h2>
             <h1 className="text-2xl md:text-4xl font-bold">{t('custom.title')}</h1>
             <FormattedText className="text-base md:text-lg mt-2 italic">
               {t('custom.tagline')}
