@@ -122,13 +122,13 @@ const Designs = () => {
         return (
           <div key={index} style={{ padding: '15px' }}>
             <div className="shadow-lg" style={textboxStyle}>
+              {section.titleKey && (
+                <h3 className="text-base md:text-lg font-semibold text-center mb-4">{t(section.titleKey)}</h3>
+              )}
               <div className="flex flex-col md:flex-row gap-4">
                 <div className="w-full md:w-1/3 flex flex-col items-center">
-                  {section.titleKey && (
-                    <p className="font-semibold text-base md:text-lg text-center">{t(section.titleKey)}</p>
-                  )}
                   <div className="flex-1 flex items-center">
-                    <FormattedText className="text-sm md:text-base mt-2 text-center">
+                    <FormattedText className="text-sm md:text-base text-center">
                       {t(section.descriptionKey)}
                     </FormattedText>
                   </div>
