@@ -50,7 +50,7 @@ const ParallaxHero = ({ image, alt, children, objectPosition = 'center', backgro
   const effectiveBackgroundSize = isMobile
     ? (isLandscape ? 'auto 130%' : '130% auto')
     : backgroundSize;
-  const effectivePosition = isMobile ? 'center' : objectPosition;
+  const effectivePosition = isMobile ? 'center top' : objectPosition;
 
   return (
     <div style={{ overflow: 'hidden', width: '100%' }}>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import ProgressiveImage from '../components/ProgressiveImage';
 import FormattedText from '../components/FormattedText';
@@ -18,14 +18,23 @@ import about_09 from '../assets/images/about_09_skirt-messbag.JPG';
 import about_10 from '../assets/images/about_10_teal.jpg';
 import about_11 from '../assets/images/about_11_photoshoot-bts.JPG';
 
+const MOBILE_BREAKPOINT = 768;
+
 const galleryImages = [about_01, about_02, about_03, about_04, about_05, about_06, about_07, about_08, about_09, about_10, about_11];
 
 const About = () => {
   const { t } = useTranslation();
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < MOBILE_BREAKPOINT);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <div>
-      <ParallaxHero image={about_header} alt="Emily Renee" objectPosition="25% center" backgroundSize="75% auto">
+      <ParallaxHero image={about_header} alt="Emily Renee">
         <div className="shadow-lg" style={{
           backgroundColor: 'var(--textbox-bg)',
           padding: '20px',
@@ -74,10 +83,25 @@ const About = () => {
             </a>
           </div>
           <ProgressiveImage src={about_footer} alt="Emily Renee" className="object-cover w-full mt-4" style={{ height: 'auto', borderRadius: '8px', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15)' }} />
+
+          {/* Desktop: gallery inside textbox in 2 columns */}
+          {!isMobile && (
+            <div style={{ marginTop: '16px' }}>
+              <LightboxGallery
+                images={galleryImages}
+                altPrefix="About"
+                noPadding
+                gridClassName="grid grid-cols-2 gap-3"
+              />
+            </div>
+          )}
         </div>
       </ParallaxHero>
 
-      <LightboxGallery images={galleryImages} altPrefix="About" />
+      {/* Mobile: gallery outside textbox */}
+      {isMobile && (
+        <LightboxGallery images={galleryImages} altPrefix="About" />
+      )}
     </div>
   );
 };

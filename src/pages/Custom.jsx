@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import FormattedText from '../components/FormattedText';
 import ParallaxHero from '../components/ParallaxHero';
@@ -30,14 +30,23 @@ import custom_24 from '../assets/images/custom_24_trei.JPEG';
 import custom_25 from '../assets/images/custom_25_treimonica.JPEG';
 import custom_26 from '../assets/images/custom_26_zdeertails.JPG';
 
-const galleryImages = [custom_02, custom_03, custom_04, custom_05, custom_06, custom_07, custom_08, custom_09, custom_10, custom_11, custom_12, custom_13, custom_14, custom_15, custom_16, custom_17, custom_18, custom_19, custom_20, custom_21, custom_22, custom_23, custom_24, custom_25, custom_26];
+const MOBILE_BREAKPOINT = 768;
+
+const galleryImages = [custom_01, custom_02, custom_03, custom_04, custom_05, custom_06, custom_07, custom_08, custom_09, custom_10, custom_11, custom_12, custom_13, custom_14, custom_15, custom_16, custom_17, custom_18, custom_19, custom_20, custom_21, custom_23, custom_24, custom_25, custom_26];
 
 const Custom = () => {
   const { t } = useTranslation();
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < MOBILE_BREAKPOINT);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <div>
-      <ParallaxHero image={custom_01} alt="Custom design work" backgroundSize="75% auto">
+      <ParallaxHero image={custom_22} alt="Custom design work">
         <div className="shadow-lg" style={{
           backgroundColor: 'var(--textbox-bg)',
           padding: '20px',
@@ -96,10 +105,25 @@ const Custom = () => {
           >
             {t('custom.cta')}
           </a>
+
+          {/* Desktop: gallery inside textbox in 2 columns */}
+          {!isMobile && (
+            <div style={{ marginTop: '16px' }}>
+              <LightboxGallery
+                images={galleryImages}
+                altPrefix="Custom work"
+                noPadding
+                gridClassName="grid grid-cols-2 gap-3"
+              />
+            </div>
+          )}
         </div>
       </ParallaxHero>
 
-      <LightboxGallery images={galleryImages} altPrefix="Custom work" />
+      {/* Mobile: gallery outside textbox */}
+      {isMobile && (
+        <LightboxGallery images={galleryImages} altPrefix="Custom work" />
+      )}
     </div>
   );
 };

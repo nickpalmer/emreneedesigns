@@ -95,7 +95,7 @@ const Designs = () => {
 
   return (
     <div>
-      <ParallaxHero image={looks_05} alt="M. Renee Designs" backgroundSize="75% auto">
+      <ParallaxHero image={looks_05} alt="M. Renee Designs" objectPosition="center top" backgroundSize="75% auto">
         <div className="shadow-lg" style={textboxStyle}>
           <h1 className="text-2xl md:text-4xl font-bold">{t('designs.title')}</h1>
           <p className="text-base md:text-lg mt-2 italic">{t('designs.subtitle')}</p>
@@ -108,7 +108,7 @@ const Designs = () => {
 
         if (!hasImages) {
           return (
-            <div key={index} style={{ padding: '15px', maxWidth: '800px', margin: '0 auto' }}>
+            <div key={index} style={{ padding: '15px' }}>
               <div className="shadow-lg" style={textboxStyle}>
                 {section.titleKey && (
                   <p className="font-semibold text-sm md:text-base">{t(section.titleKey)}</p>
@@ -125,34 +125,33 @@ const Designs = () => {
         photoSectionCount++;
 
         return (
-          <div
-            key={index}
-            className={`flex flex-col ${isReversed ? 'md:flex-row-reverse' : 'md:flex-row'}`}
-            style={{ padding: '15px', gap: '15px', alignItems: 'flex-start' }}
-          >
-            <div className="w-full md:w-2/5">
-              <div className="shadow-lg" style={textboxStyle}>
-                {section.titleKey && (
-                  <p className="font-semibold text-sm md:text-base">{t(section.titleKey)}</p>
-                )}
-                <FormattedText className="text-sm md:text-base mt-1">
-                  {t(section.descriptionKey)}
-                </FormattedText>
+          <div key={index} style={{ padding: '15px' }}>
+            <div className="shadow-lg" style={textboxStyle}>
+              <div className={`flex flex-col ${isReversed ? 'md:flex-row-reverse' : 'md:flex-row'} gap-4`}>
+                <div className="w-full md:w-2/5">
+                  {section.titleKey && (
+                    <p className="font-semibold text-sm md:text-base">{t(section.titleKey)}</p>
+                  )}
+                  <FormattedText className="text-sm md:text-base mt-1">
+                    {t(section.descriptionKey)}
+                  </FormattedText>
+                </div>
+                <div className="w-full md:w-3/5">
+                  <LightboxGallery
+                    images={section.images}
+                    altPrefix={section.titleKey ? t(section.titleKey) : 'Design'}
+                    noPadding
+                    gridClassName="grid grid-cols-2 gap-3"
+                  />
+                </div>
               </div>
-            </div>
-            <div className="w-full md:w-3/5">
-              <LightboxGallery
-                images={section.images}
-                altPrefix={section.titleKey ? t(section.titleKey) : 'Design'}
-                noPadding
-              />
             </div>
           </div>
         );
       })}
 
       {/* Made to Order */}
-      <div style={{ padding: '15px', maxWidth: '800px', margin: '0 auto' }}>
+      <div style={{ padding: '15px' }}>
         <div className="shadow-lg" style={textboxStyle}>
           <p className="font-semibold text-sm md:text-base">{t('designs.madeToOrder.title')}</p>
           <FormattedText className="text-sm md:text-base mt-1">
