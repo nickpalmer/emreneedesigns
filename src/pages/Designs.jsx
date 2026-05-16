@@ -44,7 +44,7 @@ const sections = [
   {
     titleKey: 'designs.elvira.title',
     descriptionKey: 'designs.elvira.description',
-    images: [looks_17, looks_18, looks_19],
+    images: [looks_17, looks_18, looks_19, looks_20],
   },
   {
     titleKey: 'designs.queen.title',
@@ -79,7 +79,7 @@ const sections = [
   {
     titleKey: 'designs.halterTop.title',
     descriptionKey: 'designs.halterTop.description',
-    images: [looks_20, looks_21, looks_22, looks_23],
+    images: [looks_21, looks_22, looks_23],
   },
   {
     titleKey: 'designs.fringe.title',
