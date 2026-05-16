@@ -12,6 +12,15 @@ const Header = () => {
   const [isHovered, setIsHovered] = React.useState(false);
   const [isTouched, setIsTouched] = React.useState(false);
   const [lastScrollY, setLastScrollY] = React.useState(0);
+  const [lightboxOpen, setLightboxOpen] = React.useState(false);
+
+  React.useEffect(() => {
+    const observer = new MutationObserver(() => {
+      setLightboxOpen(document.documentElement.classList.contains('lightbox-open'));
+    });
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    return () => observer.disconnect();
+  }, []);
 
   const isActive = (path) => {
     return location.pathname === path;
@@ -37,7 +46,7 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [scrollDirection, isTouched, isHovered, lastScrollY]);
 
-  const isCompact = scrollDirection === "down" && !isHovered && !isTouched;
+  const isCompact = (scrollDirection === "down" && !isHovered && !isTouched) || lightboxOpen;
 
   return (
     <header

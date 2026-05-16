@@ -22,9 +22,11 @@ const LightboxGallery = ({ images, altPrefix = 'Gallery image', noPadding = fals
     };
     document.addEventListener('keydown', handleKey);
     document.body.style.overflow = 'hidden';
+    document.documentElement.classList.add('lightbox-open');
     return () => {
       document.removeEventListener('keydown', handleKey);
       document.body.style.overflow = '';
+      document.documentElement.classList.remove('lightbox-open');
     };
   }, [isOpen, close, prev, next]);
 
