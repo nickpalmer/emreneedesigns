@@ -40,7 +40,7 @@ const Designs = () => {
 
   return (
     <div>
-      <ParallaxHero image={looks_01} alt="M. Renee Designs">
+      <ParallaxHero image={looks_01} alt="M. Renee Designs" backgroundSize="75% auto">
         <div className="shadow-lg" style={{
           backgroundColor: 'var(--textbox-bg)',
           padding: '20px',

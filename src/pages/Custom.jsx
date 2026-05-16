@@ -37,7 +37,7 @@ const Custom = () => {
 
   return (
     <div>
-      <ParallaxHero image={custom_01} alt="Custom design work">
+      <ParallaxHero image={custom_01} alt="Custom design work" backgroundSize="75% auto">
         <div className="shadow-lg" style={{
           backgroundColor: 'var(--textbox-bg)',
           padding: '20px',
