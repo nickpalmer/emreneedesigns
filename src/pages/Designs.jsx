@@ -8,6 +8,11 @@ import looks_02 from '../assets/images/looks_02_queen3.jpg';
 import looks_03 from '../assets/images/looks_03_queen4.jpg';
 import looks_04 from '../assets/images/looks_04_vest-peplum.jpg';
 import looks_05 from '../assets/images/looks_05_deerhide.jpg';
+import custom_13 from '../assets/images/custom_13_fringe-qat.JPG';
+import custom_14 from '../assets/images/custom_14_fringe-qat2.JPG';
+import custom_17 from '../assets/images/custom_17_skirt-chocolate.JPG';
+import custom_18 from '../assets/images/custom_18_skirt-fringe1.JPG';
+import custom_19 from '../assets/images/custom_19_skirt-fringe4.JPG';
 import looks_06 from '../assets/images/looks_06_blonde.jpg';
 import looks_07 from '../assets/images/looks_07_bolero-pink-cloe.jpg';
 import looks_08 from '../assets/images/looks_08_bolerobustier-black.jpeg';
@@ -84,7 +89,7 @@ const sections = [
   {
     titleKey: 'designs.fringe.title',
     descriptionKey: 'designs.fringe.description',
-    images: [],
+    images: [custom_13, custom_14, custom_17, custom_18, custom_19],
   },
 ];
 
