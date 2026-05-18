@@ -36,7 +36,7 @@ const About = () => {
 
   return (
     <div>
-      <ParallaxHero image={about_header} alt="Emily Renee">
+      <ParallaxHero image={about_header} alt="Emily Renee" mobilePosition="left top">
         <div className="shadow-lg" style={{
           backgroundColor: 'var(--textbox-bg)',
           padding: '20px',

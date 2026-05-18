@@ -43,7 +43,7 @@ const Home = () => {
 
   return (
     <div>
-      <ParallaxHero image={home_01} alt="M. Renee Designs Fashion">
+      <ParallaxHero image={home_01} alt="M. Renee Designs Fashion" mobilePosition="right top">
         <div className="shadow-lg" style={textboxStyle}>
           <h1 className="text-3xl md:text-5xl font-bold">{t('home.hero.title')}</h1>
           <h2 className="text-xl md:text-2xl font-semibold mt-2">{t('home.hero.subtitle')}</h2>
