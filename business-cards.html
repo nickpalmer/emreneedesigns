@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M. Renee Designs - Business Cards</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --brown-dark: #833921;
+    --brown-light: #B86125;
+    --teal: #2d798c;
+    --dark-teal: #053c3d;
+    --cream: #fcf7f0;
+    --warm-white: #f8f5f0;
+    --olive-dark: #3D441E;
+    --olive-light: #4E5B31;
+  }
+
+  body {
+    font-family: 'EB Garamond', Georgia, serif;
+    background: #e0e0e0;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  @page {
+    size: 8.5in 11in;
+    margin: 0;
+  }
+
+  /* ===== SHEET LAYOUT ===== */
+  .sheet {
+    width: 8.5in;
+    height: 11in;
+    background: white;
+    position: relative;
+    margin: 0 auto;
+    page-break-after: always;
+    overflow: hidden;
+  }
+
+  .sheet:last-child {
+    page-break-after: auto;
+  }
+
+  /* Card grid: 2 columns x 5 rows, centered on sheet */
+  /* Card size: 3.5in x 2in */
+  /* Grid: 7in wide x 10in tall */
+  /* Margins: 0.75in left/right, 0.5in top/bottom */
+  .card-grid {
+    position: absolute;
+    top: 0.5in;
+    left: 0.75in;
+    width: 7in;
+    height: 10in;
+    display: grid;
+    grid-template-columns: 3.5in 3.5in;
+    grid-template-rows: repeat(5, 2in);
+  }
+
+  /* ===== CUT MARKS ===== */
+  .cut-marks {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+  }
+
+  .cut-mark {
+    position: absolute;
+    background: #000;
+  }
+
+  /* Horizontal marks (along top and bottom of each row) */
+  .cut-h {
+    width: 0.25in;
+    height: 0.5px;
+  }
+
+  /* Vertical marks (along left and right of each column) */
+  .cut-v {
+    width: 0.5px;
+    height: 0.25in;
+  }
+
+  /* Left edge horizontal marks */
+  .cut-h.left { left: 0.4in; }
+  /* Right edge horizontal marks */
+  .cut-h.right { right: 0.4in; }
+  /* Center horizontal marks (between columns) — left side */
+  .cut-h.center-l { left: calc(0.75in + 3.5in - 0.1in); width: 0.1in; }
+  /* Center horizontal marks (between columns) — right side */
+  .cut-h.center-r { left: calc(0.75in + 3.5in); width: 0.1in; }
+
+  /* Top edge vertical marks */
+  .cut-v.top { top: 0.15in; }
+  /* Bottom edge vertical marks */
+  .cut-v.bottom { bottom: 0.15in; }
+  /* Center vertical marks (between rows) — top */
+  /* These are generated dynamically */
+
+  /* Row positions for horizontal marks */
+  .row-0 { top: calc(0.5in); }
+  .row-1 { top: calc(0.5in + 2in); }
+  .row-2 { top: calc(0.5in + 4in); }
+  .row-3 { top: calc(0.5in + 6in); }
+  .row-4 { top: calc(0.5in + 8in); }
+  .row-5 { top: calc(0.5in + 10in); }
+
+  /* Column positions for vertical marks */
+  .col-0 { left: calc(0.75in); }
+  .col-1 { left: calc(0.75in + 3.5in); }
+  .col-2 { left: calc(0.75in + 7in); }
+
+  /* ===== CARD BASE ===== */
+  .card {
+    width: 3.5in;
+    height: 2in;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ===== FRONT CARD DESIGN ===== */
+  .card-front {
+    display: flex;
+    background: white;
+  }
+
+  .card-front-photo {
+    width: 1.3in;
+    height: 2in;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .card-front-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 15%;
+  }
+
+  .card-front-content {
+    flex: 1;
+    padding: 0.18in 0.2in 0.15in 0.18in;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .card-front-content::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.15in;
+    bottom: 0.15in;
+    width: 1.5px;
+    background: linear-gradient(to bottom, transparent, var(--brown-light), transparent);
+  }
+
+  .card-front-top {
+    text-align: left;
+    padding-left: 0.08in;
+  }
+
+  .card-brand {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 10pt;
+    color: var(--brown-dark);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    line-height: 1.15;
+  }
+
+  .card-brand span {
+    display: block;
+    font-size: 12pt;
+    letter-spacing: 0.06em;
+  }
+
+  .card-designer {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 8pt;
+    color: var(--olive-dark);
+    margin-top: 0.04in;
+    font-style: italic;
+  }
+
+  .card-tagline {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 6pt;
+    color: var(--brown-light);
+    letter-spacing: 0.08em;
+    font-style: italic;
+    margin-top: 0.03in;
+  }
+
+  .card-front-bottom {
+    padding-left: 0.08in;
+  }
+
+  .card-contact-line {
+    font-size: 6.5pt;
+    color: var(--dark-teal);
+    line-height: 1.55;
+  }
+
+  .card-contact-line.email {
+    font-weight: 600;
+    color: var(--brown-dark);
+    font-size: 7pt;
+  }
+
+  .card-social {
+    font-size: 6pt;
+    color: var(--teal);
+    margin-top: 0.02in;
+    letter-spacing: 0.03em;
+  }
+
+  .card-accent-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2.5px;
+    background: linear-gradient(to right, var(--brown-light), var(--teal));
+  }
+
+  /* ===== BACK CARD DESIGN ===== */
+  .card-back {
+    background: var(--dark-teal);
+    color: white;
+    display: flex;
+    position: relative;
+  }
+
+  .card-back-photo {
+    width: 1.3in;
+    height: 2in;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .card-back-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+  }
+
+  .card-back-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0.12in 0.15in;
+    position: relative;
+  }
+
+  .card-back-content::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.15in;
+    bottom: 0.15in;
+    width: 1.5px;
+    background: linear-gradient(to bottom, transparent, var(--brown-light), transparent);
+  }
+
+  .card-back-accent-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2.5px;
+    background: linear-gradient(to right, var(--teal), var(--brown-light));
+  }
+
+  .card-back-accent-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2.5px;
+    background: linear-gradient(to right, var(--brown-light), var(--teal));
+  }
+
+  .card-back-brand {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 10pt;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--cream);
+    line-height: 1.15;
+    margin-bottom: 0.06in;
+  }
+
+  .card-back-brand span {
+    display: block;
+    font-size: 12pt;
+    letter-spacing: 0.06em;
+  }
+
+  .card-back-divider {
+    width: 1.2in;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--brown-light), transparent);
+    margin: 0.04in auto;
+  }
+
+  .card-back-tagline {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-style: italic;
+    font-size: 7pt;
+    color: rgba(255,255,255,0.8);
+    letter-spacing: 0.06em;
+    margin-bottom: 0.06in;
+  }
+
+  .card-back-collection {
+    font-size: 6pt;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.6;
+    letter-spacing: 0.03em;
+  }
+
+  .card-back-collection strong {
+    color: var(--brown-light);
+    font-weight: 600;
+  }
+
+  .card-back-materials {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 6.5pt;
+    font-style: italic;
+    color: rgba(255,255,255,0.6);
+    margin-top: 0.06in;
+    letter-spacing: 0.04em;
+  }
+
+  .card-back-motto {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 6.5pt;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.5);
+    margin-top: 0.06in;
+    text-transform: uppercase;
+  }
+
+  /* ===== SCREEN HELPERS ===== */
+  .sheet-label {
+    text-align: center;
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 11pt;
+    color: #888;
+    margin: 10px auto 6px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  @media print {
+    body { background: white; }
+    .sheet-label { display: none; }
+    .sheet { box-shadow: none; }
+  }
+
+  @media screen {
+    .sheet {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      margin-top: 10px;
+      margin-bottom: 30px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ==========================================
+     SHEET 1 — FRONT OF CARDS
+     ========================================== -->
+<p class="sheet-label">Sheet 1 &mdash; Card Fronts</p>
+<div class="sheet" id="sheet-fronts">
+
+  <!-- Cut marks -->
+  <div class="cut-marks">
+    <!-- Horizontal marks — left edge -->
+    <div class="cut-mark cut-h left row-0"></div>
+    <div class="cut-mark cut-h left row-1"></div>
+    <div class="cut-mark cut-h left row-2"></div>
+    <div class="cut-mark cut-h left row-3"></div>
+    <div class="cut-mark cut-h left row-4"></div>
+    <div class="cut-mark cut-h left row-5"></div>
+    <!-- Horizontal marks — right edge -->
+    <div class="cut-mark cut-h right row-0"></div>
+    <div class="cut-mark cut-h right row-1"></div>
+    <div class="cut-mark cut-h right row-2"></div>
+    <div class="cut-mark cut-h right row-3"></div>
+    <div class="cut-mark cut-h right row-4"></div>
+    <div class="cut-mark cut-h right row-5"></div>
+    <!-- Horizontal marks — center (between columns) -->
+    <div class="cut-mark cut-h center-l row-0"></div>
+    <div class="cut-mark cut-h center-r row-0"></div>
+    <div class="cut-mark cut-h center-l row-1"></div>
+    <div class="cut-mark cut-h center-r row-1"></div>
+    <div class="cut-mark cut-h center-l row-2"></div>
+    <div class="cut-mark cut-h center-r row-2"></div>
+    <div class="cut-mark cut-h center-l row-3"></div>
+    <div class="cut-mark cut-h center-r row-3"></div>
+    <div class="cut-mark cut-h center-l row-4"></div>
+    <div class="cut-mark cut-h center-r row-4"></div>
+    <div class="cut-mark cut-h center-l row-5"></div>
+    <div class="cut-mark cut-h center-r row-5"></div>
+    <!-- Vertical marks — top edge -->
+    <div class="cut-mark cut-v top col-0"></div>
+    <div class="cut-mark cut-v top col-1"></div>
+    <div class="cut-mark cut-v top col-2"></div>
+    <!-- Vertical marks — bottom edge -->
+    <div class="cut-mark cut-v bottom col-0"></div>
+    <div class="cut-mark cut-v bottom col-1"></div>
+    <div class="cut-mark cut-v bottom col-2"></div>
+  </div>
+
+  <div class="card-grid">
+    <!-- Row 1 -->
+    <div class="card card-front">
+      <div class="card-front-photo">
+        <img src="brochure-images/about_03_headshot-brown.JPG" alt="Emily Renee Smith">
+      </div>
+      <div class="card-front-content">
+        <div class="card-front-top">
+          <div class="card-brand">M. Renee<br><span>Designs</span></div>
+          <div class="card-designer">Emily Renee Smith, Designer</div>
+          <div class="card-tagline">Handcrafted Leather Fashion</div>
+        </div>
+        <div class="card-front-bottom">
+          <div class="card-contact-line email">emily@mReneeDesigns.com</div>
+          <div class="card-contact-line">(504) 383-5044</div>
+          <div class="card-contact-line">Houston Heights &bull; By Appointment</div>
+          <div class="card-social">@mrenee_designs &ensp;|&ensp; mreneedesigns.com</div>
+        </div>
+        <div class="card-accent-bottom"></div>
+      </div>
+    </div>
+    <div class="card card-front">
+      <div class="card-front-photo">
+        <img src="brochure-images/about_03_headshot-brown.JPG" alt="Emily Renee Smith">
+      </div>
+      <div class="card-front-content">
+        <div class="card-front-top">
+          <div class="card-brand">M. Renee<br><span>Designs</span></div>
+          <div class="card-designer">Emily Renee Smith, Designer</div>
+          <div class="card-tagline">Handcrafted Leather Fashion</div>
+        </div>
+        <div class="card-front-bottom">
+          <div class="card-contact-line email">emily@mReneeDesigns.com</div>
+          <div class="card-contact-line">(504) 383-5044</div>
+          <div class="card-contact-line">Houston Heights &bull; By Appointment</div>
+          <div class="card-social">@mrenee_designs &ensp;|&ensp; mreneedesigns.com</div>
+        </div>
+        <div class="card-accent-bottom"></div>
+      </div>
+    </div>
+    <!-- Row 2 -->
+    <div class="card card-front">
+      <div class="card-front-photo">
+        <img src="brochure-images/about_03_headshot-brown.JPG" alt="Emily Renee Smith">
+      </div>
+      <div class="card-front-content">
+        <div class="card-front-top">
+          <div class="card-brand">M. Renee<br><span>Designs</span></div>
+          <div class="card-designer">Emily Renee Smith, Designer</div>
+          <div class="card-tagline">Handcrafted Leather Fashion</div>
+        </div>
+        <div class="card-front-bottom">
+          <div class="card-contact-line email">emily@mReneeDesigns.com</div>
+          <div class="card-contact-line">(504) 383-5044</div>
+          <div class="card-contact-line">Houston Heights &bull; By Appointment</div>
+          <div class="card-social">@mrenee_designs &ensp;|&ensp; mreneedesigns.com</div>
+        </div>
+        <div class="card-accent-bottom"></div>
+      </div>
+    </div>
+    <div class="card card-front">
+      <div class="card-front-photo">
+        <img src="brochure-images/about_03_headshot-brown.JPG" alt="Emily Renee Smith">
+      </div>
+      <div class="card-front-content">
+        <div class="card-front-top">
+          <div class="card-brand">M. Renee<br><span>Designs</span></div>
+          <div class="card-designer">Emily Renee Smith, Designer</div>
+          <div class="card-tagline">Handcrafted Leather Fashion</div>
+        </div>
+        <div class="card-front-bottom">
+          <div class="card-contact-line email">emily@mReneeDesigns.com</div>
+          <div class="card-contact-line">(504) 383-5044</div>
+          <div class="card-contact-line">Houston Heights &bull; By Appointment</div>
+          <div class="card-social">@mrenee_designs &ensp;|&ensp; mreneedesigns.com</div>
+        </div>
+        <div class="card-accent-bottom"></div>
+      </div>
+    </div>
+    <!-- Row 3 -->
+    <div class="card card-front">
+      <div class="card-front-photo">
+        <img src="brochure-images/about_03_headshot-brown.JPG" alt="Emily Renee Smith">
+      </div>
+      <div class="card-front-content">
+        <div class="card-front-top">
+          <div class="card-brand">M. Renee<br><span>Designs</span></div>
+          <div class="card-designer">Emily Renee Smith, Designer</div>
+          <div class="card-tagline">Handcrafted Leather Fashion</div>
+        </div>
+        <div class="card-front-bottom">
+          <div class="card-contact-line email">emily@mReneeDesigns.com</div>
+          <div class="card-contact-line">(504) 383-5044</div>
+          <div class="card-contact-line">Houston Heights &bull; By Appointment</div>
+          <div class="card-social">@mrenee_designs &ensp;|&ensp; mreneedesigns.com</div>
+        </div>
+        <div class="card-accent-bottom"></div>
+      </div>
+    </div>
+    <div class="card card-front">
+      <div class="card-front-photo">
+        <img src="brochure-images/about_03_headshot-brown.JPG" alt="Emily Renee Smith">
+      </div>
+      <div class="card-front-content">
+        <div class="card-front-top">
+          <div class="card-brand">M. Renee<br><span>Designs</span></div>
+          <div class="card-designer">Emily Renee Smith, Designer</div>
+          <div class="card-tagline">Handcrafted Leather Fashion</div>
+        </div>
+        <div class="card-front-bottom">
+          <div class="card-contact-line email">emily@mReneeDesigns.com</div>
+          <div class="card-contact-line">(504) 383-5044</div>
+          <div class="card-contact-line">Houston Heights &bull; By Appointment</div>
+          <div class="card-social">@mrenee_designs &ensp;|&ensp; mreneedesigns.com</div>
+        </div>
+        <div class="card-accent-bottom"></div>
+      </div>
+    </div>
+    <!-- Row 4 -->
+    <div class="card card-front">
+      <div class="card-front-photo">
+        <img src="brochure-images/about_03_headshot-brown.JPG" alt="Emily Renee Smith">
+      </div>
+      <div class="card-front-content">
+        <div class="card-front-top">
+          <div class="card-brand">M. Renee<br><span>Designs</span></div>
+          <div class="card-designer">Emily Renee Smith, Designer</div>
+          <div class="card-tagline">Handcrafted Leather Fashion</div>
+        </div>
+        <div class="card-front-bottom">
+          <div class="card-contact-line email">emily@mReneeDesigns.com</div>
+          <div class="card-contact-line">(504) 383-5044</div>
+          <div class="card-contact-line">Houston Heights &bull; By Appointment</div>
+          <div class="card-social">@mrenee_designs &ensp;|&ensp; mreneedesigns.com</div>
+        </div>
+        <div class="card-accent-bottom"></div>
+      </div>
+    </div>
+    <div class="card card-front">
+      <div class="card-front-photo">
+        <img src="brochure-images/about_03_headshot-brown.JPG" alt="Emily Renee Smith">
+      </div>
+      <div class="card-front-content">
+        <div class="card-front-top">
+          <div class="card-brand">M. Renee<br><span>Designs</span></div>
+          <div class="card-designer">Emily Renee Smith, Designer</div>
+          <div class="card-tagline">Handcrafted Leather Fashion</div>
+        </div>
+        <div class="card-front-bottom">
+          <div class="card-contact-line email">emily@mReneeDesigns.com</div>
+          <div class="card-contact-line">(504) 383-5044</div>
+          <div class="card-contact-line">Houston Heights &bull; By Appointment</div>
+          <div class="card-social">@mrenee_designs &ensp;|&ensp; mreneedesigns.com</div>
+        </div>
+        <div class="card-accent-bottom"></div>
+      </div>
+    </div>
+    <!-- Row 5 -->
+    <div class="card card-front">
+      <div class="card-front-photo">
+        <img src="brochure-images/about_03_headshot-brown.JPG" alt="Emily Renee Smith">
+      </div>
+      <div class="card-front-content">
+        <div class="card-front-top">
+          <div class="card-brand">M. Renee<br><span>Designs</span></div>
+          <div class="card-designer">Emily Renee Smith, Designer</div>
+          <div class="card-tagline">Handcrafted Leather Fashion</div>
+        </div>
+        <div class="card-front-bottom">
+          <div class="card-contact-line email">emily@mReneeDesigns.com</div>
+          <div class="card-contact-line">(504) 383-5044</div>
+          <div class="card-contact-line">Houston Heights &bull; By Appointment</div>
+          <div class="card-social">@mrenee_designs &ensp;|&ensp; mreneedesigns.com</div>
+        </div>
+        <div class="card-accent-bottom"></div>
+      </div>
+    </div>
+    <div class="card card-front">
+      <div class="card-front-photo">
+        <img src="brochure-images/about_03_headshot-brown.JPG" alt="Emily Renee Smith">
+      </div>
+      <div class="card-front-content">
+        <div class="card-front-top">
+          <div class="card-brand">M. Renee<br><span>Designs</span></div>
+          <div class="card-designer">Emily Renee Smith, Designer</div>
+          <div class="card-tagline">Handcrafted Leather Fashion</div>
+        </div>
+        <div class="card-front-bottom">
+          <div class="card-contact-line email">emily@mReneeDesigns.com</div>
+          <div class="card-contact-line">(504) 383-5044</div>
+          <div class="card-contact-line">Houston Heights &bull; By Appointment</div>
+          <div class="card-social">@mrenee_designs &ensp;|&ensp; mreneedesigns.com</div>
+        </div>
+        <div class="card-accent-bottom"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ==========================================
+     SHEET 2 — BACK OF CARDS
+     Column order is mirrored for double-sided printing
+     (flip on long edge: left↔right swap)
+     ========================================== -->
+<p class="sheet-label">Sheet 2 &mdash; Card Backs (mirrored for duplex)</p>
+<div class="sheet" id="sheet-backs">
+
+  <!-- Cut marks (same positions) -->
+  <div class="cut-marks">
+    <div class="cut-mark cut-h left row-0"></div>
+    <div class="cut-mark cut-h left row-1"></div>
+    <div class="cut-mark cut-h left row-2"></div>
+    <div class="cut-mark cut-h left row-3"></div>
+    <div class="cut-mark cut-h left row-4"></div>
+    <div class="cut-mark cut-h left row-5"></div>
+    <div class="cut-mark cut-h right row-0"></div>
+    <div class="cut-mark cut-h right row-1"></div>
+    <div class="cut-mark cut-h right row-2"></div>
+    <div class="cut-mark cut-h right row-3"></div>
+    <div class="cut-mark cut-h right row-4"></div>
+    <div class="cut-mark cut-h right row-5"></div>
+    <div class="cut-mark cut-h center-l row-0"></div>
+    <div class="cut-mark cut-h center-r row-0"></div>
+    <div class="cut-mark cut-h center-l row-1"></div>
+    <div class="cut-mark cut-h center-r row-1"></div>
+    <div class="cut-mark cut-h center-l row-2"></div>
+    <div class="cut-mark cut-h center-r row-2"></div>
+    <div class="cut-mark cut-h center-l row-3"></div>
+    <div class="cut-mark cut-h center-r row-3"></div>
+    <div class="cut-mark cut-h center-l row-4"></div>
+    <div class="cut-mark cut-h center-r row-4"></div>
+    <div class="cut-mark cut-h center-l row-5"></div>
+    <div class="cut-mark cut-h center-r row-5"></div>
+    <div class="cut-mark cut-v top col-0"></div>
+    <div class="cut-mark cut-v top col-1"></div>
+    <div class="cut-mark cut-v top col-2"></div>
+    <div class="cut-mark cut-v bottom col-0"></div>
+    <div class="cut-mark cut-v bottom col-1"></div>
+    <div class="cut-mark cut-v bottom col-2"></div>
+  </div>
+
+  <div class="card-grid">
+    <!-- 10 identical backs, same grid positions -->
+    <div class="card card-back">
+      <div class="card-back-photo">
+        <img src="brochure-images/looks_02_queen3.jpg" alt="Queen Coat">
+      </div>
+      <div class="card-back-content">
+        <div class="card-back-brand">M. Renee<br><span>Designs</span></div>
+        <div class="card-back-divider"></div>
+        <div class="card-back-tagline">Refined. Natural. Fantastical.</div>
+        <div class="card-back-collection">
+          <strong>Queen Coats</strong> &ensp;&bull;&ensp; <strong>Elvira Jackets</strong><br>
+          <strong>Halter Dresses</strong> &ensp;&bull;&ensp; <strong>Peplum Vests</strong><br>
+          <strong>Deerhide Skirts</strong> &ensp;&bull;&ensp; <strong>Custom Bespoke</strong>
+        </div>
+        <div class="card-back-materials">Wild-sourced deer &amp; elk &ensp;&bull;&ensp; Full grain leather</div>
+        <div class="card-back-motto">Est. 2014 &ensp;&middot;&ensp; Houston, Texas</div>
+      </div>
+      <div class="card-back-accent-top"></div>
+      <div class="card-back-accent-bottom"></div>
+    </div>
+    <div class="card card-back">
+      <div class="card-back-photo">
+        <img src="brochure-images/looks_02_queen3.jpg" alt="Queen Coat">
+      </div>
+      <div class="card-back-content">
+        <div class="card-back-brand">M. Renee<br><span>Designs</span></div>
+        <div class="card-back-divider"></div>
+        <div class="card-back-tagline">Refined. Natural. Fantastical.</div>
+        <div class="card-back-collection">
+          <strong>Queen Coats</strong> &ensp;&bull;&ensp; <strong>Elvira Jackets</strong><br>
+          <strong>Halter Dresses</strong> &ensp;&bull;&ensp; <strong>Peplum Vests</strong><br>
+          <strong>Deerhide Skirts</strong> &ensp;&bull;&ensp; <strong>Custom Bespoke</strong>
+        </div>
+        <div class="card-back-materials">Wild-sourced deer &amp; elk &ensp;&bull;&ensp; Full grain leather</div>
+        <div class="card-back-motto">Est. 2014 &ensp;&middot;&ensp; Houston, Texas</div>
+      </div>
+      <div class="card-back-accent-top"></div>
+      <div class="card-back-accent-bottom"></div>
+    </div>
+    <div class="card card-back">
+      <div class="card-back-photo">
+        <img src="brochure-images/looks_02_queen3.jpg" alt="Queen Coat">
+      </div>
+      <div class="card-back-content">
+        <div class="card-back-brand">M. Renee<br><span>Designs</span></div>
+        <div class="card-back-divider"></div>
+        <div class="card-back-tagline">Refined. Natural. Fantastical.</div>
+        <div class="card-back-collection">
+          <strong>Queen Coats</strong> &ensp;&bull;&ensp; <strong>Elvira Jackets</strong><br>
+          <strong>Halter Dresses</strong> &ensp;&bull;&ensp; <strong>Peplum Vests</strong><br>
+          <strong>Deerhide Skirts</strong> &ensp;&bull;&ensp; <strong>Custom Bespoke</strong>
+        </div>
+        <div class="card-back-materials">Wild-sourced deer &amp; elk &ensp;&bull;&ensp; Full grain leather</div>
+        <div class="card-back-motto">Est. 2014 &ensp;&middot;&ensp; Houston, Texas</div>
+      </div>
+      <div class="card-back-accent-top"></div>
+      <div class="card-back-accent-bottom"></div>
+    </div>
+    <div class="card card-back">
+      <div class="card-back-photo">
+        <img src="brochure-images/looks_02_queen3.jpg" alt="Queen Coat">
+      </div>
+      <div class="card-back-content">
+        <div class="card-back-brand">M. Renee<br><span>Designs</span></div>
+        <div class="card-back-divider"></div>
+        <div class="card-back-tagline">Refined. Natural. Fantastical.</div>
+        <div class="card-back-collection">
+          <strong>Queen Coats</strong> &ensp;&bull;&ensp; <strong>Elvira Jackets</strong><br>
+          <strong>Halter Dresses</strong> &ensp;&bull;&ensp; <strong>Peplum Vests</strong><br>
+          <strong>Deerhide Skirts</strong> &ensp;&bull;&ensp; <strong>Custom Bespoke</strong>
+        </div>
+        <div class="card-back-materials">Wild-sourced deer &amp; elk &ensp;&bull;&ensp; Full grain leather</div>
+        <div class="card-back-motto">Est. 2014 &ensp;&middot;&ensp; Houston, Texas</div>
+      </div>
+      <div class="card-back-accent-top"></div>
+      <div class="card-back-accent-bottom"></div>
+    </div>
+    <div class="card card-back">
+      <div class="card-back-photo">
+        <img src="brochure-images/looks_02_queen3.jpg" alt="Queen Coat">
+      </div>
+      <div class="card-back-content">
+        <div class="card-back-brand">M. Renee<br><span>Designs</span></div>
+        <div class="card-back-divider"></div>
+        <div class="card-back-tagline">Refined. Natural. Fantastical.</div>
+        <div class="card-back-collection">
+          <strong>Queen Coats</strong> &ensp;&bull;&ensp; <strong>Elvira Jackets</strong><br>
+          <strong>Halter Dresses</strong> &ensp;&bull;&ensp; <strong>Peplum Vests</strong><br>
+          <strong>Deerhide Skirts</strong> &ensp;&bull;&ensp; <strong>Custom Bespoke</strong>
+        </div>
+        <div class="card-back-materials">Wild-sourced deer &amp; elk &ensp;&bull;&ensp; Full grain leather</div>
+        <div class="card-back-motto">Est. 2014 &ensp;&middot;&ensp; Houston, Texas</div>
+      </div>
+      <div class="card-back-accent-top"></div>
+      <div class="card-back-accent-bottom"></div>
+    </div>
+    <div class="card card-back">
+      <div class="card-back-photo">
+        <img src="brochure-images/looks_02_queen3.jpg" alt="Queen Coat">
+      </div>
+      <div class="card-back-content">
+        <div class="card-back-brand">M. Renee<br><span>Designs</span></div>
+        <div class="card-back-divider"></div>
+        <div class="card-back-tagline">Refined. Natural. Fantastical.</div>
+        <div class="card-back-collection">
+          <strong>Queen Coats</strong> &ensp;&bull;&ensp; <strong>Elvira Jackets</strong><br>
+          <strong>Halter Dresses</strong> &ensp;&bull;&ensp; <strong>Peplum Vests</strong><br>
+          <strong>Deerhide Skirts</strong> &ensp;&bull;&ensp; <strong>Custom Bespoke</strong>
+        </div>
+        <div class="card-back-materials">Wild-sourced deer &amp; elk &ensp;&bull;&ensp; Full grain leather</div>
+        <div class="card-back-motto">Est. 2014 &ensp;&middot;&ensp; Houston, Texas</div>
+      </div>
+      <div class="card-back-accent-top"></div>
+      <div class="card-back-accent-bottom"></div>
+    </div>
+    <div class="card card-back">
+      <div class="card-back-photo">
+        <img src="brochure-images/looks_02_queen3.jpg" alt="Queen Coat">
+      </div>
+      <div class="card-back-content">
+        <div class="card-back-brand">M. Renee<br><span>Designs</span></div>
+        <div class="card-back-divider"></div>
+        <div class="card-back-tagline">Refined. Natural. Fantastical.</div>
+        <div class="card-back-collection">
+          <strong>Queen Coats</strong> &ensp;&bull;&ensp; <strong>Elvira Jackets</strong><br>
+          <strong>Halter Dresses</strong> &ensp;&bull;&ensp; <strong>Peplum Vests</strong><br>
+          <strong>Deerhide Skirts</strong> &ensp;&bull;&ensp; <strong>Custom Bespoke</strong>
+        </div>
+        <div class="card-back-materials">Wild-sourced deer &amp; elk &ensp;&bull;&ensp; Full grain leather</div>
+        <div class="card-back-motto">Est. 2014 &ensp;&middot;&ensp; Houston, Texas</div>
+      </div>
+      <div class="card-back-accent-top"></div>
+      <div class="card-back-accent-bottom"></div>
+    </div>
+    <div class="card card-back">
+      <div class="card-back-photo">
+        <img src="brochure-images/looks_02_queen3.jpg" alt="Queen Coat">
+      </div>
+      <div class="card-back-content">
+        <div class="card-back-brand">M. Renee<br><span>Designs</span></div>
+        <div class="card-back-divider"></div>
+        <div class="card-back-tagline">Refined. Natural. Fantastical.</div>
+        <div class="card-back-collection">
+          <strong>Queen Coats</strong> &ensp;&bull;&ensp; <strong>Elvira Jackets</strong><br>
+          <strong>Halter Dresses</strong> &ensp;&bull;&ensp; <strong>Peplum Vests</strong><br>
+          <strong>Deerhide Skirts</strong> &ensp;&bull;&ensp; <strong>Custom Bespoke</strong>
+        </div>
+        <div class="card-back-materials">Wild-sourced deer &amp; elk &ensp;&bull;&ensp; Full grain leather</div>
+        <div class="card-back-motto">Est. 2014 &ensp;&middot;&ensp; Houston, Texas</div>
+      </div>
+      <div class="card-back-accent-top"></div>
+      <div class="card-back-accent-bottom"></div>
+    </div>
+    <div class="card card-back">
+      <div class="card-back-photo">
+        <img src="brochure-images/looks_02_queen3.jpg" alt="Queen Coat">
+      </div>
+      <div class="card-back-content">
+        <div class="card-back-brand">M. Renee<br><span>Designs</span></div>
+        <div class="card-back-divider"></div>
+        <div class="card-back-tagline">Refined. Natural. Fantastical.</div>
+        <div class="card-back-collection">
+          <strong>Queen Coats</strong> &ensp;&bull;&ensp; <strong>Elvira Jackets</strong><br>
+          <strong>Halter Dresses</strong> &ensp;&bull;&ensp; <strong>Peplum Vests</strong><br>
+          <strong>Deerhide Skirts</strong> &ensp;&bull;&ensp; <strong>Custom Bespoke</strong>
+        </div>
+        <div class="card-back-materials">Wild-sourced deer &amp; elk &ensp;&bull;&ensp; Full grain leather</div>
+        <div class="card-back-motto">Est. 2014 &ensp;&middot;&ensp; Houston, Texas</div>
+      </div>
+      <div class="card-back-accent-top"></div>
+      <div class="card-back-accent-bottom"></div>
+    </div>
+    <div class="card card-back">
+      <div class="card-back-photo">
+        <img src="brochure-images/looks_02_queen3.jpg" alt="Queen Coat">
+      </div>
+      <div class="card-back-content">
+        <div class="card-back-brand">M. Renee<br><span>Designs</span></div>
+        <div class="card-back-divider"></div>
+        <div class="card-back-tagline">Refined. Natural. Fantastical.</div>
+        <div class="card-back-collection">
+          <strong>Queen Coats</strong> &ensp;&bull;&ensp; <strong>Elvira Jackets</strong><br>
+          <strong>Halter Dresses</strong> &ensp;&bull;&ensp; <strong>Peplum Vests</strong><br>
+          <strong>Deerhide Skirts</strong> &ensp;&bull;&ensp; <strong>Custom Bespoke</strong>
+        </div>
+        <div class="card-back-materials">Wild-sourced deer &amp; elk &ensp;&bull;&ensp; Full grain leather</div>
+        <div class="card-back-motto">Est. 2014 &ensp;&middot;&ensp; Houston, Texas</div>
+      </div>
+      <div class="card-back-accent-top"></div>
+      <div class="card-back-accent-bottom"></div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
