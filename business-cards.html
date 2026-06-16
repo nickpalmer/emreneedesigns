@@ -171,7 +171,7 @@
 
   .card-brand {
     font-family: 'Libre Baskerville', Georgia, serif;
-    font-size: 10pt;
+    font-size: 13pt;
     color: var(--brown-dark);
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -180,13 +180,13 @@
 
   .card-brand span {
     display: block;
-    font-size: 12pt;
+    font-size: 15pt;
     letter-spacing: 0.06em;
   }
 
   .card-designer {
     font-family: 'EB Garamond', Georgia, serif;
-    font-size: 8pt;
+    font-size: 11pt;
     color: var(--olive-dark);
     margin-top: 0.04in;
     font-style: italic;
@@ -194,9 +194,9 @@
 
   .card-tagline {
     font-family: 'Libre Baskerville', Georgia, serif;
-    font-size: 6pt;
-    color: var(--brown-light);
-    letter-spacing: 0.08em;
+    font-size: 6.5pt;
+    color: var(--olive-dark);
+    letter-spacing: 0.06em;
     font-style: italic;
     margin-top: 0.03in;
   }
@@ -206,20 +206,24 @@
   }
 
   .card-contact-line {
-    font-size: 6.5pt;
+    font-size: 9pt;
     color: var(--dark-teal);
-    line-height: 1.55;
+    line-height: 1.5;
   }
 
   .card-contact-line.email {
     font-weight: 600;
-    color: var(--brown-dark);
-    font-size: 7pt;
+    color: var(--dark-teal);
+    font-size: 9pt;
+  }
+
+  .card-contact-sm {
+    font-size: 7.5pt;
   }
 
   .card-social {
-    font-size: 6pt;
-    color: var(--teal);
+    font-size: 7.5pt;
+    color: var(--dark-teal);
     margin-top: 0.02in;
     letter-spacing: 0.03em;
   }
@@ -262,7 +266,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 0.12in 0.15in;
+    padding: 0.1in 0.12in;
     position: relative;
   }
 
@@ -296,64 +300,62 @@
 
   .card-back-brand {
     font-family: 'Libre Baskerville', Georgia, serif;
-    font-size: 10pt;
-    letter-spacing: 0.12em;
+    font-size: 8pt;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--cream);
+    color: rgba(255,255,255,0.9);
     line-height: 1.15;
     margin-bottom: 0.06in;
   }
 
-  .card-back-brand span {
-    display: block;
-    font-size: 12pt;
-    letter-spacing: 0.06em;
-  }
-
   .card-back-divider {
-    width: 1.2in;
-    height: 1px;
-    background: linear-gradient(to right, transparent, var(--brown-light), transparent);
-    margin: 0.04in auto;
+    display: none;
   }
 
   .card-back-tagline {
     font-family: 'Libre Baskerville', Georgia, serif;
-    font-style: italic;
-    font-size: 7pt;
-    color: rgba(255,255,255,0.8);
+    font-size: 8.5pt;
+    color: rgba(255,255,255,0.9);
     letter-spacing: 0.06em;
     margin-bottom: 0.06in;
   }
 
   .card-back-collection {
-    font-size: 6pt;
-    color: rgba(255,255,255,0.7);
-    line-height: 1.6;
-    letter-spacing: 0.03em;
+    color: rgba(255,255,255,0.85);
+    font-size: 7pt;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    font-family: 'Libre Baskerville', Georgia, serif;
   }
 
   .card-back-collection strong {
-    color: var(--brown-light);
-    font-weight: 600;
+    color: white;
+    font-weight: 700;
   }
 
   .card-back-materials {
     font-family: 'EB Garamond', Georgia, serif;
-    font-size: 6.5pt;
-    font-style: italic;
-    color: rgba(255,255,255,0.6);
+    font-size: 7pt;
+    color: rgba(255,255,255,0.75);
     margin-top: 0.06in;
     letter-spacing: 0.04em;
   }
 
   .card-back-motto {
     font-family: 'Libre Baskerville', Georgia, serif;
-    font-size: 6.5pt;
-    letter-spacing: 0.12em;
-    color: rgba(255,255,255,0.5);
+    font-size: 7pt;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.6);
     margin-top: 0.06in;
     text-transform: uppercase;
+  }
+
+  .card-back-social {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 7pt;
+    color: rgba(255,255,255,0.8);
+    margin-top: 0.04in;
+    letter-spacing: 0.03em;
   }
 
   /* ===== SCREEN HELPERS ===== */
@@ -438,14 +440,13 @@
       <div class="card-front-content">
         <div class="card-front-top">
           <div class="card-brand">M. Renee<br><span>Designs</span></div>
-          <div class="card-designer">Emily Renee Smith, Designer</div>
+          <div class="card-designer">Emily Renee, Designer</div>
           <div class="card-tagline">Handcrafted Leather Fashion</div>
         </div>
         <div class="card-front-bottom">
           <div class="card-contact-line email">emily@mReneeDesigns.com</div>
           <div class="card-contact-line">(504) 383-5044</div>
-          <div class="card-contact-line">Houston Heights &bull; By Appointment</div>
-          <div class="card-social">@mrenee_designs &ensp;|&ensp; mreneedesigns.com</div>
+          <div class="card-contact-line card-contact-sm">Houston Heights &bull; By Appointment</div>
         </div>
         <div class="card-accent-bottom"></div>
       </div>
@@ -457,14 +458,13 @@
       <div class="card-front-content">
         <div class="card-front-top">
           <div class="card-brand">M. Renee<br><span>Designs</span></div>
-          <div class="card-designer">Emily Renee Smith, Designer</div>
+          <div class="card-designer">Emily Renee, Designer</div>
           <div class="card-tagline">Handcrafted Leather Fashion</div>
         </div>
         <div class="card-front-bottom">
           <div class="card-contact-line email">emily@mReneeDesigns.com</div>
           <div class="card-contact-line">(504) 383-5044</div>
-          <div class="card-contact-line">Houston Heights &bull; By Appointment</div>
-          <div class="card-social">@mrenee_designs &ensp;|&ensp; mreneedesigns.com</div>
+          <div class="card-contact-line card-contact-sm">Houston Heights &bull; By Appointment</div>
         </div>
         <div class="card-accent-bottom"></div>
       </div>
@@ -477,14 +477,13 @@
       <div class="card-front-content">
         <div class="card-front-top">
           <div class="card-brand">M. Renee<br><span>Designs</span></div>
-          <div class="card-designer">Emily Renee Smith, Designer</div>
+          <div class="card-designer">Emily Renee, Designer</div>
           <div class="card-tagline">Handcrafted Leather Fashion</div>
         </div>
         <div class="card-front-bottom">
           <div class="card-contact-line email">emily@mReneeDesigns.com</div>
           <div class="card-contact-line">(504) 383-5044</div>
-          <div class="card-contact-line">Houston Heights &bull; By Appointment</div>
-          <div class="card-social">@mrenee_designs &ensp;|&ensp; mreneedesigns.com</div>
+          <div class="card-contact-line card-contact-sm">Houston Heights &bull; By Appointment</div>
         </div>
         <div class="card-accent-bottom"></div>
       </div>
@@ -496,14 +495,13 @@
       <div class="card-front-content">
         <div class="card-front-top">
           <div class="card-brand">M. Renee<br><span>Designs</span></div>
-          <div class="card-designer">Emily Renee Smith, Designer</div>
+          <div class="card-designer">Emily Renee, Designer</div>
           <div class="card-tagline">Handcrafted Leather Fashion</div>
         </div>
         <div class="card-front-bottom">
           <div class="card-contact-line email">emily@mReneeDesigns.com</div>
           <div class="card-contact-line">(504) 383-5044</div>
-          <div class="card-contact-line">Houston Heights &bull; By Appointment</div>
-          <div class="card-social">@mrenee_designs &ensp;|&ensp; mreneedesigns.com</div>
+          <div class="card-contact-line card-contact-sm">Houston Heights &bull; By Appointment</div>
         </div>
         <div class="card-accent-bottom"></div>
       </div>
@@ -516,14 +514,13 @@
       <div class="card-front-content">
         <div class="card-front-top">
           <div class="card-brand">M. Renee<br><span>Designs</span></div>
-          <div class="card-designer">Emily Renee Smith, Designer</div>
+          <div class="card-designer">Emily Renee, Designer</div>
           <div class="card-tagline">Handcrafted Leather Fashion</div>
         </div>
         <div class="card-front-bottom">
           <div class="card-contact-line email">emily@mReneeDesigns.com</div>
           <div class="card-contact-line">(504) 383-5044</div>
-          <div class="card-contact-line">Houston Heights &bull; By Appointment</div>
-          <div class="card-social">@mrenee_designs &ensp;|&ensp; mreneedesigns.com</div>
+          <div class="card-contact-line card-contact-sm">Houston Heights &bull; By Appointment</div>
         </div>
         <div class="card-accent-bottom"></div>
       </div>
@@ -535,14 +532,13 @@
       <div class="card-front-content">
         <div class="card-front-top">
           <div class="card-brand">M. Renee<br><span>Designs</span></div>
-          <div class="card-designer">Emily Renee Smith, Designer</div>
+          <div class="card-designer">Emily Renee, Designer</div>
           <div class="card-tagline">Handcrafted Leather Fashion</div>
         </div>
         <div class="card-front-bottom">
           <div class="card-contact-line email">emily@mReneeDesigns.com</div>
           <div class="card-contact-line">(504) 383-5044</div>
-          <div class="card-contact-line">Houston Heights &bull; By Appointment</div>
-          <div class="card-social">@mrenee_designs &ensp;|&ensp; mreneedesigns.com</div>
+          <div class="card-contact-line card-contact-sm">Houston Heights &bull; By Appointment</div>
         </div>
         <div class="card-accent-bottom"></div>
       </div>
@@ -555,14 +551,13 @@
       <div class="card-front-content">
         <div class="card-front-top">
           <div class="card-brand">M. Renee<br><span>Designs</span></div>
-          <div class="card-designer">Emily Renee Smith, Designer</div>
+          <div class="card-designer">Emily Renee, Designer</div>
           <div class="card-tagline">Handcrafted Leather Fashion</div>
         </div>
         <div class="card-front-bottom">
           <div class="card-contact-line email">emily@mReneeDesigns.com</div>
           <div class="card-contact-line">(504) 383-5044</div>
-          <div class="card-contact-line">Houston Heights &bull; By Appointment</div>
-          <div class="card-social">@mrenee_designs &ensp;|&ensp; mreneedesigns.com</div>
+          <div class="card-contact-line card-contact-sm">Houston Heights &bull; By Appointment</div>
         </div>
         <div class="card-accent-bottom"></div>
       </div>
@@ -574,14 +569,13 @@
       <div class="card-front-content">
         <div class="card-front-top">
           <div class="card-brand">M. Renee<br><span>Designs</span></div>
-          <div class="card-designer">Emily Renee Smith, Designer</div>
+          <div class="card-designer">Emily Renee, Designer</div>
           <div class="card-tagline">Handcrafted Leather Fashion</div>
         </div>
         <div class="card-front-bottom">
           <div class="card-contact-line email">emily@mReneeDesigns.com</div>
           <div class="card-contact-line">(504) 383-5044</div>
-          <div class="card-contact-line">Houston Heights &bull; By Appointment</div>
-          <div class="card-social">@mrenee_designs &ensp;|&ensp; mreneedesigns.com</div>
+          <div class="card-contact-line card-contact-sm">Houston Heights &bull; By Appointment</div>
         </div>
         <div class="card-accent-bottom"></div>
       </div>
@@ -594,14 +588,13 @@
       <div class="card-front-content">
         <div class="card-front-top">
           <div class="card-brand">M. Renee<br><span>Designs</span></div>
-          <div class="card-designer">Emily Renee Smith, Designer</div>
+          <div class="card-designer">Emily Renee, Designer</div>
           <div class="card-tagline">Handcrafted Leather Fashion</div>
         </div>
         <div class="card-front-bottom">
           <div class="card-contact-line email">emily@mReneeDesigns.com</div>
           <div class="card-contact-line">(504) 383-5044</div>
-          <div class="card-contact-line">Houston Heights &bull; By Appointment</div>
-          <div class="card-social">@mrenee_designs &ensp;|&ensp; mreneedesigns.com</div>
+          <div class="card-contact-line card-contact-sm">Houston Heights &bull; By Appointment</div>
         </div>
         <div class="card-accent-bottom"></div>
       </div>
@@ -613,14 +606,13 @@
       <div class="card-front-content">
         <div class="card-front-top">
           <div class="card-brand">M. Renee<br><span>Designs</span></div>
-          <div class="card-designer">Emily Renee Smith, Designer</div>
+          <div class="card-designer">Emily Renee, Designer</div>
           <div class="card-tagline">Handcrafted Leather Fashion</div>
         </div>
         <div class="card-front-bottom">
           <div class="card-contact-line email">emily@mReneeDesigns.com</div>
           <div class="card-contact-line">(504) 383-5044</div>
-          <div class="card-contact-line">Houston Heights &bull; By Appointment</div>
-          <div class="card-social">@mrenee_designs &ensp;|&ensp; mreneedesigns.com</div>
+          <div class="card-contact-line card-contact-sm">Houston Heights &bull; By Appointment</div>
         </div>
         <div class="card-accent-bottom"></div>
       </div>
@@ -678,15 +670,15 @@
         <img src="brochure-images/looks_02_queen3.jpg" alt="Queen Coat">
       </div>
       <div class="card-back-content">
-        <div class="card-back-brand">M. Renee<br><span>Designs</span></div>
-        <div class="card-back-divider"></div>
+        <div class="card-back-brand">M. Renee Designs</div>
         <div class="card-back-tagline">Refined. Natural. Fantastical.</div>
         <div class="card-back-collection">
           <strong>Queen Coats</strong> &ensp;&bull;&ensp; <strong>Elvira Jackets</strong><br>
           <strong>Halter Dresses</strong> &ensp;&bull;&ensp; <strong>Peplum Vests</strong><br>
-          <strong>Deerhide Skirts</strong> &ensp;&bull;&ensp; <strong>Custom Bespoke</strong>
+          <strong>Deerhide Skirts</strong> &ensp;&bull;&ensp; <strong>Custom &amp; Bespoke</strong>
         </div>
         <div class="card-back-materials">Wild-sourced deer &amp; elk &ensp;&bull;&ensp; Full grain leather</div>
+        <div class="card-back-social">@mrenee_designs &ensp;&middot;&ensp; mreneedesigns.com</div>
         <div class="card-back-motto">Est. 2014 &ensp;&middot;&ensp; Houston, Texas</div>
       </div>
       <div class="card-back-accent-top"></div>
@@ -697,15 +689,15 @@
         <img src="brochure-images/looks_02_queen3.jpg" alt="Queen Coat">
       </div>
       <div class="card-back-content">
-        <div class="card-back-brand">M. Renee<br><span>Designs</span></div>
-        <div class="card-back-divider"></div>
+        <div class="card-back-brand">M. Renee Designs</div>
         <div class="card-back-tagline">Refined. Natural. Fantastical.</div>
         <div class="card-back-collection">
           <strong>Queen Coats</strong> &ensp;&bull;&ensp; <strong>Elvira Jackets</strong><br>
           <strong>Halter Dresses</strong> &ensp;&bull;&ensp; <strong>Peplum Vests</strong><br>
-          <strong>Deerhide Skirts</strong> &ensp;&bull;&ensp; <strong>Custom Bespoke</strong>
+          <strong>Deerhide Skirts</strong> &ensp;&bull;&ensp; <strong>Custom &amp; Bespoke</strong>
         </div>
         <div class="card-back-materials">Wild-sourced deer &amp; elk &ensp;&bull;&ensp; Full grain leather</div>
+        <div class="card-back-social">@mrenee_designs &ensp;&middot;&ensp; mreneedesigns.com</div>
         <div class="card-back-motto">Est. 2014 &ensp;&middot;&ensp; Houston, Texas</div>
       </div>
       <div class="card-back-accent-top"></div>
@@ -716,15 +708,15 @@
         <img src="brochure-images/looks_02_queen3.jpg" alt="Queen Coat">
       </div>
       <div class="card-back-content">
-        <div class="card-back-brand">M. Renee<br><span>Designs</span></div>
-        <div class="card-back-divider"></div>
+        <div class="card-back-brand">M. Renee Designs</div>
         <div class="card-back-tagline">Refined. Natural. Fantastical.</div>
         <div class="card-back-collection">
           <strong>Queen Coats</strong> &ensp;&bull;&ensp; <strong>Elvira Jackets</strong><br>
           <strong>Halter Dresses</strong> &ensp;&bull;&ensp; <strong>Peplum Vests</strong><br>
-          <strong>Deerhide Skirts</strong> &ensp;&bull;&ensp; <strong>Custom Bespoke</strong>
+          <strong>Deerhide Skirts</strong> &ensp;&bull;&ensp; <strong>Custom &amp; Bespoke</strong>
         </div>
         <div class="card-back-materials">Wild-sourced deer &amp; elk &ensp;&bull;&ensp; Full grain leather</div>
+        <div class="card-back-social">@mrenee_designs &ensp;&middot;&ensp; mreneedesigns.com</div>
         <div class="card-back-motto">Est. 2014 &ensp;&middot;&ensp; Houston, Texas</div>
       </div>
       <div class="card-back-accent-top"></div>
@@ -735,15 +727,15 @@
         <img src="brochure-images/looks_02_queen3.jpg" alt="Queen Coat">
       </div>
       <div class="card-back-content">
-        <div class="card-back-brand">M. Renee<br><span>Designs</span></div>
-        <div class="card-back-divider"></div>
+        <div class="card-back-brand">M. Renee Designs</div>
         <div class="card-back-tagline">Refined. Natural. Fantastical.</div>
         <div class="card-back-collection">
           <strong>Queen Coats</strong> &ensp;&bull;&ensp; <strong>Elvira Jackets</strong><br>
           <strong>Halter Dresses</strong> &ensp;&bull;&ensp; <strong>Peplum Vests</strong><br>
-          <strong>Deerhide Skirts</strong> &ensp;&bull;&ensp; <strong>Custom Bespoke</strong>
+          <strong>Deerhide Skirts</strong> &ensp;&bull;&ensp; <strong>Custom &amp; Bespoke</strong>
         </div>
         <div class="card-back-materials">Wild-sourced deer &amp; elk &ensp;&bull;&ensp; Full grain leather</div>
+        <div class="card-back-social">@mrenee_designs &ensp;&middot;&ensp; mreneedesigns.com</div>
         <div class="card-back-motto">Est. 2014 &ensp;&middot;&ensp; Houston, Texas</div>
       </div>
       <div class="card-back-accent-top"></div>
@@ -754,15 +746,15 @@
         <img src="brochure-images/looks_02_queen3.jpg" alt="Queen Coat">
       </div>
       <div class="card-back-content">
-        <div class="card-back-brand">M. Renee<br><span>Designs</span></div>
-        <div class="card-back-divider"></div>
+        <div class="card-back-brand">M. Renee Designs</div>
         <div class="card-back-tagline">Refined. Natural. Fantastical.</div>
         <div class="card-back-collection">
           <strong>Queen Coats</strong> &ensp;&bull;&ensp; <strong>Elvira Jackets</strong><br>
           <strong>Halter Dresses</strong> &ensp;&bull;&ensp; <strong>Peplum Vests</strong><br>
-          <strong>Deerhide Skirts</strong> &ensp;&bull;&ensp; <strong>Custom Bespoke</strong>
+          <strong>Deerhide Skirts</strong> &ensp;&bull;&ensp; <strong>Custom &amp; Bespoke</strong>
         </div>
         <div class="card-back-materials">Wild-sourced deer &amp; elk &ensp;&bull;&ensp; Full grain leather</div>
+        <div class="card-back-social">@mrenee_designs &ensp;&middot;&ensp; mreneedesigns.com</div>
         <div class="card-back-motto">Est. 2014 &ensp;&middot;&ensp; Houston, Texas</div>
       </div>
       <div class="card-back-accent-top"></div>
@@ -773,15 +765,15 @@
         <img src="brochure-images/looks_02_queen3.jpg" alt="Queen Coat">
       </div>
       <div class="card-back-content">
-        <div class="card-back-brand">M. Renee<br><span>Designs</span></div>
-        <div class="card-back-divider"></div>
+        <div class="card-back-brand">M. Renee Designs</div>
         <div class="card-back-tagline">Refined. Natural. Fantastical.</div>
         <div class="card-back-collection">
           <strong>Queen Coats</strong> &ensp;&bull;&ensp; <strong>Elvira Jackets</strong><br>
           <strong>Halter Dresses</strong> &ensp;&bull;&ensp; <strong>Peplum Vests</strong><br>
-          <strong>Deerhide Skirts</strong> &ensp;&bull;&ensp; <strong>Custom Bespoke</strong>
+          <strong>Deerhide Skirts</strong> &ensp;&bull;&ensp; <strong>Custom &amp; Bespoke</strong>
         </div>
         <div class="card-back-materials">Wild-sourced deer &amp; elk &ensp;&bull;&ensp; Full grain leather</div>
+        <div class="card-back-social">@mrenee_designs &ensp;&middot;&ensp; mreneedesigns.com</div>
         <div class="card-back-motto">Est. 2014 &ensp;&middot;&ensp; Houston, Texas</div>
       </div>
       <div class="card-back-accent-top"></div>
@@ -792,15 +784,15 @@
         <img src="brochure-images/looks_02_queen3.jpg" alt="Queen Coat">
       </div>
       <div class="card-back-content">
-        <div class="card-back-brand">M. Renee<br><span>Designs</span></div>
-        <div class="card-back-divider"></div>
+        <div class="card-back-brand">M. Renee Designs</div>
         <div class="card-back-tagline">Refined. Natural. Fantastical.</div>
         <div class="card-back-collection">
           <strong>Queen Coats</strong> &ensp;&bull;&ensp; <strong>Elvira Jackets</strong><br>
           <strong>Halter Dresses</strong> &ensp;&bull;&ensp; <strong>Peplum Vests</strong><br>
-          <strong>Deerhide Skirts</strong> &ensp;&bull;&ensp; <strong>Custom Bespoke</strong>
+          <strong>Deerhide Skirts</strong> &ensp;&bull;&ensp; <strong>Custom &amp; Bespoke</strong>
         </div>
         <div class="card-back-materials">Wild-sourced deer &amp; elk &ensp;&bull;&ensp; Full grain leather</div>
+        <div class="card-back-social">@mrenee_designs &ensp;&middot;&ensp; mreneedesigns.com</div>
         <div class="card-back-motto">Est. 2014 &ensp;&middot;&ensp; Houston, Texas</div>
       </div>
       <div class="card-back-accent-top"></div>
@@ -811,15 +803,15 @@
         <img src="brochure-images/looks_02_queen3.jpg" alt="Queen Coat">
       </div>
       <div class="card-back-content">
-        <div class="card-back-brand">M. Renee<br><span>Designs</span></div>
-        <div class="card-back-divider"></div>
+        <div class="card-back-brand">M. Renee Designs</div>
         <div class="card-back-tagline">Refined. Natural. Fantastical.</div>
         <div class="card-back-collection">
           <strong>Queen Coats</strong> &ensp;&bull;&ensp; <strong>Elvira Jackets</strong><br>
           <strong>Halter Dresses</strong> &ensp;&bull;&ensp; <strong>Peplum Vests</strong><br>
-          <strong>Deerhide Skirts</strong> &ensp;&bull;&ensp; <strong>Custom Bespoke</strong>
+          <strong>Deerhide Skirts</strong> &ensp;&bull;&ensp; <strong>Custom &amp; Bespoke</strong>
         </div>
         <div class="card-back-materials">Wild-sourced deer &amp; elk &ensp;&bull;&ensp; Full grain leather</div>
+        <div class="card-back-social">@mrenee_designs &ensp;&middot;&ensp; mreneedesigns.com</div>
         <div class="card-back-motto">Est. 2014 &ensp;&middot;&ensp; Houston, Texas</div>
       </div>
       <div class="card-back-accent-top"></div>
@@ -830,15 +822,15 @@
         <img src="brochure-images/looks_02_queen3.jpg" alt="Queen Coat">
       </div>
       <div class="card-back-content">
-        <div class="card-back-brand">M. Renee<br><span>Designs</span></div>
-        <div class="card-back-divider"></div>
+        <div class="card-back-brand">M. Renee Designs</div>
         <div class="card-back-tagline">Refined. Natural. Fantastical.</div>
         <div class="card-back-collection">
           <strong>Queen Coats</strong> &ensp;&bull;&ensp; <strong>Elvira Jackets</strong><br>
           <strong>Halter Dresses</strong> &ensp;&bull;&ensp; <strong>Peplum Vests</strong><br>
-          <strong>Deerhide Skirts</strong> &ensp;&bull;&ensp; <strong>Custom Bespoke</strong>
+          <strong>Deerhide Skirts</strong> &ensp;&bull;&ensp; <strong>Custom &amp; Bespoke</strong>
         </div>
         <div class="card-back-materials">Wild-sourced deer &amp; elk &ensp;&bull;&ensp; Full grain leather</div>
+        <div class="card-back-social">@mrenee_designs &ensp;&middot;&ensp; mreneedesigns.com</div>
         <div class="card-back-motto">Est. 2014 &ensp;&middot;&ensp; Houston, Texas</div>
       </div>
       <div class="card-back-accent-top"></div>
@@ -849,15 +841,15 @@
         <img src="brochure-images/looks_02_queen3.jpg" alt="Queen Coat">
       </div>
       <div class="card-back-content">
-        <div class="card-back-brand">M. Renee<br><span>Designs</span></div>
-        <div class="card-back-divider"></div>
+        <div class="card-back-brand">M. Renee Designs</div>
         <div class="card-back-tagline">Refined. Natural. Fantastical.</div>
         <div class="card-back-collection">
           <strong>Queen Coats</strong> &ensp;&bull;&ensp; <strong>Elvira Jackets</strong><br>
           <strong>Halter Dresses</strong> &ensp;&bull;&ensp; <strong>Peplum Vests</strong><br>
-          <strong>Deerhide Skirts</strong> &ensp;&bull;&ensp; <strong>Custom Bespoke</strong>
+          <strong>Deerhide Skirts</strong> &ensp;&bull;&ensp; <strong>Custom &amp; Bespoke</strong>
         </div>
         <div class="card-back-materials">Wild-sourced deer &amp; elk &ensp;&bull;&ensp; Full grain leather</div>
+        <div class="card-back-social">@mrenee_designs &ensp;&middot;&ensp; mreneedesigns.com</div>
         <div class="card-back-motto">Est. 2014 &ensp;&middot;&ensp; Houston, Texas</div>
       </div>
       <div class="card-back-accent-top"></div>
