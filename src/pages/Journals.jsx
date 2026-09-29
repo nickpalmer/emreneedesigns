@@ -58,7 +58,7 @@ const Journals = () => {
 
   return (
     <div>
-      <ParallaxHero image={journal_hero} alt="Handbound leather journal" objectPosition="center bottom" mobilePosition="center bottom" initialOffset={-260}>
+      <ParallaxHero image={journal_hero} alt="Handbound leather journal" objectPosition="center bottom" mobilePosition="center bottom" initialOffset={-350}>
         <div className="shadow-lg" style={{
           backgroundColor: 'var(--textbox-bg)',
           padding: '20px',
