@@ -307,13 +307,6 @@
     margin-top: 0.06in;
     letter-spacing: 0.04em;
   }
-  .contact-bottom-accent {
-    width: 100%;
-    height: 0.15in;
-    background: linear-gradient(to right, var(--teal), var(--brown-light));
-    border-radius: 2px;
-    margin-top: 0.06in;
-  }
   /* --- PANEL: BACK COVER (center, outside) --- */
   .back-panel {
     background: var(--dark-teal);
@@ -457,12 +450,6 @@
     max-width: 2.8in;
     margin-bottom: 0.04in;
   }
-  .front-bottom-accent {
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(to right, var(--teal), var(--brown-light));
-    border-radius: 1px;
-  }
   /* =============================================
      PAGE 2 - INSIDE
      Left: About | Center: The Collection | Right: Bespoke
@@ -517,23 +504,6 @@
     justify-content: flex-start;
     align-items: center;
   }
-  .collection-header {
-    text-align: center;
-    margin-bottom: 0.06in;
-  }
-  .collection-header h2 {
-    font-size: 14pt;
-    color: var(--brown-dark);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-  .collection-header .subtitle {
-    font-size: 10pt;
-    color: var(--olive-light);
-    font-style: italic;
-    letter-spacing: 0.06em;
-    margin-top: 0.03in;
-  }
   .collection-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -554,10 +524,10 @@
     display: block;
   }
   .collection-item-tall {
-    height: 2.05in;
+    height: 2.0in;
   }
   .collection-item-short {
-    height: 1.55in;
+    height: 1.75in;
   }
   .collection-item .item-label {
     position: absolute;
@@ -571,34 +541,6 @@
     font-size: 10pt;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-  }
-  .collection-description {
-    font-size: 10pt;
-    line-height: 1.5;
-    color: var(--dark-teal);
-    text-align: center;
-    padding: 0 0.1in;
-    margin-bottom: 0.06in;
-  }
-  .collection-materials {
-    width: 100%;
-    background: var(--cream);
-    border-radius: 4px;
-    padding: 0.1in 0.12in;
-    text-align: center;
-  }
-  .collection-materials h4 {
-    font-size: 10pt;
-    color: var(--brown-dark);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 0.04in;
-  }
-  .collection-materials p {
-    font-size: 10pt;
-    color: var(--olive-dark);
-    line-height: 1.5;
-    font-style: italic;
   }
   /* --- PANEL: BESPOKE (right, inside) --- */
   .bespoke-panel {
@@ -760,7 +702,6 @@
         </div>
         <div class="contact-website">mreneedesigns.com</div>
       </div>
-      <div class="contact-bottom-accent"></div>
     </div>
   </div>
   <!-- PANEL 3: Front Cover -->
@@ -776,7 +717,6 @@
         <div class="front-hero-label">Queen Coat</div>
       </div>
       <div class="tagline front-tagline">Refined. Natural. Fantastical.</div>
-      <div class="front-bottom-accent"></div>
     </div>
   </div>
 </div>
@@ -814,7 +754,7 @@
           In her 20s, everything changed when she made a leather garment as part of a Mardi Gras costume in New Orleans. She loved it, surprised by joy as it became <span class="highlight">more beautiful with wear instead of breaking down</span>&mdash;timeless, practical, and expressive.
         </p>
         <p>
-          Strangers repeatedly approached to ask where they could buy what she was wearing. That organic demand birthed this venture.<br><span class="highlight">M. Renee Designs, Est. 2014.</span>
+          Each piece is designed and constructed start to finish by the artist, with a focus on fit, movement, and longevity.<br><span class="highlight">M. Renee Designs, Est. 2014.</span>
         </p>
       </div>
     </div>
@@ -822,11 +762,6 @@
   <!-- PANEL 5: The Collection -->
   <div class="panel collection-panel">
     <div class="panel-inner">
-      <div class="collection-header">
-        <h2>The Collection</h2>
-        <div class="divider"></div>
-        <div class="subtitle">Slow fashion designed to be worn with pleasure</div>
-      </div>
       <div class="collection-grid">
         <div class="collection-item collection-item-tall">
           <img src="brochure-images/looks_10_dress-red-zoe-front.jpeg" alt="Backless Halter Dress">
@@ -836,27 +771,30 @@
           <img src="brochure-images/custom_18_skirt-fringe1.JPG" alt="Custom Fringe Fashion">
           <div class="item-label">Custom Fringe</div>
         </div>
-        <div class="collection-item collection-item-short">
+        <div class="collection-item collection-item-tall">
           <img src="brochure-images/looks_17_elvira-black2.jpg" alt="Elvira Jacket">
           <div class="item-label">Elvira Jacket</div>
         </div>
-        <div class="collection-item collection-item-short">
+        <div class="collection-item collection-item-tall">
           <img src="brochure-images/looks_25_skirt-black-coko.jpg" alt="Deerhide Skirt">
           <div class="item-label">Deerhide Skirt</div>
         </div>
-      </div>
-      <div class="collection-description">
-        Each piece is designed and constructed start to finish by the artist, with a focus on fit, movement, and longevity. Most pieces are made to order.
-      </div>
-      <div class="collection-materials">
-        <h4>Signature Materials</h4>
-        <p>Wild-sourced deer &amp; elk hides&ensp;&bull;&ensp;Full grain leather<br>
-        Raw edges &amp; natural scars&ensp;&bull;&ensp;Unlined for sensory wear</p>
-      </div>
-      <div style="text-align:center; margin-top:0.08in;">
-        <span style="font-size: 10pt; color:var(--olive-light); font-style:italic;">
-          Available in black, chocolate, tobacco, willow, red &amp; custom colors
-        </span>
+        <div class="collection-item collection-item-short">
+          <img src="brochure-images/looks_18_elvira-red-emily.jpg" alt="Elvira Jacket in Red">
+          <div class="item-label">Elvira in Red</div>
+        </div>
+        <div class="collection-item collection-item-short">
+          <img src="brochure-images/custom_15_rawduster.jpeg" alt="Raw Duster in Elk Leather">
+          <div class="item-label">Raw Duster</div>
+        </div>
+        <div class="collection-item collection-item-short">
+          <img src="brochure-images/looks_08_bolerobustier-black.jpeg" alt="Bustier Vest">
+          <div class="item-label">Bustier Vest</div>
+        </div>
+        <div class="collection-item collection-item-short">
+          <img src="brochure-images/looks_23_halter-seafoam.JPG" alt="Halter Top">
+          <div class="item-label">Halter Top</div>
+        </div>
       </div>
     </div>
   </div>
