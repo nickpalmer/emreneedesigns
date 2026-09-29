@@ -67,7 +67,7 @@ const resources = {
       // Journals page
       "journals.title": "Nuance Journals",
       "journals.subtitle": "No two alike except in quality & craftsmanship",
-      "journals.intro": "Before M Renee Designs there was Nuance Journals: quality handbound leather journals, each a one of a kind design, handcrafted with love in New Orleans.",
+      "journals.intro": "Before M Renee Designs there was Nuance Journals: quality handbound leather journals, each a one of a kind design, handcrafted with love.",
       "journals.cta.shop": "Shop available journals",
       "journals.process.title": "About the process",
       "journals.process.paragraph1": "Born of my passion for writing, journal making delights me. I'm honored to offer classic— yet distinctive— handmade journals designed for aesthetics, tactile decadence, and durable functionality.",
