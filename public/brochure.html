@@ -8,7 +8,6 @@
 <style>
   /* ===== RESET & BASE ===== */
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
   :root {
     --olive-dark: #3D441E;
     --brown-dark: #833921;
@@ -23,7 +22,6 @@
     --warm-white: #f8f5f0;
     --panel-border: #d4c5b3;
   }
-
   body {
     font-family: 'EB Garamond', Georgia, serif;
     color: var(--dark-teal);
@@ -31,13 +29,11 @@
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
-
   /* ===== PRINT SETUP ===== */
   @page {
     size: 11in 8.5in;
     margin: 0;
   }
-
   /* ===== PAGE CONTAINER ===== */
   .page {
     width: 11in;
@@ -49,11 +45,9 @@
     margin: 0 auto 20px auto;
     page-break-after: always;
   }
-
   .page:last-child {
     page-break-after: auto;
   }
-
   /* ===== PANEL BASE ===== */
   .panel {
     width: 3.6667in;
@@ -62,7 +56,6 @@
     overflow: hidden;
     flex-shrink: 0;
   }
-
   .panel-inner {
     position: absolute;
     top: 0.35in;
@@ -72,7 +65,6 @@
     display: flex;
     flex-direction: column;
   }
-
   /* ===== FOLD GUIDES ===== */
   .fold-mark {
     position: absolute;
@@ -84,7 +76,6 @@
   }
   .fold-mark-1 { left: 3.6667in; }
   .fold-mark-2 { left: 7.3334in; }
-
   /* Fold tick marks — small lines at top and bottom edges for precise folding */
   .fold-tick {
     position: absolute;
@@ -96,7 +87,6 @@
   .fold-tick-bottom { bottom: 0; height: 0.2in; }
   .fold-tick-1 { left: 3.6667in; }
   .fold-tick-2 { left: 7.3334in; }
-
   /* Corner registration marks */
   .reg-mark {
     position: absolute;
@@ -125,7 +115,6 @@
   .reg-br { bottom: 0.1in; right: 0.1in; }
   .reg-br::before { right: 0; bottom: 0; }
   .reg-br::after { right: 0; bottom: 0; }
-
   @media print {
     body { background: white; }
     .page { margin: 0; box-shadow: none; }
@@ -134,7 +123,6 @@
     .reg-mark::before, .reg-mark::after { background: #666; }
     .contact-image-strip,
     .front-hero-image,
-    .about-headshot,
     .about-workshop-img,
     .collection-item,
     .bespoke-bottom-image {
@@ -155,7 +143,6 @@
       background: transparent !important;
       box-shadow: none !important;
     }
-    .about-headshot img,
     .about-workshop-img img {
       border: 3px solid #fcf7f0 !important;
       border-radius: 10px !important;
@@ -180,18 +167,15 @@
       border-bottom-right-radius: 8px !important;
     }
   }
-
   /* ===== TYPOGRAPHY ===== */
   h1, h2, h3, h4 {
     font-family: 'Libre Baskerville', Georgia, serif;
   }
-
   .tagline {
     font-family: 'Libre Baskerville', Georgia, serif;
     font-style: italic;
     letter-spacing: 0.08em;
   }
-
   /* ===== DECORATIVE LINE ===== */
   .divider {
     width: 1.8in;
@@ -199,51 +183,43 @@
     background: linear-gradient(to right, transparent, var(--brown-light), transparent);
     margin: 0.1in auto;
   }
-
   .divider-left {
     width: 1.2in;
     height: 1px;
     background: linear-gradient(to right, var(--brown-light), transparent);
     margin: 0.08in 0;
   }
-
   .divider-short {
     width: 0.8in;
     height: 1px;
     background: var(--brown-light);
     margin: 0.06in 0;
   }
-
   /* =============================================
      PAGE 1 - OUTSIDE
      Left: Contact Flap | Center: Back Cover | Right: Front Cover
      ============================================= */
-
   /* --- PANEL: CONTACT FLAP (left, outside) --- */
   .contact-panel {
     background: white;
   }
-
   .contact-panel .panel-inner {
     justify-content: space-between;
     align-items: center;
     text-align: center;
   }
-
   .contact-top {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 0.15in;
   }
-
   .contact-logo-mark {
     width: 1in;
     height: auto;
     opacity: 0.85;
     margin-bottom: 0.1in;
   }
-
   .contact-brand-name {
     font-family: 'Libre Baskerville', Georgia, serif;
     font-size: 13pt;
@@ -252,22 +228,12 @@
     text-transform: uppercase;
     margin-bottom: 0.05in;
   }
-
-  .contact-tagline-sm {
-    font-size: 10pt;
-    font-style: italic;
-    color: var(--brown-light);
-    letter-spacing: 0.06em;
-    margin-bottom: 0.12in;
-  }
-
   .contact-accent-bar {
     width: 100%;
     height: 3px;
     background: linear-gradient(to right, transparent, var(--teal), transparent);
     margin: 0.08in 0;
   }
-
   .contact-image-strip {
     width: 100%;
     height: 2.6in;
@@ -276,14 +242,12 @@
     margin: 0.1in 0;
     position: relative;
   }
-
   .contact-image-strip img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center 20%;
   }
-
   .contact-image-strip .image-label {
     position: absolute;
     bottom: 0;
@@ -298,12 +262,10 @@
     text-transform: uppercase;
     text-align: center;
   }
-
   .contact-details {
     text-align: center;
     padding: 0.05in 0;
   }
-
   .contact-details h3 {
     font-size: 11pt;
     color: var(--teal);
@@ -311,24 +273,20 @@
     text-transform: uppercase;
     margin-bottom: 0.1in;
   }
-
   .contact-item {
     font-size: 10pt;
     line-height: 1.7;
     color: var(--dark-teal);
   }
-
   .contact-item strong {
     color: var(--brown-dark);
     font-weight: 600;
   }
-
   .contact-social {
     margin-top: 0.12in;
     padding-top: 0.08in;
     border-top: 1px solid var(--panel-border);
   }
-
   .contact-social .instagram-handle {
     font-family: 'Libre Baskerville', Georgia, serif;
     font-size: 10pt;
@@ -336,7 +294,6 @@
     font-weight: 700;
     letter-spacing: 0.02em;
   }
-
   .contact-social .instagram-label {
     font-size: 10pt;
     color: var(--olive-light);
@@ -344,14 +301,12 @@
     letter-spacing: 0.1em;
     margin-bottom: 0.03in;
   }
-
   .contact-website {
     font-size: 10pt;
     color: var(--teal);
     margin-top: 0.06in;
     letter-spacing: 0.04em;
   }
-
   .contact-bottom-accent {
     width: 100%;
     height: 0.15in;
@@ -359,13 +314,11 @@
     border-radius: 2px;
     margin-top: 0.06in;
   }
-
   /* --- PANEL: BACK COVER (center, outside) --- */
   .back-panel {
     background: var(--dark-teal);
     color: white;
   }
-
   .back-panel .panel-inner {
     top: 0;
     left: 0;
@@ -373,7 +326,6 @@
     bottom: 0;
     justify-content: flex-end;
   }
-
   .back-image-container {
     position: absolute;
     top: 0;
@@ -381,14 +333,12 @@
     right: 0;
     bottom: 0;
   }
-
   .back-image-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: 70% center;
   }
-
   .back-image-overlay {
     position: absolute;
     bottom: 0;
@@ -397,14 +347,12 @@
     height: 45%;
     background: linear-gradient(to top, rgba(5,60,61,0.92) 0%, rgba(5,60,61,0.6) 50%, transparent 100%);
   }
-
   .back-text {
     position: relative;
     z-index: 2;
     padding: 0.4in 0.35in;
     text-align: center;
   }
-
   .back-text .quote {
     font-family: 'EB Garamond', Georgia, serif;
     font-style: italic;
@@ -413,7 +361,6 @@
     color: #f0ebe4;
     margin-bottom: 0.12in;
   }
-
   .back-text .quote-attribution {
     font-family: 'Libre Baskerville', Georgia, serif;
     font-size: 10pt;
@@ -421,7 +368,6 @@
     text-transform: uppercase;
     color: var(--brown-light);
   }
-
   .back-motto {
     font-family: 'Libre Baskerville', Georgia, serif;
     font-size: 10pt;
@@ -429,38 +375,32 @@
     color: rgba(255,255,255,0.7);
     margin-top: 0.1in;
   }
-
   /* --- PANEL: FRONT COVER (right, outside) --- */
   .front-panel {
     background: white;
   }
-
   .front-panel .panel-inner {
     align-items: center;
     justify-content: space-between;
     text-align: center;
   }
-
   .front-top-accent {
     width: 100%;
     height: 3px;
     background: linear-gradient(to right, var(--brown-light), var(--teal));
     border-radius: 1px;
   }
-
   .front-logo-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 0.05in;
   }
-
   .front-logo {
     width: 1.5in;
     height: auto;
     margin-bottom: 0.06in;
   }
-
   .front-brand-name {
     font-family: 'Libre Baskerville', Georgia, serif;
     font-size: 18pt;
@@ -469,13 +409,11 @@
     text-transform: uppercase;
     line-height: 1.2;
   }
-
   .front-brand-name span {
     display: block;
     font-size: 22pt;
     letter-spacing: 0.08em;
   }
-
   .front-hero-image {
     width: calc(100% + 0.1in);
     height: 4.8in;
@@ -484,16 +422,14 @@
     position: relative;
     margin: 0.08in 0;
   }
-
   .front-hero-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: 40% 5%;
     transform: scale(1.2);
-    transform-origin: 90% 45%;
+    transform-origin: 90% 80%;
   }
-
   .front-hero-label {
     position: absolute;
     bottom: 0;
@@ -508,14 +444,12 @@
     text-transform: uppercase;
     text-align: center;
   }
-
   .front-tagline {
     font-size: 11pt;
-    color: var(--brown-light);
+    color: var(--brown-dark);
     letter-spacing: 0.12em;
     margin: 0.04in 0;
   }
-
   .front-subtitle {
     font-size: 10pt;
     color: var(--olive-dark);
@@ -523,63 +457,33 @@
     max-width: 2.8in;
     margin-bottom: 0.04in;
   }
-
-  .front-location {
-    font-size: 10pt;
-    color: var(--teal);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    margin-top: 0.03in;
-  }
-
   .front-bottom-accent {
     width: 100%;
     height: 3px;
     background: linear-gradient(to right, var(--teal), var(--brown-light));
     border-radius: 1px;
   }
-
   /* =============================================
      PAGE 2 - INSIDE
      Left: About | Center: The Collection | Right: Bespoke
      ============================================= */
-
   /* --- PANEL: ABOUT (left, inside) --- */
   .about-panel {
     background: var(--cream);
   }
-
   .about-panel .panel-inner {
     justify-content: flex-start;
   }
-
   .about-header {
     text-align: center;
     margin-bottom: 0.08in;
   }
-
   .about-header h2 {
     font-size: 14pt;
     color: var(--brown-dark);
     letter-spacing: 0.1em;
     text-transform: uppercase;
   }
-
-  .about-headshot {
-    width: 100%;
-    height: 2.4in;
-    border-radius: 6px;
-    overflow: hidden;
-    margin-bottom: 0.1in;
-  }
-
-  .about-headshot img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 15%;
-  }
-
   .about-body p {
     font-size: 10pt;
     line-height: 1.55;
@@ -588,49 +492,41 @@
     text-align: left;
     hyphens: auto;
   }
-
   .about-body .highlight {
     font-style: italic;
     color: var(--brown-dark);
   }
-
   .about-workshop-img {
     width: 100%;
-    height: 2.0in;
+    height: 4.2in;
     border-radius: 5px;
     overflow: hidden;
-    margin-top: 0.06in;
+    margin-bottom: 0.1in;
   }
-
   .about-workshop-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 50%;
+    object-position: center 35%;
   }
-
   /* --- PANEL: COLLECTION (center, inside) --- */
   .collection-panel {
     background: white;
   }
-
   .collection-panel .panel-inner {
     justify-content: flex-start;
     align-items: center;
   }
-
   .collection-header {
     text-align: center;
     margin-bottom: 0.06in;
   }
-
   .collection-header h2 {
     font-size: 14pt;
     color: var(--brown-dark);
     letter-spacing: 0.1em;
     text-transform: uppercase;
   }
-
   .collection-header .subtitle {
     font-size: 10pt;
     color: var(--olive-light);
@@ -638,7 +534,6 @@
     letter-spacing: 0.06em;
     margin-top: 0.03in;
   }
-
   .collection-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -646,13 +541,11 @@
     width: 100%;
     margin-bottom: 0.06in;
   }
-
   .collection-item {
     border-radius: 4px;
     overflow: hidden;
     position: relative;
   }
-
   .collection-item img {
     width: 100%;
     height: 100%;
@@ -660,15 +553,12 @@
     object-position: center 15%;
     display: block;
   }
-
   .collection-item-tall {
     height: 2.05in;
   }
-
   .collection-item-short {
     height: 1.55in;
   }
-
   .collection-item .item-label {
     position: absolute;
     bottom: 0;
@@ -682,7 +572,6 @@
     letter-spacing: 0.06em;
     text-transform: uppercase;
   }
-
   .collection-description {
     font-size: 10pt;
     line-height: 1.5;
@@ -691,7 +580,6 @@
     padding: 0 0.1in;
     margin-bottom: 0.06in;
   }
-
   .collection-materials {
     width: 100%;
     background: var(--cream);
@@ -699,7 +587,6 @@
     padding: 0.1in 0.12in;
     text-align: center;
   }
-
   .collection-materials h4 {
     font-size: 10pt;
     color: var(--brown-dark);
@@ -707,42 +594,35 @@
     text-transform: uppercase;
     margin-bottom: 0.04in;
   }
-
   .collection-materials p {
     font-size: 10pt;
     color: var(--olive-dark);
     line-height: 1.5;
     font-style: italic;
   }
-
   /* --- PANEL: BESPOKE (right, inside) --- */
   .bespoke-panel {
     background: var(--warm-white);
   }
-
   .bespoke-panel .panel-inner {
     justify-content: flex-start;
   }
-
   .bespoke-header {
     text-align: center;
     margin-bottom: 0.06in;
   }
-
   .bespoke-header h2 {
     font-size: 14pt;
     color: var(--brown-dark);
     letter-spacing: 0.1em;
     text-transform: uppercase;
   }
-
   .bespoke-header .subtitle {
     font-size: 10pt;
     color: var(--olive-light);
     font-style: italic;
     margin-top: 0.03in;
   }
-
   .bespoke-body p {
     font-size: 10pt;
     line-height: 1.5;
@@ -750,13 +630,11 @@
     margin-bottom: 0.06in;
     text-align: left;
   }
-
   .bespoke-pillars {
     display: flex;
     gap: 0.1in;
     margin: 0.06in 0;
   }
-
   .bespoke-pillar {
     flex: 1;
     text-align: center;
@@ -765,21 +643,18 @@
     border-radius: 4px;
     border-top: 2px solid var(--brown-light);
   }
-
   .bespoke-pillar h4 {
     font-size: 10pt;
     color: var(--brown-dark);
     margin-bottom: 0.03in;
     font-style: italic;
   }
-
   .bespoke-pillar p {
     font-size: 10pt;
     line-height: 1.4;
     color: var(--olive-dark);
     margin-bottom: 0;
   }
-
   .bespoke-note {
     font-size: 10pt;
     color: var(--olive-light);
@@ -788,22 +663,19 @@
     font-style: italic;
     line-height: 1.45;
   }
-
   .bespoke-bottom-image {
     width: 100%;
-    height: 3.83in;
+    height: 4.05in;
     border-radius: 5px;
     overflow: hidden;
     margin-top: 0.08in;
   }
-
   .bespoke-bottom-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
+    object-position: center bottom;
   }
-
   /* ===== SCREEN HELPERS ===== */
   .page-label {
     text-align: center;
@@ -814,12 +686,10 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
   }
-
   @media print {
     .page-label { display: none; }
     .page { box-shadow: none; }
   }
-
   @media screen {
     .page {
       box-shadow: 0 4px 20px rgba(0,0,0,0.2);
@@ -828,7 +698,6 @@
     }
     .contact-image-strip { box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
     .front-hero-image { box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
-    .about-headshot { box-shadow: 0 3px 10px rgba(0,0,0,0.15); }
     .about-workshop-img { box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
     .collection-item { box-shadow: 0 2px 6px rgba(0,0,0,0.12); }
     .bespoke-bottom-image { box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
@@ -836,7 +705,6 @@
 </style>
 </head>
 <body>
-
 <!-- ==========================================
      PAGE 1 - OUTSIDE (prints face-down)
      Left=Back Cover | Center=Contact Flap | Right=Front Cover
@@ -853,7 +721,6 @@
   <div class="reg-mark reg-tr"></div>
   <div class="reg-mark reg-bl"></div>
   <div class="reg-mark reg-br"></div>
-
   <!-- PANEL 1: Back Cover (left, folds to become the back of the brochure) -->
   <div class="panel back-panel">
     <div class="panel-inner">
@@ -870,22 +737,18 @@
       </div>
     </div>
   </div>
-
   <!-- PANEL 2: Contact Flap (center, first thing seen when opening the front cover) -->
   <div class="panel contact-panel">
     <div class="panel-inner">
       <div class="contact-top">
         <img class="contact-logo-mark" src="brochure-images/LogoPNG-300_inked_logo_APRIL EDITS_foot_tail2.png" alt="M. Renee Designs logo">
         <div class="contact-brand-name">M. Renee<br>Designs</div>
-        <div class="contact-tagline-sm">Handcrafted Leather Fashion</div>
         <div class="contact-accent-bar"></div>
       </div>
-
       <div class="contact-image-strip">
         <img src="brochure-images/looks_04_vest-peplum.jpg" alt="Queen Peplum Vest">
         <div class="image-label">Peplum Vest</div>
       </div>
-
       <div class="contact-details">
         <h3>Get in Touch</h3>
         <div class="contact-item"><strong>Email</strong><br>emily@mReneeDesigns.com</div>
@@ -897,35 +760,26 @@
         </div>
         <div class="contact-website">mreneedesigns.com</div>
       </div>
-
       <div class="contact-bottom-accent"></div>
     </div>
   </div>
-
   <!-- PANEL 3: Front Cover -->
   <div class="panel front-panel">
     <div class="panel-inner">
       <div class="front-top-accent"></div>
-
       <div class="front-logo-section">
         <img class="front-logo" src="brochure-images/LogoPNG-300_inked_logo_APRIL EDITS_foot_tail2.png" alt="M. Renee Designs">
         <div class="front-brand-name">M. Renee<br><span>Designs</span></div>
       </div>
-
       <div class="front-hero-image">
         <img src="brochure-images/looks_02_queen3.jpg" alt="Queen Collar Coat">
         <div class="front-hero-label">Queen Coat</div>
       </div>
-
       <div class="tagline front-tagline">Refined. Natural. Fantastical.</div>
-      <div class="front-location">Houston, Texas</div>
-
       <div class="front-bottom-accent"></div>
     </div>
   </div>
 </div>
-
-
 <!-- ==========================================
      PAGE 2 - INSIDE (unfolds to reveal)
      Left=About | Center=Collection | Right=Bespoke
@@ -942,7 +796,6 @@
   <div class="reg-mark reg-tr"></div>
   <div class="reg-mark reg-bl"></div>
   <div class="reg-mark reg-br"></div>
-
   <!-- PANEL 4: About the Designer -->
   <div class="panel about-panel">
     <div class="panel-inner">
@@ -950,11 +803,9 @@
         <h2>The Designer</h2>
         <div class="divider"></div>
       </div>
-
-      <div class="about-headshot">
-        <img src="brochure-images/about_03_headshot-brown.JPG" alt="Emily Renee Smith - M. Renee Designs">
+      <div class="about-workshop-img">
+        <img src="brochure-images/about_01_sewing-fur.jpg" alt="M at work in her Houston atelier">
       </div>
-
       <div class="about-body">
         <p>
           M started sewing clothes as a child since what she desired to wear wasn't in stores, learning the technical skills to create her vision. Growing up in rural Louisiana with a self-directed education shaped both her technical independence and creative perspective.
@@ -966,13 +817,8 @@
           Strangers repeatedly approached to ask where they could buy what she was wearing. That organic demand birthed this venture.<br><span class="highlight">M. Renee Designs, Est. 2014.</span>
         </p>
       </div>
-
-      <div class="about-workshop-img">
-        <img src="brochure-images/about_01_sewing-fur.jpg" alt="M at work in her Houston atelier">
-      </div>
     </div>
   </div>
-
   <!-- PANEL 5: The Collection -->
   <div class="panel collection-panel">
     <div class="panel-inner">
@@ -981,7 +827,6 @@
         <div class="divider"></div>
         <div class="subtitle">Slow fashion designed to be worn with pleasure</div>
       </div>
-
       <div class="collection-grid">
         <div class="collection-item collection-item-tall">
           <img src="brochure-images/looks_10_dress-red-zoe-front.jpeg" alt="Backless Halter Dress">
@@ -1000,17 +845,14 @@
           <div class="item-label">Deerhide Skirt</div>
         </div>
       </div>
-
       <div class="collection-description">
         Each piece is designed and constructed start to finish by the artist, with a focus on fit, movement, and longevity. Most pieces are made to order.
       </div>
-
       <div class="collection-materials">
         <h4>Signature Materials</h4>
         <p>Wild-sourced deer &amp; elk hides&ensp;&bull;&ensp;Full grain leather<br>
         Raw edges &amp; natural scars&ensp;&bull;&ensp;Unlined for sensory wear</p>
       </div>
-
       <div style="text-align:center; margin-top:0.08in;">
         <span style="font-size: 10pt; color:var(--olive-light); font-style:italic;">
           Available in black, chocolate, tobacco, willow, red &amp; custom colors
@@ -1018,7 +860,6 @@
       </div>
     </div>
   </div>
-
   <!-- PANEL 6: Bespoke / Custom -->
   <div class="panel bespoke-panel">
     <div class="panel-inner">
@@ -1027,13 +868,11 @@
         <div class="divider"></div>
         <div class="subtitle">Real materials, designed to be worn with pleasure</div>
       </div>
-
       <div class="bespoke-body">
         <p>
           Custom design fittings are one on one, creating with the hides of your choice, draped to flatter your form, designed to suit your function.
         </p>
       </div>
-
       <div class="bespoke-pillars">
         <div class="bespoke-pillar">
           <h4>Refined</h4>
@@ -1048,17 +887,14 @@
           <p>One of a kind pieces made by the designer to honor and flatter your body.</p>
         </div>
       </div>
-
       <div class="bespoke-note">
         This is slow fashion. Yours will be one of approximately 25 projects a year. Clients may also inquire about hosting a trunk show of current inventory.
       </div>
-
       <div class="bespoke-bottom-image">
         <img src="brochure-images/custom_21_queen-green2.JPG" alt="Queen Coat in Green">
       </div>
     </div>
   </div>
 </div>
-
 </body>
 </html>
