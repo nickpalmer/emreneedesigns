@@ -10,6 +10,8 @@ import Designs from './pages/Designs';
 import Custom from './pages/Custom';
 import Contact from './pages/Contact';
 import Journals from './pages/Journals';
+import Brochure from './pages/Brochure';
+import BusinessCards from './pages/BusinessCards';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -33,6 +35,8 @@ const App = () => {
             <Route path="/custom" element={<Custom />} />
             <Route path="/journals" element={<Journals />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/brochure" element={<Brochure />} />
+            <Route path="/business-cards" element={<BusinessCards />} />
 
             {/* Redirects from old site routes */}
             <Route path="/store" element={<Navigate to="/designs" replace />} />
