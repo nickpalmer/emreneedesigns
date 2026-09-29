@@ -73,7 +73,7 @@
     flex-direction: column;
   }
 
-  /* ===== FOLD GUIDES (screen only) ===== */
+  /* ===== FOLD GUIDES ===== */
   .fold-mark {
     position: absolute;
     top: 0;
@@ -85,10 +85,102 @@
   .fold-mark-1 { left: 3.6667in; }
   .fold-mark-2 { left: 7.3334in; }
 
+  /* Fold tick marks — small lines at top and bottom edges for precise folding */
+  .fold-tick {
+    position: absolute;
+    width: 0.5px;
+    background: #999;
+    z-index: 20;
+  }
+  .fold-tick-top { top: 0; height: 0.2in; }
+  .fold-tick-bottom { bottom: 0; height: 0.2in; }
+  .fold-tick-1 { left: 3.6667in; }
+  .fold-tick-2 { left: 7.3334in; }
+
+  /* Corner registration marks */
+  .reg-mark {
+    position: absolute;
+    z-index: 20;
+  }
+  .reg-mark::before, .reg-mark::after {
+    content: '';
+    position: absolute;
+    background: #999;
+  }
+  .reg-mark::before {
+    width: 0.15in;
+    height: 0.5px;
+  }
+  .reg-mark::after {
+    width: 0.5px;
+    height: 0.15in;
+  }
+  .reg-tl { top: 0.1in; left: 0.1in; }
+  .reg-tr { top: 0.1in; right: 0.1in; }
+  .reg-tr::before { right: 0; }
+  .reg-tr::after { right: 0; }
+  .reg-bl { bottom: 0.1in; left: 0.1in; }
+  .reg-bl::before { bottom: 0; }
+  .reg-bl::after { bottom: 0; }
+  .reg-br { bottom: 0.1in; right: 0.1in; }
+  .reg-br::before { right: 0; bottom: 0; }
+  .reg-br::after { right: 0; bottom: 0; }
+
   @media print {
     body { background: white; }
     .page { margin: 0; box-shadow: none; }
-    .fold-mark { border-left-color: #eee; }
+    .fold-mark { display: none; }
+    .fold-tick { background: #666; }
+    .reg-mark::before, .reg-mark::after { background: #666; }
+    .contact-image-strip,
+    .front-hero-image,
+    .about-headshot,
+    .about-workshop-img,
+    .collection-item,
+    .bespoke-hero,
+    .bespoke-bottom-image {
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      overflow: visible !important;
+      background: transparent !important;
+      border: none !important;
+      outline: none !important;
+    }
+    /* Fake rounded corners via solid border matching panel background */
+    .contact-image-strip img,
+    .front-hero-image img,
+    .collection-item img {
+      border: 3px solid white !important;
+      border-radius: 10px !important;
+      outline: none !important;
+      background: transparent !important;
+      box-shadow: none !important;
+    }
+    .about-headshot img,
+    .about-workshop-img img {
+      border: 3px solid #fcf7f0 !important;
+      border-radius: 10px !important;
+      outline: none !important;
+      background: transparent !important;
+      box-shadow: none !important;
+    }
+    .bespoke-hero img,
+    .bespoke-bottom-image img {
+      border: 3px solid #f8f5f0 !important;
+      border-radius: 10px !important;
+      outline: none !important;
+      background: transparent !important;
+      box-shadow: none !important;
+    }
+    .item-label,
+    .image-label,
+    .front-hero-label {
+      left: 3px !important;
+      right: 3px !important;
+      bottom: 3px !important;
+      border-bottom-left-radius: 8px !important;
+      border-bottom-right-radius: 8px !important;
+    }
   }
 
   /* ===== TYPOGRAPHY ===== */
@@ -184,7 +276,6 @@
     border-radius: 6px;
     overflow: hidden;
     margin: 0.1in 0;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     position: relative;
   }
 
@@ -389,10 +480,9 @@
 
   .front-hero-image {
     width: calc(100% + 0.1in);
-    height: 4.3in;
+    height: 4.8in;
     border-radius: 6px;
     overflow: hidden;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
     position: relative;
     margin: 0.08in 0;
   }
@@ -401,7 +491,8 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 20%;
+    object-position: 40% 5%;
+    transform: scale(1.7);
   }
 
   .front-hero-label {
@@ -481,7 +572,6 @@
     border-radius: 6px;
     overflow: hidden;
     margin-bottom: 0.1in;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
   }
 
   .about-headshot img {
@@ -511,7 +601,6 @@
     border-radius: 5px;
     overflow: hidden;
     margin-top: 0.06in;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
   }
 
   .about-workshop-img img {
@@ -563,7 +652,6 @@
     border-radius: 4px;
     overflow: hidden;
     position: relative;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
   }
 
   .collection-item img {
@@ -662,14 +750,14 @@
     border-radius: 6px;
     overflow: hidden;
     margin-bottom: 0.08in;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
   }
 
   .bespoke-hero img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 25%;
+    object-position: center 15%;
+    transform: scale(1.2);
   }
 
   .bespoke-body p {
@@ -753,7 +841,6 @@
     border-radius: 5px;
     overflow: hidden;
     margin-top: 0.06in;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
   }
 
   .bespoke-bottom-image img {
@@ -785,6 +872,13 @@
       margin-top: 10px;
       margin-bottom: 30px;
     }
+    .contact-image-strip { box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+    .front-hero-image { box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
+    .about-headshot { box-shadow: 0 3px 10px rgba(0,0,0,0.15); }
+    .about-workshop-img { box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
+    .collection-item { box-shadow: 0 2px 6px rgba(0,0,0,0.12); }
+    .bespoke-hero { box-shadow: 0 3px 10px rgba(0,0,0,0.15); }
+    .bespoke-bottom-image { box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
   }
 </style>
 </head>
@@ -792,25 +886,50 @@
 
 <!-- ==========================================
      PAGE 1 - OUTSIDE (prints face-down)
-     Left=Contact Flap | Center=Back | Right=Front Cover
+     Left=Back Cover | Center=Contact Flap | Right=Front Cover
      ========================================== -->
 <p class="page-label">Page 1 &mdash; Outside (Back &amp; Front Cover)</p>
 <div class="page" id="page-outside">
   <div class="fold-mark fold-mark-1"></div>
   <div class="fold-mark fold-mark-2"></div>
+  <div class="fold-tick fold-tick-top fold-tick-1"></div>
+  <div class="fold-tick fold-tick-top fold-tick-2"></div>
+  <div class="fold-tick fold-tick-bottom fold-tick-1"></div>
+  <div class="fold-tick fold-tick-bottom fold-tick-2"></div>
+  <div class="reg-mark reg-tl"></div>
+  <div class="reg-mark reg-tr"></div>
+  <div class="reg-mark reg-bl"></div>
+  <div class="reg-mark reg-br"></div>
 
-  <!-- PANEL 1: Contact Flap -->
+  <!-- PANEL 1: Back Cover (left, folds to become the back of the brochure) -->
+  <div class="panel back-panel">
+    <div class="panel-inner">
+      <div class="back-image-container">
+        <img src="brochure-images/custom_22_editorial-zoe.jpg" alt="Editorial - M. Renee Designs">
+        <div class="back-image-overlay"></div>
+      </div>
+      <div class="back-text">
+        <div class="quote">
+          &ldquo;From wild animals, these hides are so close to nature you can sense the earthy aliveness, feel it like the comfort of a hug, decadently supple.&rdquo;
+        </div>
+        <div class="divider" style="background: linear-gradient(to right, transparent, rgba(184,97,37,0.6), transparent);"></div>
+        <div class="back-motto">Refined. Natural. Fantastical.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANEL 2: Contact Flap (center, first thing seen when opening the front cover) -->
   <div class="panel contact-panel">
     <div class="panel-inner">
       <div class="contact-top">
-        <img class="contact-logo-mark" src="website/src/assets/images/LogoPNG-300_inked_logo_APRIL EDITS_foot_tail2.png" alt="M. Renee Designs logo">
+        <img class="contact-logo-mark" src="brochure-images/LogoPNG-300_inked_logo_APRIL EDITS_foot_tail2.png" alt="M. Renee Designs logo">
         <div class="contact-brand-name">M. Renee<br>Designs</div>
         <div class="contact-tagline-sm">Handcrafted Leather Fashion</div>
         <div class="contact-accent-bar"></div>
       </div>
 
       <div class="contact-image-strip">
-        <img src="website/src/assets/images/looks_04_vest-peplum.jpg" alt="Queen Peplum Vest">
+        <img src="brochure-images/looks_04_vest-peplum.jpg" alt="Queen Peplum Vest">
         <div class="image-label">Peplum Vest</div>
       </div>
 
@@ -830,43 +949,22 @@
     </div>
   </div>
 
-  <!-- PANEL 2: Back Cover -->
-  <div class="panel back-panel">
-    <div class="panel-inner">
-      <div class="back-image-container">
-        <img src="website/src/assets/images/custom_22_editorial-zoe.jpg" alt="Editorial - M. Renee Designs">
-        <div class="back-image-overlay"></div>
-      </div>
-      <div class="back-text">
-        <div class="quote">
-          &ldquo;From wild animals, these hides are so close to nature you can sense the earthy aliveness, feel it like the comfort of a hug, decadently supple.&rdquo;
-        </div>
-        <div class="divider" style="background: linear-gradient(to right, transparent, rgba(184,97,37,0.6), transparent);"></div>
-        <div class="back-motto">Refined. Natural. Fantastical.</div>
-      </div>
-    </div>
-  </div>
-
   <!-- PANEL 3: Front Cover -->
   <div class="panel front-panel">
     <div class="panel-inner">
       <div class="front-top-accent"></div>
 
       <div class="front-logo-section">
-        <img class="front-logo" src="website/src/assets/images/LogoPNG-300_inked_logo_APRIL EDITS_foot_tail2.png" alt="M. Renee Designs">
+        <img class="front-logo" src="brochure-images/LogoPNG-300_inked_logo_APRIL EDITS_foot_tail2.png" alt="M. Renee Designs">
         <div class="front-brand-name">M. Renee<br><span>Designs</span></div>
       </div>
 
       <div class="front-hero-image">
-        <img src="website/src/assets/images/looks_02_queen3.jpg" alt="Queen Collar Coat">
+        <img src="brochure-images/looks_02_queen3.jpg" alt="Queen Collar Coat">
         <div class="front-hero-label">Queen Coat</div>
       </div>
 
       <div class="tagline front-tagline">Refined. Natural. Fantastical.</div>
-      <div class="divider"></div>
-      <div class="front-subtitle">
-        Alluring and dynamic fashion handcrafted for your body from wild-sourced deer and elk hides
-      </div>
       <div class="front-location">Houston, Texas</div>
 
       <div class="front-bottom-accent"></div>
@@ -883,6 +981,14 @@
 <div class="page" id="page-inside">
   <div class="fold-mark fold-mark-1"></div>
   <div class="fold-mark fold-mark-2"></div>
+  <div class="fold-tick fold-tick-top fold-tick-1"></div>
+  <div class="fold-tick fold-tick-top fold-tick-2"></div>
+  <div class="fold-tick fold-tick-bottom fold-tick-1"></div>
+  <div class="fold-tick fold-tick-bottom fold-tick-2"></div>
+  <div class="reg-mark reg-tl"></div>
+  <div class="reg-mark reg-tr"></div>
+  <div class="reg-mark reg-bl"></div>
+  <div class="reg-mark reg-br"></div>
 
   <!-- PANEL 4: About the Designer -->
   <div class="panel about-panel">
@@ -893,7 +999,7 @@
       </div>
 
       <div class="about-headshot">
-        <img src="website/src/assets/images/about_03_headshot-brown.JPG" alt="Emily Renee Smith - M. Renee Designs">
+        <img src="brochure-images/about_03_headshot-brown.JPG" alt="Emily Renee Smith - M. Renee Designs">
       </div>
 
       <div class="about-body">
@@ -904,12 +1010,12 @@
           In her 20s, everything changed when she made a leather garment as part of a Mardi Gras costume in New Orleans. She loved it, surprised by joy as it became <span class="highlight">more beautiful with wear instead of breaking down</span>&mdash;timeless, practical, and expressive.
         </p>
         <p>
-          Strangers repeatedly approached to ask where they could buy what she was wearing. That organic demand birthed this venture. <span class="highlight">M. Renee Designs, Est. 2014.</span>
+          Strangers repeatedly approached to ask where they could buy what she was wearing. That organic demand birthed this venture.<br><span class="highlight">M. Renee Designs, Est. 2014.</span>
         </p>
       </div>
 
       <div class="about-workshop-img">
-        <img src="website/src/assets/images/about_01_sewing-fur.jpg" alt="M at work in her Houston atelier">
+        <img src="brochure-images/about_01_sewing-fur.jpg" alt="M at work in her Houston atelier">
       </div>
     </div>
   </div>
@@ -925,19 +1031,19 @@
 
       <div class="collection-grid">
         <div class="collection-item collection-item-tall">
-          <img src="website/src/assets/images/looks_10_dress-red-zoe-front.jpeg" alt="Backless Halter Dress">
+          <img src="brochure-images/looks_10_dress-red-zoe-front.jpeg" alt="Backless Halter Dress">
           <div class="item-label">Halter Dress</div>
         </div>
         <div class="collection-item collection-item-tall">
-          <img src="website/src/assets/images/custom_18_skirt-fringe1.JPG" alt="Custom Fringe Fashion">
+          <img src="brochure-images/custom_18_skirt-fringe1.JPG" alt="Custom Fringe Fashion">
           <div class="item-label">Custom Fringe</div>
         </div>
         <div class="collection-item collection-item-short">
-          <img src="website/src/assets/images/looks_17_elvira-black2.jpg" alt="Elvira Jacket">
+          <img src="brochure-images/looks_17_elvira-black2.jpg" alt="Elvira Jacket">
           <div class="item-label">Elvira Jacket</div>
         </div>
         <div class="collection-item collection-item-short">
-          <img src="website/src/assets/images/looks_25_skirt-black-coko.jpg" alt="Deerhide Skirt">
+          <img src="brochure-images/looks_25_skirt-black-coko.jpg" alt="Deerhide Skirt">
           <div class="item-label">Deerhide Skirt</div>
         </div>
       </div>
@@ -970,7 +1076,7 @@
       </div>
 
       <div class="bespoke-hero">
-        <img src="website/src/assets/images/looks_18_elvira-red-emily.jpg" alt="Custom Elvira Jacket in Red">
+        <img src="brochure-images/looks_18_elvira-red-emily.jpg" alt="Custom Elvira Jacket in Red">
       </div>
 
       <div class="bespoke-body">
@@ -1006,7 +1112,7 @@
       </div>
 
       <div class="bespoke-bottom-image">
-        <img src="website/src/assets/images/custom_21_queen-green2.JPG" alt="Queen Coat in Green">
+        <img src="brochure-images/custom_21_queen-green2.JPG" alt="Queen Coat in Green">
       </div>
     </div>
   </div>
