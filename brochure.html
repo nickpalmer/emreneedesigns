@@ -157,15 +157,6 @@
       background: transparent !important;
       box-shadow: none !important;
     }
-    .item-label,
-    .image-label,
-    .front-hero-label {
-      left: 3px !important;
-      right: 3px !important;
-      bottom: 3px !important;
-      border-bottom-left-radius: 8px !important;
-      border-bottom-right-radius: 8px !important;
-    }
   }
   /* ===== TYPOGRAPHY ===== */
   h1, h2, h3, h4 {
@@ -247,20 +238,6 @@
     height: 100%;
     object-fit: cover;
     object-position: center 20%;
-  }
-  .contact-image-strip .image-label {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 0.15in 0.08in 0.06in;
-    background: linear-gradient(to top, rgba(0,0,0,0.65), transparent);
-    color: white;
-    font-family: 'Libre Baskerville', Georgia, serif;
-    font-size: 10pt;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    text-align: center;
   }
   .contact-details {
     text-align: center;
@@ -377,35 +354,22 @@
     justify-content: space-between;
     text-align: center;
   }
-  .front-top-accent {
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(to right, var(--brown-light), var(--teal));
-    border-radius: 1px;
-  }
   .front-logo-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 0.05in;
   }
+  .front-name-logo {
+    width: 1.9in;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
   .front-logo {
     width: 1.5in;
     height: auto;
     margin-bottom: 0.06in;
-  }
-  .front-brand-name {
-    font-family: 'Libre Baskerville', Georgia, serif;
-    font-size: 18pt;
-    color: var(--brown-dark);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    line-height: 1.2;
-  }
-  .front-brand-name span {
-    display: block;
-    font-size: 22pt;
-    letter-spacing: 0.08em;
   }
   .front-hero-image {
     width: calc(100% + 0.1in);
@@ -422,20 +386,6 @@
     object-position: 40% 5%;
     transform: scale(1.2);
     transform-origin: 90% 80%;
-  }
-  .front-hero-label {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 0.18in 0.1in 0.07in;
-    background: linear-gradient(to top, rgba(0,0,0,0.65), transparent);
-    color: white;
-    font-family: 'Libre Baskerville', Georgia, serif;
-    font-size: 10pt;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    text-align: center;
   }
   .front-tagline {
     font-size: 11pt;
@@ -512,7 +462,7 @@
     margin-bottom: 0.06in;
   }
   .collection-item {
-    height: 1.22in;
+    height: 1.48in;
     border-radius: 4px;
     overflow: hidden;
     position: relative;
@@ -542,19 +492,6 @@
     object-fit: cover;
     object-position: center 15%;
     display: block;
-  }
-  .collection-item .item-label {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 0.12in 0.08in 0.05in;
-    background: linear-gradient(to top, rgba(0,0,0,0.65), transparent);
-    color: white;
-    font-family: 'Libre Baskerville', Georgia, serif;
-    font-size: 10pt;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
   }
   /* --- PANEL: BESPOKE (right, inside) --- */
   .bespoke-panel {
@@ -703,7 +640,6 @@
       </div>
       <div class="contact-image-strip">
         <img src="brochure-images/looks_04_vest-peplum.jpg" alt="Queen Peplum Vest">
-        <div class="image-label">Peplum Vest</div>
       </div>
       <div class="contact-details">
         <h3>Get in Touch</h3>
@@ -721,14 +657,12 @@
   <!-- PANEL 3: Front Cover -->
   <div class="panel front-panel">
     <div class="panel-inner">
-      <div class="front-top-accent"></div>
       <div class="front-logo-section">
         <img class="front-logo" src="brochure-images/LogoPNG-300_inked_logo_APRIL EDITS_foot_tail2.png" alt="M. Renee Designs">
-        <div class="front-brand-name">M. Renee<br><span>Designs</span></div>
+        <img class="front-name-logo" src="brochure-images/name-logo-brown.svg" alt="M Renee">
       </div>
       <div class="front-hero-image">
         <img src="brochure-images/looks_02_queen3.jpg" alt="Queen Collar Coat">
-        <div class="front-hero-label">Queen Coat</div>
       </div>
       <div class="tagline front-tagline">Refined. Natural. Fantastical.</div>
     </div>
@@ -768,7 +702,7 @@
           In her 20s, everything changed when she made a leather garment as part of a Mardi Gras costume in New Orleans. She loved it, surprised by joy as it became <span class="highlight">more beautiful with wear instead of breaking down</span>&mdash;timeless, practical, and expressive.
         </p>
         <p>
-          Each piece is designed and constructed start to finish by the artist, with a focus on fit, movement, and longevity.<br><span class="highlight">M. Renee Designs, Est. 2014.</span>
+          Each piece is designed and constructed start to finish by the artist, with a focus on fit, movement, and longevity.
         </p>
       </div>
     </div>
@@ -779,51 +713,33 @@
       <div class="collection-grid">
         <div class="collection-item collection-item-tall crop-reddress">
           <img src="brochure-images/looks_10_dress-red-zoe-front.jpeg" alt="Backless Halter Dress">
-          <div class="item-label">Halter Dress</div>
-        </div>
-        <div class="collection-item collection-item-tall">
-          <img src="brochure-images/custom_18_skirt-fringe1.JPG" alt="Custom Fringe Fashion">
-          <div class="item-label">Custom Fringe</div>
         </div>
         <div class="collection-item collection-item-tall">
           <img src="brochure-images/looks_17_elvira-black2.jpg" alt="Elvira Jacket">
-          <div class="item-label">Elvira Jacket</div>
         </div>
         <div class="collection-item collection-item-tall">
           <img src="brochure-images/looks_05_deerhide.jpg" alt="Deerhide Skirt">
-          <div class="item-label">Deerhide Skirt</div>
-        </div>
-        <div class="collection-item collection-item-short">
-          <img src="brochure-images/looks_18_elvira-red-emily.jpg" alt="Elvira Jacket in Red">
-          <div class="item-label">Elvira in Red</div>
         </div>
         <div class="collection-item collection-item-short crop-duster">
           <img src="brochure-images/custom_15_rawduster.jpeg" alt="Raw Duster in Elk Leather">
-          <div class="item-label">Raw Duster</div>
         </div>
         <div class="collection-item collection-item-short">
           <img src="brochure-images/looks_08_bolerobustier-black.jpeg" alt="Bustier Vest">
-          <div class="item-label">Bustier Vest</div>
         </div>
         <div class="collection-item collection-item-short">
           <img src="brochure-images/looks_23_halter-seafoam.JPG" alt="Halter Top">
-          <div class="item-label">Halter Top</div>
         </div>
         <div class="collection-item">
           <img src="brochure-images/home_05_toby1.jpg" alt="Custom Menswear Jacket">
-          <div class="item-label">Custom Menswear</div>
         </div>
         <div class="collection-item crop-teal">
           <img src="brochure-images/home_13_teal-3-dress.jpg" alt="Teal Deerhide Dresses">
-          <div class="item-label">Teal Dresses</div>
         </div>
         <div class="collection-item">
           <img src="brochure-images/custom_07_zoe2.jpg" alt="Custom Fitted Jacket">
-          <div class="item-label">Custom Jacket</div>
         </div>
         <div class="collection-item crop-moss">
           <img src="brochure-images/custom_23_qat-moss.jpg" alt="Custom Design in the Forest">
-          <div class="item-label">Custom Design</div>
         </div>
       </div>
     </div>
@@ -834,7 +750,6 @@
       <div class="bespoke-header">
         <h2>Bespoke Fashion</h2>
         <div class="divider"></div>
-        <div class="subtitle">Real materials, designed to be worn with pleasure</div>
       </div>
       <div class="bespoke-body">
         <p>
@@ -856,7 +771,7 @@
         </div>
       </div>
       <div class="bespoke-note">
-        This is slow fashion. Yours will be one of approximately 25 projects a year. Clients may also inquire about hosting a trunk show of current inventory.
+        Slow Fashion. Approximately 25 pieces a year.
       </div>
       <div class="bespoke-bottom-image">
         <img src="brochure-images/custom_21_queen-green2.JPG" alt="Queen Coat in Green">
