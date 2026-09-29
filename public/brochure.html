@@ -512,9 +512,19 @@
     margin-bottom: 0.06in;
   }
   .collection-item {
+    height: 1.22in;
     border-radius: 4px;
     overflow: hidden;
     position: relative;
+  }
+  .crop-teal img {
+    transform: scale(1.4);
+    transform-origin: 50% 55%;
+  }
+  .crop-moss img {
+    object-position: 47% 58%;
+    transform: scale(2.4);
+    transform-origin: 47% 58%;
   }
   .collection-item img {
     width: 100%;
@@ -522,12 +532,6 @@
     object-fit: cover;
     object-position: center 15%;
     display: block;
-  }
-  .collection-item-tall {
-    height: 2.0in;
-  }
-  .collection-item-short {
-    height: 1.75in;
   }
   .collection-item .item-label {
     position: absolute;
@@ -794,6 +798,22 @@
         <div class="collection-item collection-item-short">
           <img src="brochure-images/looks_23_halter-seafoam.JPG" alt="Halter Top">
           <div class="item-label">Halter Top</div>
+        </div>
+        <div class="collection-item">
+          <img src="brochure-images/home_05_toby1.jpg" alt="Custom Menswear Jacket">
+          <div class="item-label">Custom Menswear</div>
+        </div>
+        <div class="collection-item crop-teal">
+          <img src="brochure-images/home_13_teal-3-dress.jpg" alt="Teal Deerhide Dresses">
+          <div class="item-label">Teal Dresses</div>
+        </div>
+        <div class="collection-item">
+          <img src="brochure-images/custom_07_zoe2.jpg" alt="Custom Fitted Jacket">
+          <div class="item-label">Custom Jacket</div>
+        </div>
+        <div class="collection-item crop-moss">
+          <img src="brochure-images/custom_23_qat-moss.jpg" alt="Custom Design in the Forest">
+          <div class="item-label">Custom Design</div>
         </div>
       </div>
     </div>
