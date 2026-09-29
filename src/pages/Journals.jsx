@@ -25,7 +25,7 @@ import journal_19 from '../assets/images/journal_19_441933.jpg';
 const MOBILE_BREAKPOINT = 768;
 const ETSY_SHOP_URL = 'https://www.etsy.com/shop/nuancejournals';
 
-const titleGalleryImages = [journal_04, journal_05, journal_06, journal_07];
+const titleGalleryImages = [journal_04, journal_07, journal_06, journal_05];
 const processGalleryImages = [journal_02, journal_08, journal_09, journal_10];
 const originsGalleryImages = [journal_13];
 const travelGalleryImages = [journal_03, journal_15, journal_16, journal_17, journal_18, journal_19];
@@ -58,7 +58,7 @@ const Journals = () => {
 
   return (
     <div>
-      <ParallaxHero image={journal_hero} alt="Handbound leather journal" objectPosition="center" mobilePosition="center">
+      <ParallaxHero image={journal_hero} alt="Handbound leather journal" objectPosition="center bottom" mobilePosition="center bottom" initialOffset={-260}>
         <div className="shadow-lg" style={{
           backgroundColor: 'var(--textbox-bg)',
           padding: '20px',
