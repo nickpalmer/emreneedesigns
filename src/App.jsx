@@ -9,6 +9,7 @@ import About from './pages/About';
 import Designs from './pages/Designs';
 import Custom from './pages/Custom';
 import Contact from './pages/Contact';
+import Journals from './pages/Journals';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -30,6 +31,7 @@ const App = () => {
             <Route path="/about" element={<About />} />
             <Route path="/designs" element={<Designs />} />
             <Route path="/custom" element={<Custom />} />
+            <Route path="/journals" element={<Journals />} />
             <Route path="/contact" element={<Contact />} />
 
             {/* Redirects from old site routes */}
