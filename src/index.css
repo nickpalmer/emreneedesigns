@@ -4,17 +4,17 @@
   --header-height: 60px;
 
   /* Header & Footer Colors */
-  --header-footer-bg: #026365;
-  --header-footer-text: #e6f3f1;
-  --header-footer-hover: #522020;
+  --header-footer-bg: #2d798c;
+  --header-footer-text: #f4f7f7;
+  --header-footer-hover: #651010;
 
   /* Gradient Colors */
-  --gradient-top: #bbbfc2;
-  --gradient-bottom: #223032;
+  --gradient-top: #f8f9f9;
+  --gradient-bottom: #afb5b6;
 
   /* Text Box Colors */
-  --textbox-bg: #0d282d;
-  --textbox-text: #F5E6D3;
+  --textbox-bg: #fcf7f0;
+  --textbox-text: #053c3d;
 
   /* Logo Colors */
   --logo-color: #bc6f2c;
@@ -31,5 +31,10 @@
 @layer base {
   body {
     margin: 0;
+    font-family: 'EB Garamond', Georgia, serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Libre Baskerville', Georgia, serif;
   }
 }

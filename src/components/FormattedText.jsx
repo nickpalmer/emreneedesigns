@@ -1,9 +1,24 @@
 import React from 'react';
 
 /**
+ * Parses inline *italic* markers within a text string.
+ * Returns an array of React nodes with <em> wrapping italic segments.
+ */
+const parseInlineStyles = (text) => {
+  const parts = text.split(/(\*[^*]+\*)/g);
+  return parts.map((part, i) => {
+    if (part.startsWith('*') && part.endsWith('*') && part.length > 2) {
+      return <em key={i}>{part.slice(1, -1)}</em>;
+    }
+    return part;
+  });
+};
+
+/**
  * FormattedText component that converts newlines in text to proper HTML breaks or paragraphs
  * - Single newlines become <br /> tags
  * - Multiple consecutive newlines (2+) create separate paragraphs
+ * - *text* becomes <em>text</em>
  */
 const FormattedText = ({ children, className = '' }) => {
   if (!children) return null;
@@ -21,10 +36,10 @@ const FormattedText = ({ children, className = '' }) => {
         const lines = paragraph.split(/\n/);
 
         return (
-          <p key={pIndex} className={className}>
+          <p key={pIndex} className={className} style={pIndex > 0 ? { marginTop: '1em' } : undefined}>
             {lines.map((line, lIndex) => (
               <React.Fragment key={lIndex}>
-                {line}
+                {parseInlineStyles(line)}
                 {lIndex < lines.length - 1 && <br />}
               </React.Fragment>
             ))}

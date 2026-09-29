@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ColorPicker from './components/ColorPicker';
@@ -9,10 +9,20 @@ import About from './pages/About';
 import Designs from './pages/Designs';
 import Custom from './pages/Custom';
 import Contact from './pages/Contact';
+import Journals from './pages/Journals';
+
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+};
 
 const App = () => {
   return (
     <Router>
+      <ScrollToTop />
       <div className="flex flex-col min-h-screen" style={{ background: 'linear-gradient(to bottom, var(--gradient-top), var(--gradient-bottom))' }}>
         <Header />
         <main className="flex-grow" style={{ background: 'transparent' }}>
@@ -21,6 +31,7 @@ const App = () => {
             <Route path="/about" element={<About />} />
             <Route path="/designs" element={<Designs />} />
             <Route path="/custom" element={<Custom />} />
+            <Route path="/journals" element={<Journals />} />
             <Route path="/contact" element={<Contact />} />
 
             {/* Redirects from old site routes */}
