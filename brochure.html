@@ -122,7 +122,6 @@
     .fold-tick { background: #666; }
     .reg-mark::before, .reg-mark::after { background: #666; }
     .contact-image-strip,
-    .front-hero-image,
     .about-workshop-img,
     .collection-item {
       box-shadow: none !important;
@@ -134,7 +133,6 @@
     }
     /* Fake rounded corners via solid border matching panel background */
     .contact-image-strip img,
-    .front-hero-image img,
     .collection-item img {
       border: 3px solid white !important;
       border-radius: 10px !important;
@@ -323,9 +321,29 @@
   .front-panel {
     background: white;
   }
-  .front-panel .panel-inner {
+  .front-hero-bleed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6.2in;
+    overflow: hidden;
+  }
+  .front-hero-bleed img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 80% bottom;
+  }
+  .front-bottom-group {
+    position: absolute;
+    top: 6.2in;
+    bottom: 0.12in;
+    left: 0.3in;
+    right: 0.3in;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
     text-align: center;
   }
   .front-logo-section {
@@ -334,37 +352,21 @@
     align-items: center;
   }
   .front-name-logo {
-    width: 1.9in;
+    width: 1.6in;
     height: auto;
     display: block;
-    margin: -60px 20px;
-    z-index: 100;
+    margin: 0;
   }
   .front-logo {
-    width: 1.1in;
+    width: 0.85in;
     height: auto;
     align-self: flex-end;
     position: relative;
     z-index: 2;
-    margin: -20px -50px;
-  }
-  .front-hero-image {
-    width: calc(100% + 0.1in);
-    height: 5.2in;
-    border-radius: 6px;
-    overflow: hidden;
-    position: relative;
-    margin: 0.08in 0;
-  }
-  .front-hero-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: right center;
-    transform: scale(1.1);
-    transform-origin: 100% 100%;
+    margin: 0 0 -0.3in 0;
   }
   .front-tagline {
+    margin-top: 0.08in;
     font-size: 12pt;
     color: var(--brown-dark);
     letter-spacing: 0.12em;
@@ -454,15 +456,15 @@
     transform-origin: 50% 84%;
   }
   .crop-deerhide img {
-    transform: scale(1.5);
-    transform-origin: 50% 30%;
+    transform: scale(1.3);
+    transform-origin: 50% 25%;
   }
   .crop-seafoam img {
     transform: scale(1.2);
     transform-origin: 50% 20%;
   }
   .crop-queen img {
-    object-position: center 30%;
+    object-position: center 80%;
   }
   .collection-item img {
     width: 100%;
@@ -473,7 +475,7 @@
   }
   /* --- PANEL: BESPOKE (right, inside) --- */
   .bespoke-panel {
-    background: var(--warm-white);
+    background: var(--dark-teal);
   }
   .bespoke-panel .panel-inner {
     justify-content: flex-start;
@@ -481,10 +483,10 @@
   }
   .bespoke-image-container {
     position: absolute;
-    top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    height: 5.8in;
   }
   .bespoke-image-container img {
     width: 100%;
@@ -492,10 +494,18 @@
     object-fit: cover;
     object-position: 47% center;
   }
+  .bespoke-image-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background: linear-gradient(to bottom, rgba(5,60,61,1) 0%, rgba(5,60,61,0.55) 22%, rgba(5,60,61,0) 48%);
+  }
   .bespoke-content {
-    margin: -0.35in -0.3in 0;
-    padding: 0.35in 0.3in 0.45in;
-    background: linear-gradient(to bottom, rgba(248,245,240,0.97) 0%, rgba(248,245,240,0.95) 80%, rgba(248,245,240,0) 100%);
+    text-align: center;
   }
   .bespoke-header {
     text-align: center;
@@ -503,7 +513,7 @@
   }
   .bespoke-header h2 {
     font-size: 14pt;
-    color: var(--brown-dark);
+    color: var(--cream);
     letter-spacing: 0.1em;
     text-transform: uppercase;
   }
@@ -516,42 +526,9 @@
   .bespoke-body p {
     font-size: 11pt;
     line-height: 1.5;
-    color: var(--dark-teal);
+    color: #f0ebe4;
     margin-bottom: 0.06in;
-    text-align: left;
-  }
-  .bespoke-pillars {
-    display: flex;
-    gap: 0.06in;
-    margin: 0.06in 0;
-  }
-  .bespoke-pillar {
-    flex: 1;
     text-align: center;
-    padding: 0.08in 0.03in;
-    background: rgba(45,121,140,0.06);
-    border-radius: 4px;
-    border-top: 2px solid var(--brown-light);
-  }
-  .bespoke-pillar h4 {
-    font-size: 11pt;
-    color: var(--brown-dark);
-    margin-bottom: 0.03in;
-    font-style: italic;
-  }
-  .bespoke-pillar p {
-    font-size: 11pt;
-    line-height: 1.4;
-    color: var(--olive-dark);
-    margin-bottom: 0;
-  }
-  .bespoke-note {
-    font-size: 11pt;
-    color: var(--olive-light);
-    text-align: center;
-    margin-top: 0.08in;
-    font-style: italic;
-    line-height: 1.45;
   }
   /* ===== SCREEN HELPERS ===== */
   .page-label {
@@ -574,7 +551,6 @@
       margin-bottom: 30px;
     }
     .contact-image-strip { box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
-    .front-hero-image { box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
     .about-workshop-img { box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
     .collection-item { box-shadow: 0 2px 6px rgba(0,0,0,0.12); }
   }
@@ -640,13 +616,13 @@
   </div>
   <!-- PANEL 3: Front Cover -->
   <div class="panel front-panel">
-    <div class="panel-inner">
+    <div class="front-hero-bleed">
+      <img src="brochure-images/looks_02_queen3.jpg" alt="Queen Collar Coat">
+    </div>
+    <div class="front-bottom-group">
       <div class="front-logo-section">
         <img class="front-logo" src="brochure-images/fox-logo.svg" alt="M. Renee Designs">
         <img class="front-name-logo" src="brochure-images/name-logo-black.svg" alt="M Renee">
-      </div>
-      <div class="front-hero-image">
-        <img src="brochure-images/looks_02_queen3.jpg" alt="Queen Collar Coat">
       </div>
       <div class="tagline front-tagline">Refined. Natural. Fantastical.</div>
     </div>
@@ -686,7 +662,7 @@
           In her 20s, everything changed when she made a leather garment as part of a Mardi Gras costume in New Orleans. She loved it, surprised by joy as it became <span class="highlight">more beautiful with wear instead of breaking down</span>&mdash;timeless, practical, and expressive.
         </p>
         <p>
-          Each piece is designed and constructed start to finish by the artist, with a focus on fit, movement, and longevity.
+          Slow Fashion, each piece is designed and constructed start to finish by the artist, with a focus on fit, movement, and longevity.
         </p>
       </div>
     </div>
@@ -737,23 +713,6 @@
         <p>
           Custom design fittings are one on one, creating with the hides of your choice, draped to flatter your form, designed to suit your function.
         </p>
-      </div>
-      <div class="bespoke-pillars">
-        <div class="bespoke-pillar">
-          <h4>Refined</h4>
-          <p>Designed for the body, including curves. Elegant lines, intricate construction.</p>
-        </div>
-        <div class="bespoke-pillar">
-          <h4>Natural</h4>
-          <p>Raw edges and scars on each hide factor into the design. Wild hides with real feeling.</p>
-        </div>
-        <div class="bespoke-pillar">
-          <h4>Fantastical</h4>
-          <p>One of a kind pieces made by the designer to honor and flatter your body.</p>
-        </div>
-      </div>
-      <div class="bespoke-note">
-        Slow Fashion. Approximately 25 pieces a year.
       </div>
       </div>
     </div>
