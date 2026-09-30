@@ -487,46 +487,19 @@
     justify-content: flex-start;
     z-index: 2;
   }
-  .bespoke-top-photo {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2.9in;
-    overflow: hidden;
-  }
-  .bespoke-top-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: 40% top;
-    transform: scale(3.2);
-    transform-origin: 40% 0%;
-  }
-  .bespoke-top-photo::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to bottom, rgba(5,60,61,0.93) 0%, rgba(5,60,61,0.82) 55%, rgba(5,60,61,0.6) 100%);
-  }
   .bespoke-image-container {
     position: absolute;
+    top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    height: 5.8in;
     overflow: hidden;
   }
   .bespoke-image-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 42% center;
-    transform: scale(1.15);
-    transform-origin: 34% 85%;
+    object-position: 45% center;
   }
   .bespoke-image-container::before {
     content: '';
@@ -536,7 +509,7 @@
     right: 0;
     bottom: 0;
     z-index: 1;
-    background: linear-gradient(to bottom, rgba(5,60,61,1) 0%, rgba(5,60,61,0.5) 2.5%, rgba(5,60,61,0) 5.5%);
+    background: linear-gradient(to bottom, rgba(5,60,61,0.95) 0%, rgba(5,60,61,0.78) 28%, rgba(5,60,61,0) 58%);
   }
   .bespoke-content {
     text-align: center;
@@ -655,7 +628,6 @@
     </div>
     <div class="front-bottom-group">
       <div class="front-logo-section">
-        <img class="front-logo" src="brochure-images/fox-color.svg" alt="M. Renee Designs">
         <img class="front-name-logo" src="brochure-images/name-logo-black.svg" alt="M Renee">
       </div>
       <div class="tagline front-tagline">Refined. Natural. Fantastical.</div>
@@ -734,9 +706,6 @@
   </div>
   <!-- PANEL 6: Bespoke / Custom -->
   <div class="panel bespoke-panel">
-    <div class="bespoke-top-photo">
-      <img src="brochure-images/custom_23_qat-moss.jpg" alt="">
-    </div>
     <div class="bespoke-image-container">
       <img src="brochure-images/custom_23_qat-moss.jpg" alt="Custom Design in the Forest">
     </div>
