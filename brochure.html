@@ -277,9 +277,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 70% center;
-    transform: scale(1.1);
-    transform-origin: 70% 100%;
+    object-position: 78% center;
   }
   .back-image-overlay {
     position: absolute;
@@ -487,6 +485,9 @@
     justify-content: flex-start;
     z-index: 2;
   }
+  .bespoke-panel .back-text {
+    margin-top: auto;
+  }
   .bespoke-image-container {
     position: absolute;
     top: 0;
@@ -499,7 +500,9 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
+    object-position: 70% center;
+    transform: scale(1.1);
+    transform-origin: 70% 100%;
   }
   .bespoke-image-container::before {
     content: '';
@@ -582,18 +585,8 @@
   <div class="reg-mark reg-br"></div>
   <!-- PANEL 1: Back Cover (left, folds to become the back of the brochure) -->
   <div class="panel back-panel">
-    <div class="panel-inner">
-      <div class="back-image-container">
-        <img src="brochure-images/custom_22_editorial-zoe.jpg" alt="Editorial - M. Renee Designs">
-        <div class="back-image-overlay"></div>
-      </div>
-      <div class="back-text">
-        <div class="quote">
-          &ldquo;From wild animals, these hides are so close to nature you can sense the earthy aliveness, feel it like the comfort of a hug, decadently supple.&rdquo;
-        </div>
-        <div class="divider" style="background: linear-gradient(to right, transparent, rgba(184,97,37,0.6), transparent);"></div>
-        <div class="back-motto">Refined. Natural. Fantastical.</div>
-      </div>
+    <div class="back-image-container">
+      <img src="brochure-images/queen-back.jpg" alt="Queen Collar Coat, back">
     </div>
   </div>
   <!-- PANEL 2: Contact Flap (center, first thing seen when opening the front cover) -->
@@ -707,7 +700,8 @@
   <!-- PANEL 6: Bespoke / Custom -->
   <div class="panel bespoke-panel">
     <div class="bespoke-image-container">
-      <img src="brochure-images/moss5.jpg" alt="Custom Design in the Forest">
+      <img src="brochure-images/custom_22_editorial-zoe.jpg" alt="Editorial - M. Renee Designs">
+      <div class="back-image-overlay"></div>
     </div>
     <div class="panel-inner">
       <div class="bespoke-content">
@@ -720,6 +714,13 @@
           Custom design fittings are one on one, creating with the hides of your choice, draped to flatter your form, designed to suit your function.
         </p>
       </div>
+      </div>
+      <div class="back-text">
+        <div class="quote">
+          &ldquo;From wild animals, these hides are so close to nature you can sense the earthy aliveness, feel it like the comfort of a hug, decadently supple.&rdquo;
+        </div>
+        <div class="divider" style="background: linear-gradient(to right, transparent, rgba(184,97,37,0.6), transparent);"></div>
+        <div class="back-motto">Refined. Natural. Fantastical.</div>
       </div>
     </div>
   </div>
