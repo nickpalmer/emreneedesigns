@@ -24,7 +24,7 @@ const Brochure = () => {
         </a>
       </div>
       <iframe
-        src="/brochure.html"
+        src={`/brochure.html?t=${Date.now()}`}
         title="M. Renee Designs Brochure"
         style={{
           width: '100%',
