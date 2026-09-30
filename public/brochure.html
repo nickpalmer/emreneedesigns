@@ -195,6 +195,10 @@
     align-items: center;
     padding-top: 0.15in;
   }
+  .contact-top .front-logo-section {
+    width: 1.55in;
+    margin: 0 auto;
+  }
   .contact-image-strip {
     width: 100%;
     height: 2.6in;
@@ -326,21 +330,21 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 6.2in;
+    bottom: 0;
     overflow: hidden;
   }
   .front-hero-bleed img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 80% bottom;
+    object-position: 42% center;
   }
   .front-bottom-group {
     position: absolute;
-    top: 6.2in;
-    bottom: 0.12in;
-    left: 0.3in;
-    right: 0.3in;
+    bottom: 0.15in;
+    left: 0.15in;
+    width: 1.55in;
+    z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -352,18 +356,18 @@
     align-items: center;
   }
   .front-name-logo {
-    width: 1.6in;
+    width: 1.35in;
     height: auto;
     display: block;
     margin: 0;
   }
   .front-logo {
-    width: 0.85in;
+    width: 0.7in;
     height: auto;
     align-self: flex-end;
     position: relative;
     z-index: 2;
-    margin: 0 0 -0.3in 0;
+    margin: 0 -0.04in -0.34in 0;
   }
   .front-tagline {
     margin-top: 0.08in;
@@ -487,12 +491,15 @@
     right: 0;
     bottom: 0;
     height: 5.8in;
+    overflow: hidden;
   }
   .bespoke-image-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: 47% center;
+    transform: scale(1.15);
+    transform-origin: 40% 85%;
   }
   .bespoke-image-container::before {
     content: '';
@@ -662,7 +669,7 @@
           In her 20s, everything changed when she made a leather garment as part of a Mardi Gras costume in New Orleans. She loved it, surprised by joy as it became <span class="highlight">more beautiful with wear instead of breaking down</span>&mdash;timeless, practical, and expressive.
         </p>
         <p>
-          Slow Fashion, each piece is designed and constructed start to finish by the artist, with a focus on fit, movement, and longevity.
+          Slow Fashion, designed and constructed start to finish by the artist, with a focus on fit, movement, and longevity.
         </p>
       </div>
     </div>
