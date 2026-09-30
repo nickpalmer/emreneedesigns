@@ -23,17 +23,9 @@ export default defineConfig({
         quality: [0.8, 0.9],
         speed: 4,
       },
-      svgo: {
-        plugins: [
-          {
-            name: 'removeViewBox',
-          },
-          {
-            name: 'removeEmptyAttrs',
-            active: false,
-          },
-        ],
-      },
+      // SVGO disabled: its optimization (incl. removeViewBox) corrupts the
+      // hand-tuned logo SVGs; savings were ~1%.
+      svgo: false,
     }),
   ],
 })
