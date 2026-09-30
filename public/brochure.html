@@ -124,8 +124,7 @@
     .contact-image-strip,
     .front-hero-image,
     .about-workshop-img,
-    .collection-item,
-    .bespoke-bottom-image {
+    .collection-item {
       box-shadow: none !important;
       border-radius: 0 !important;
       overflow: visible !important;
@@ -145,13 +144,6 @@
     }
     .about-workshop-img img {
       border: 3px solid #fcf7f0 !important;
-      border-radius: 10px !important;
-      outline: none !important;
-      background: transparent !important;
-      box-shadow: none !important;
-    }
-    .bespoke-bottom-image img {
-      border: 3px solid #f8f5f0 !important;
       border-radius: 10px !important;
       outline: none !important;
       background: transparent !important;
@@ -224,14 +216,14 @@
     padding: 0.05in 0;
   }
   .contact-details h3 {
-    font-size: 11pt;
+    font-size: 12pt;
     color: var(--teal);
     letter-spacing: 0.1em;
     text-transform: uppercase;
     margin-bottom: 0.1in;
   }
   .contact-item {
-    font-size: 10pt;
+    font-size: 12pt;
     line-height: 1.7;
     color: var(--dark-teal);
   }
@@ -246,20 +238,20 @@
   }
   .contact-social .instagram-handle {
     font-family: 'Bellefair', Georgia, serif;
-    font-size: 10pt;
+    font-size: 12pt;
     color: var(--brown-dark);
     font-weight: 700;
     letter-spacing: 0.02em;
   }
   .contact-social .instagram-label {
-    font-size: 10pt;
+    font-size: 12pt;
     color: var(--olive-light);
     text-transform: uppercase;
     letter-spacing: 0.1em;
     margin-bottom: 0.03in;
   }
   .contact-website {
-    font-size: 10pt;
+    font-size: 12pt;
     color: var(--teal);
     margin-top: 0.06in;
     letter-spacing: 0.04em;
@@ -288,6 +280,8 @@
     height: 100%;
     object-fit: cover;
     object-position: 70% center;
+    transform: scale(1.1);
+    transform-origin: 70% 100%;
   }
   .back-image-overlay {
     position: absolute;
@@ -313,14 +307,14 @@
   }
   .back-text .quote-attribution {
     font-family: 'Bellefair', Georgia, serif;
-    font-size: 10pt;
+    font-size: 12pt;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--brown-light);
   }
   .back-motto {
     font-family: 'Bellefair', Georgia, serif;
-    font-size: 10pt;
+    font-size: 12pt;
     letter-spacing: 0.15em;
     color: rgba(255,255,255,0.7);
     margin-top: 0.1in;
@@ -371,7 +365,7 @@
     transform-origin: 100% 100%;
   }
   .front-tagline {
-    font-size: 11pt;
+    font-size: 12pt;
     color: var(--brown-dark);
     letter-spacing: 0.12em;
     margin: 0.04in 0;
@@ -405,7 +399,7 @@
     text-transform: uppercase;
   }
   .about-body p {
-    font-size: 10pt;
+    font-size: 11pt;
     line-height: 1.55;
     color: var(--dark-teal);
     margin-bottom: 0.08in;
@@ -457,12 +451,18 @@
   }
   .crop-teal img {
     transform: scale(1.45);
-    transform-origin: 50% 68%;
+    transform-origin: 50% 84%;
   }
-  .crop-moss img {
-    object-position: 47% 58%;
-    transform: scale(2.4);
-    transform-origin: 47% 58%;
+  .crop-deerhide img {
+    transform: scale(1.5);
+    transform-origin: 50% 30%;
+  }
+  .crop-seafoam img {
+    transform: scale(1.2);
+    transform-origin: 50% 20%;
+  }
+  .crop-queen img {
+    object-position: center 30%;
   }
   .collection-item img {
     width: 100%;
@@ -477,6 +477,25 @@
   }
   .bespoke-panel .panel-inner {
     justify-content: flex-start;
+    z-index: 2;
+  }
+  .bespoke-image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  .bespoke-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 47% center;
+  }
+  .bespoke-content {
+    margin: -0.35in -0.3in 0;
+    padding: 0.35in 0.3in 0.45in;
+    background: linear-gradient(to bottom, rgba(248,245,240,0.97) 0%, rgba(248,245,240,0.95) 80%, rgba(248,245,240,0) 100%);
   }
   .bespoke-header {
     text-align: center;
@@ -495,7 +514,7 @@
     margin-top: 0.03in;
   }
   .bespoke-body p {
-    font-size: 10pt;
+    font-size: 11pt;
     line-height: 1.5;
     color: var(--dark-teal);
     margin-bottom: 0.06in;
@@ -503,49 +522,36 @@
   }
   .bespoke-pillars {
     display: flex;
-    gap: 0.1in;
+    gap: 0.06in;
     margin: 0.06in 0;
   }
   .bespoke-pillar {
     flex: 1;
     text-align: center;
-    padding: 0.08in 0.04in;
+    padding: 0.08in 0.03in;
     background: rgba(45,121,140,0.06);
     border-radius: 4px;
     border-top: 2px solid var(--brown-light);
   }
   .bespoke-pillar h4 {
-    font-size: 10pt;
+    font-size: 11pt;
     color: var(--brown-dark);
     margin-bottom: 0.03in;
     font-style: italic;
   }
   .bespoke-pillar p {
-    font-size: 10pt;
+    font-size: 11pt;
     line-height: 1.4;
     color: var(--olive-dark);
     margin-bottom: 0;
   }
   .bespoke-note {
-    font-size: 10pt;
+    font-size: 11pt;
     color: var(--olive-light);
     text-align: center;
     margin-top: 0.08in;
     font-style: italic;
     line-height: 1.45;
-  }
-  .bespoke-bottom-image {
-    width: 100%;
-    height: 4.6in;
-    border-radius: 5px;
-    overflow: hidden;
-    margin-top: 0.08in;
-  }
-  .bespoke-bottom-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center bottom;
   }
   /* ===== SCREEN HELPERS ===== */
   .page-label {
@@ -571,7 +577,6 @@
     .front-hero-image { box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
     .about-workshop-img { box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
     .collection-item { box-shadow: 0 2px 6px rgba(0,0,0,0.12); }
-    .bespoke-bottom-image { box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
   }
 </style>
 </head>
@@ -693,13 +698,13 @@
         <div class="collection-item collection-item-tall crop-reddress">
           <img src="brochure-images/looks_10_dress-red-zoe-front.jpeg" alt="Backless Halter Dress">
         </div>
-        <div class="collection-item collection-item-tall">
+        <div class="collection-item collection-item-tall crop-deerhide">
           <img src="brochure-images/looks_05_deerhide.jpg" alt="Deerhide Skirt">
         </div>
         <div class="collection-item collection-item-short">
           <img src="brochure-images/looks_08_bolerobustier-black.jpeg" alt="Bustier Vest">
         </div>
-        <div class="collection-item collection-item-short">
+        <div class="collection-item collection-item-short crop-seafoam">
           <img src="brochure-images/looks_23_halter-seafoam.JPG" alt="Halter Top">
         </div>
         <div class="collection-item">
@@ -711,15 +716,19 @@
         <div class="collection-item">
           <img src="brochure-images/custom_07_zoe2.jpg" alt="Custom Fitted Jacket">
         </div>
-        <div class="collection-item crop-moss">
-          <img src="brochure-images/custom_23_qat-moss.jpg" alt="Custom Design in the Forest">
+        <div class="collection-item crop-queen">
+          <img src="brochure-images/custom_21_queen-green2.JPG" alt="Queen Coat in Green">
         </div>
       </div>
     </div>
   </div>
   <!-- PANEL 6: Bespoke / Custom -->
   <div class="panel bespoke-panel">
+    <div class="bespoke-image-container">
+      <img src="brochure-images/custom_23_qat-moss.jpg" alt="Custom Design in the Forest">
+    </div>
     <div class="panel-inner">
+      <div class="bespoke-content">
       <div class="bespoke-header">
         <h2>Bespoke Fashion</h2>
         <div class="divider"></div>
@@ -746,8 +755,6 @@
       <div class="bespoke-note">
         Slow Fashion. Approximately 25 pieces a year.
       </div>
-      <div class="bespoke-bottom-image">
-        <img src="brochure-images/custom_21_queen-green2.JPG" alt="Queen Coat in Green">
       </div>
     </div>
   </div>
