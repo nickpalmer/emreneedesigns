@@ -305,7 +305,7 @@
     font-family: 'Bellefair', Georgia, serif;
     white-space: nowrap;
     font-size: 12pt;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.02em;
     color: rgba(255,255,255,0.7);
     margin-top: 0.1in;
   }
@@ -329,27 +329,26 @@
   }
   .front-bottom-group {
     position: absolute;
-    top: 0.2in;
+    top: 1.3in;
     left: 0.3in;
     right: 0.3in;
     z-index: 2;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     text-align: center;
   }
   .front-logo-section {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 2in;
-    margin: 0 auto;
+    align-items: flex-start;
+    width: 100%;
   }
   .front-name-logo {
-    width: 2in;
+    width: 2.15in;
     height: auto;
     display: block;
-    margin: -0.3in 0 0;
+    margin: 0 0 0 0.42in;
   }
   .front-logo {
     width: 1in;
@@ -360,9 +359,16 @@
     margin: 0 -0.45in -0.55in 0;
   }
   .front-tagline {
-    margin-top: 0.08in;
+    position: absolute;
+    bottom: 0.12in;
+    left: 0.06in;
+    right: 0.06in;
+    z-index: 2;
     white-space: nowrap;
-    letter-spacing: 0.05em;
+    font-style: normal;
+    letter-spacing: 0;
+    transform: scaleX(0.94);
+    transform-origin: center;
     font-size: 12pt;
     color: var(--brown-dark);
     letter-spacing: 0.12em;
@@ -597,8 +603,8 @@
     <div class="panel-inner">
       <div class="contact-top">
         <div class="front-logo-section">
-          <img class="front-logo" src="brochure-images/fox-color2.svg" alt="M. Renee Designs">
-          <img class="front-name-logo" src="brochure-images/name-logo-black.svg?v=3" alt="M Renee">
+          <img class="front-logo" src="brochure-images/fox-line-weighted.svg" alt="M. Renee Designs">
+          <img class="front-name-logo" src="brochure-images/name-logo-black.svg?v=4" alt="M Renee">
         </div>
         </div>
       <div class="contact-image-strip">
@@ -624,10 +630,10 @@
     </div>
     <div class="front-bottom-group">
       <div class="front-logo-section">
-        <img class="front-name-logo" src="brochure-images/name-logo-black.svg?v=3" alt="M Renee">
+        <img class="front-name-logo" src="brochure-images/name-logo-black.svg?v=4" alt="M Renee">
       </div>
-      <div class="tagline front-tagline">Refined. Natural. Fantastical.</div>
     </div>
+    <div class="tagline front-tagline">REFINED&nbsp;&nbsp;NATURAL&nbsp;&nbsp;FANTASTICAL</div>
   </div>
 </div>
 <!-- ==========================================
@@ -658,13 +664,16 @@
       </div>
       <div class="about-body">
         <p>
-          M started sewing clothes as a child since what she desired to wear wasn't in stores, learning the technical skills to create her vision. Growing up in rural Louisiana with a self-directed education shaped both her technical independence and creative perspective.
+          M started sewing clothes as a child since what she desired to wear wasn't in stores, learning the technical skills to create her vision.
+        </p>
+        <p>
+          Growing up in rural Louisiana with a self-directed education shaped both her technical independence and creative perspective.
         </p>
         <p>
           In her 20s, everything changed when she made a leather garment as part of a Mardi Gras costume in New Orleans. She loved it, surprised by joy as it became <span class="highlight">more beautiful with wear instead of breaking down</span>&mdash;timeless, practical, and expressive.
         </p>
         <p>
-          Slow Fashion, designed and constructed start to finish by the artist, with a focus on fit, movement, and longevity.
+          Slow Fashion, designed and constructed start to finish by the artist with a focus on fit, movement, and longevity.
         </p>
       </div>
     </div>
@@ -712,7 +721,7 @@
           &ldquo;From wild animals, these hides are so close to nature you can sense the earthy aliveness, feel it like the comfort of a hug, decadently supple.&rdquo;
         </div>
         <div class="divider" style="background: linear-gradient(to right, transparent, rgba(184,97,37,0.6), transparent);"></div>
-        <div class="back-motto">Refined. Natural. Fantastical.</div>
+        <div class="back-motto">REFINED&nbsp;&nbsp;NATURAL&nbsp;&nbsp;FANTASTICAL</div>
       </div>
     </div>
   </div>
