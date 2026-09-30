@@ -24,7 +24,7 @@ const BusinessCards = () => {
         </a>
       </div>
       <iframe
-        src="/business-cards.html"
+        src={`/business-cards.html?t=${Date.now()}`}
         title="M. Renee Designs Business Cards"
         style={{
           width: '100%',
