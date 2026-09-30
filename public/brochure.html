@@ -259,13 +259,6 @@
     background: var(--dark-teal);
     color: white;
   }
-  .back-panel .panel-inner {
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    justify-content: flex-end;
-  }
   .back-image-container {
     position: absolute;
     top: 0;
@@ -277,7 +270,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 78% center;
+    object-position: 90% center;
   }
   .back-image-overlay {
     position: absolute;
@@ -290,7 +283,7 @@
   .back-text {
     position: relative;
     z-index: 2;
-    padding: 0.4in 0.35in;
+    padding: 0.4in 0.22in;
     text-align: center;
   }
   .back-text .quote {
@@ -310,6 +303,7 @@
   }
   .back-motto {
     font-family: 'Bellefair', Georgia, serif;
+    white-space: nowrap;
     font-size: 12pt;
     letter-spacing: 0.15em;
     color: rgba(255,255,255,0.7);
@@ -487,6 +481,9 @@
   }
   .bespoke-panel .back-text {
     margin-top: auto;
+    margin-left: -0.3in;
+    margin-right: -0.3in;
+    margin-bottom: -0.35in;
   }
   .bespoke-image-container {
     position: absolute;
@@ -504,7 +501,7 @@
     transform: scale(1.1);
     transform-origin: 70% 100%;
   }
-  .bespoke-image-container::before {
+  .back-image-container::before {
     content: '';
     position: absolute;
     top: 0;
@@ -513,6 +510,9 @@
     bottom: 0;
     z-index: 1;
     background: linear-gradient(to bottom, rgba(5,60,61,0.82) 0%, rgba(5,60,61,0.6) 14%, rgba(5,60,61,0) 27%);
+  }
+  .back-panel .panel-inner {
+    z-index: 2;
   }
   .bespoke-content {
     text-align: center;
@@ -587,6 +587,19 @@
   <div class="panel back-panel">
     <div class="back-image-container">
       <img src="brochure-images/queen-back.jpg" alt="Queen Collar Coat, back">
+    </div>
+    <div class="panel-inner">
+      <div class="bespoke-content">
+      <div class="bespoke-header">
+        <h2>Bespoke Fashion</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="bespoke-body">
+        <p>
+          Custom design fittings are one on one, creating with the hides of your choice, draped to flatter your form, designed to suit your function.
+        </p>
+      </div>
+      </div>
     </div>
   </div>
   <!-- PANEL 2: Contact Flap (center, first thing seen when opening the front cover) -->
@@ -704,17 +717,6 @@
       <div class="back-image-overlay"></div>
     </div>
     <div class="panel-inner">
-      <div class="bespoke-content">
-      <div class="bespoke-header">
-        <h2>Bespoke Fashion</h2>
-        <div class="divider"></div>
-      </div>
-      <div class="bespoke-body">
-        <p>
-          Custom design fittings are one on one, creating with the hides of your choice, draped to flatter your form, designed to suit your function.
-        </p>
-      </div>
-      </div>
       <div class="back-text">
         <div class="quote">
           &ldquo;From wild animals, these hides are so close to nature you can sense the earthy aliveness, feel it like the comfort of a hug, decadently supple.&rdquo;
