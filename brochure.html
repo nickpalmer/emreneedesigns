@@ -31,13 +31,14 @@
   }
   /* ===== PRINT SETUP ===== */
   @page {
-    size: 11in 8.5in;
+    size: 11.125in 8.625in;
     margin: 0;
   }
   /* ===== PAGE CONTAINER ===== */
   .page {
-    width: 11in;
-    height: 8.5in;
+    width: 11.125in;
+    height: 8.625in;
+    padding: 0.0625in;
     background: white;
     position: relative;
     overflow: hidden;
@@ -53,9 +54,14 @@
     width: 3.6667in;
     height: 8.5in;
     position: relative;
-    overflow: hidden;
     flex-shrink: 0;
   }
+  #page-outside .panel:nth-of-type(1) { width: 3.6238in; }
+  #page-outside .panel:nth-of-type(2) { width: 3.6880in; }
+  #page-outside .panel:nth-of-type(3) { width: 3.6882in; }
+  #page-inside .panel:nth-of-type(1) { width: 3.6932in; }
+  #page-inside .panel:nth-of-type(2) { width: 3.6880in; }
+  #page-inside .panel:nth-of-type(3) { width: 3.6188in; }
   .panel-inner {
     position: absolute;
     top: 0.35in;
@@ -74,8 +80,10 @@
     border-left: 1px dashed #ccc;
     z-index: 10;
   }
-  .fold-mark-1 { left: 3.6667in; }
-  .fold-mark-2 { left: 7.3334in; }
+  #page-outside .fold-mark-1 { left: 3.6863in; }
+  #page-outside .fold-mark-2 { left: 7.3743in; }
+  #page-inside .fold-mark-1 { left: 3.7557in; }
+  #page-inside .fold-mark-2 { left: 7.4437in; }
   /* Fold tick marks — small lines at top and bottom edges for precise folding */
   .fold-tick {
     position: absolute;
@@ -83,10 +91,12 @@
     background: #999;
     z-index: 20;
   }
-  .fold-tick-top { top: 0; height: 0.2in; }
-  .fold-tick-bottom { bottom: 0; height: 0.2in; }
-  .fold-tick-1 { left: 3.6667in; }
-  .fold-tick-2 { left: 7.3334in; }
+  .fold-tick-top { top: 0; height: 0.055in; }
+  .fold-tick-bottom { bottom: 0; height: 0.055in; }
+  #page-outside .fold-tick-1 { left: 3.6863in; }
+  #page-outside .fold-tick-2 { left: 7.3743in; }
+  #page-inside .fold-tick-1 { left: 3.7557in; }
+  #page-inside .fold-tick-2 { left: 7.4437in; }
   /* Corner registration marks */
   .reg-mark {
     position: absolute;
@@ -98,29 +108,32 @@
     background: #999;
   }
   .reg-mark::before {
-    width: 0.15in;
+    width: 0.05in;
     height: 0.5px;
   }
   .reg-mark::after {
     width: 0.5px;
-    height: 0.15in;
+    height: 0.05in;
   }
-  .reg-tl { top: 0.1in; left: 0.1in; }
-  .reg-tr { top: 0.1in; right: 0.1in; }
-  .reg-tr::before { right: 0; }
-  .reg-tr::after { right: 0; }
-  .reg-bl { bottom: 0.1in; left: 0.1in; }
-  .reg-bl::before { bottom: 0; }
-  .reg-bl::after { bottom: 0; }
-  .reg-br { bottom: 0.1in; right: 0.1in; }
-  .reg-br::before { right: 0; bottom: 0; }
-  .reg-br::after { right: 0; bottom: 0; }
+  .reg-tl { top: 0; left: 0; }
+  .reg-tl::before { top: 0.0625in; left: 0.005in; }
+  .reg-tl::after { left: 0.0625in; top: 0.005in; }
+  .reg-tr { top: 0; right: 0; }
+  .reg-tr::before { top: 0.0625in; right: 0.005in; }
+  .reg-tr::after { right: 0.0625in; top: 0.005in; }
+  .reg-bl { bottom: 0; left: 0; }
+  .reg-bl::before { bottom: 0.0625in; left: 0.005in; }
+  .reg-bl::after { left: 0.0625in; bottom: 0.005in; }
+  .reg-br { bottom: 0; right: 0; }
+  .reg-br::before { bottom: 0.0625in; right: 0.005in; }
+  .reg-br::after { right: 0.0625in; bottom: 0.005in; }
   @media print {
     body { background: white; }
     .page { margin: 0; box-shadow: none; }
     .fold-mark { display: none; }
-    .fold-tick { background: #666; }
-    .reg-mark::before, .reg-mark::after { background: #666; }
+    /* GotPrint: no guide marks may appear in the submitted file */
+    .fold-tick { display: none; }
+    .reg-mark { display: none; }
     .contact-image-strip,
     .about-workshop-img,
     .collection-item {
@@ -261,10 +274,10 @@
   }
   .back-image-container {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: -0.0625in;
+    left: -0.0625in;
     right: 0;
-    bottom: 0;
+    bottom: -0.0625in;
   }
   .back-image-container img {
     width: 100%;
@@ -315,10 +328,10 @@
   }
   .front-hero-bleed {
     position: absolute;
-    top: 0;
+    top: -0.0625in;
     left: 0;
-    right: 0;
-    bottom: 0;
+    right: -0.0625in;
+    bottom: -0.0625in;
     overflow: hidden;
   }
   .front-hero-bleed img {
@@ -398,6 +411,15 @@
      ============================================= */
   /* --- PANEL: ABOUT (left, inside) --- */
   .about-panel {
+    background: var(--cream);
+  }
+  .about-panel::before {
+    content: '';
+    position: absolute;
+    top: -0.0625in;
+    left: -0.0625in;
+    right: 0;
+    bottom: -0.0625in;
     background: var(--cream);
   }
   .about-panel .panel-inner {
@@ -504,10 +526,10 @@
   }
   .bespoke-image-container {
     position: absolute;
-    top: 0;
+    top: -0.0625in;
     left: 0;
-    right: 0;
-    bottom: 0;
+    right: -0.0625in;
+    bottom: -0.0625in;
     overflow: hidden;
   }
   .bespoke-image-container img {
