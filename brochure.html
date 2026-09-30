@@ -195,10 +195,6 @@
     align-items: center;
     padding-top: 0.15in;
   }
-  .contact-top .front-logo-section {
-    width: 1.55in;
-    margin: 0 auto;
-  }
   .contact-image-strip {
     width: 100%;
     height: 2.6in;
@@ -337,13 +333,13 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 42% center;
+    object-position: 55% center;
   }
   .front-bottom-group {
     position: absolute;
-    bottom: 0.15in;
-    left: 0.15in;
-    width: 1.55in;
+    top: 0.2in;
+    left: 0.3in;
+    right: 0.3in;
     z-index: 2;
     display: flex;
     flex-direction: column;
@@ -354,6 +350,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 1.55in;
+    margin: 0 auto;
   }
   .front-name-logo {
     width: 1.35in;
@@ -371,6 +369,8 @@
   }
   .front-tagline {
     margin-top: 0.08in;
+    white-space: nowrap;
+    letter-spacing: 0.05em;
     font-size: 12pt;
     color: var(--brown-dark);
     letter-spacing: 0.12em;
@@ -497,9 +497,9 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 47% center;
+    object-position: 42% center;
     transform: scale(1.15);
-    transform-origin: 40% 85%;
+    transform-origin: 34% 85%;
   }
   .bespoke-image-container::before {
     content: '';
@@ -509,7 +509,7 @@
     right: 0;
     bottom: 0;
     z-index: 1;
-    background: linear-gradient(to bottom, rgba(5,60,61,1) 0%, rgba(5,60,61,0.5) 10%, rgba(5,60,61,0) 22%);
+    background: linear-gradient(to bottom, rgba(5,60,61,1) 0%, rgba(5,60,61,0.5) 2.5%, rgba(5,60,61,0) 5.5%);
   }
   .bespoke-content {
     text-align: center;
@@ -693,14 +693,14 @@
         <div class="collection-item">
           <img src="brochure-images/home_05_toby1.jpg" alt="Custom Menswear Jacket">
         </div>
-        <div class="collection-item crop-teal">
-          <img src="brochure-images/home_13_teal-3-dress.jpg" alt="Teal Deerhide Dresses">
+        <div class="collection-item crop-queen">
+          <img src="brochure-images/custom_21_queen-green2.JPG" alt="Queen Coat in Green">
         </div>
         <div class="collection-item">
           <img src="brochure-images/custom_07_zoe2.jpg" alt="Custom Fitted Jacket">
         </div>
-        <div class="collection-item crop-queen">
-          <img src="brochure-images/custom_21_queen-green2.JPG" alt="Queen Coat in Green">
+        <div class="collection-item crop-teal">
+          <img src="brochure-images/home_13_teal-3-dress.jpg" alt="Teal Deerhide Dresses">
         </div>
       </div>
     </div>
