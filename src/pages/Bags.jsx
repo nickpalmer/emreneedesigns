@@ -52,7 +52,7 @@ const Bags = () => {
 
   return (
     <div>
-      <ParallaxHero image={bag_01} alt="Nuance leather messenger bag" objectPosition="center 30%" mobilePosition="center 30%">
+      <ParallaxHero image={bag_01} alt="Nuance leather messenger bag" objectPosition="center 45%" mobilePosition="center 45%">
         <div className="shadow-lg" style={{
           backgroundColor: 'var(--textbox-bg)',
           padding: '20px',
