@@ -90,6 +90,21 @@ const resources = {
       "journals.fromMyJournal.text": "Cycling around Italy and France, I carried my featherlight Nuance Journal of handmade Lokta paper from Nepal.",
       "journals.fromMyJournal.cta": "I want one! Take me to the shop!",
 
+      // Bags page
+      "bags.title": "Nuance Bags",
+      "bags.subtitle": "Fine leather, one of a kind \u2014 no two bags alike.",
+      "bags.intro": "As the Nuance line grew, the hides bought for journal covers began asking for more. Bags were the natural next step: the same wild leather, raw edges, and hand craftsmanship \u2014 on a bigger canvas.",
+      "bags.cta.shop": "Shop available bags",
+      "bags.expansion.title": "From Journals to Bags",
+      "bags.expansion.paragraph1": "Nuance began with handbound leather journals. Working with whole hides for the covers, Emily found herself with leather too beautiful to cut small \u2014 supple elk, rugged moose, buttery deerskin with edges shaped by nature.",
+      "bags.expansion.paragraph2": "Bags let the hide speak at full size. Each messenger and purse is designed around a particular skin: raw edges become flaps and fringe, scars and color shifts become the signature of the piece. Leather lined, hand finished, made to be carried every day and to grow more beautiful doing it.",
+      "bags.expansion.paragraph3": "The bags were the bridge: from journals to leather goods \u2014 and eventually, by way of a certain Mardi Gras costume, to the clothing that became M Renee Designs.",
+      "bags.expansion.cta": "Shop bags on Etsy",
+      "bags.designs.title": "The Designs",
+      "bags.designs.tagline": "Messengers, fringe purses, and one of a kind layered bags",
+      "bags.designs.text": "Gator-accented teal, purple layered hides, chocolate and cream fringe, raw edge earth and water, weightless elk\u2026 every bag in the shop is the only one of its kind.",
+      "bags.designs.cta": "I want one! Take me to the shop!",
+
       // Contact page
       "contact.title": "Contact Us",
       "contact.email.label": "Email:",
@@ -109,6 +124,7 @@ const resources = {
       "nav.designs": "Looks",
       "nav.custom": "Custom",
       "nav.journals": "Journals",
+      "nav.bags": "Bags",
       "nav.contact": "Contact"
     }
   }
