@@ -112,6 +112,9 @@ const Header = () => {
               <Link to="/journals" className={`block transition-colors text-xs md:text-base ${isActive('/journals') ? 'underline' : ''}`} style={{ padding: '8px 8px', textDecoration: isActive('/journals') ? 'underline' : 'none', color: 'var(--header-footer-text)' }}>{t('nav.journals')}</Link>
             </li>
             <li>
+              <Link to="/bags" className={`block transition-colors text-xs md:text-base ${isActive('/bags') ? 'underline' : ''}`} style={{ padding: '8px 8px', textDecoration: isActive('/bags') ? 'underline' : 'none', color: 'var(--header-footer-text)' }}>{t('nav.bags')}</Link>
+            </li>
+            <li>
               <Link to="/contact" className={`block transition-colors text-xs md:text-base ${isActive('/contact') ? 'underline' : ''}`} style={{ padding: '8px 8px', textDecoration: isActive('/contact') ? 'underline' : 'none', color: 'var(--header-footer-text)' }}>{t('nav.contact')}</Link>
             </li>
           </ul>

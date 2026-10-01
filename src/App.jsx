@@ -10,6 +10,7 @@ import Designs from './pages/Designs';
 import Custom from './pages/Custom';
 import Contact from './pages/Contact';
 import Journals from './pages/Journals';
+import Bags from './pages/Bags';
 import Brochure from './pages/Brochure';
 import BusinessCards from './pages/BusinessCards';
 
@@ -34,6 +35,7 @@ const App = () => {
             <Route path="/designs" element={<Designs />} />
             <Route path="/custom" element={<Custom />} />
             <Route path="/journals" element={<Journals />} />
+            <Route path="/bags" element={<Bags />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/brochure" element={<Brochure />} />
             <Route path="/business-cards" element={<BusinessCards />} />
