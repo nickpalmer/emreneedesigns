@@ -17,7 +17,7 @@
     --blue-dark: #012169;
     --teal: #2d798c;
     --cream: #fcf7f0;
-    --wall: #d9cdb8;
+    --wall: #e6ddcc;
     --dark-teal: #053c3d;
     --logo-brown: #bc6f2c;
     --warm-white: #f8f5f0;
@@ -173,6 +173,15 @@
   .contact-panel {
     background: var(--wall);
   }
+  .contact-panel::before {
+    content: '';
+    position: absolute;
+    top: -0.0625in;
+    left: 0;
+    right: 0;
+    bottom: -0.0625in;
+    background: var(--wall);
+  }
   .contact-panel .panel-inner {
     justify-content: space-between;
     align-items: center;
@@ -261,8 +270,8 @@
     height: 100%;
     object-fit: cover;
     object-position: 90% center;
-    transform: scale(1.08);
-    transform-origin: 50% 24%;
+    transform: translateY(-4%) scale(1.19);
+    transform-origin: center;
   }
   .back-image-overlay {
     position: absolute;
@@ -318,6 +327,8 @@
     height: 100%;
     object-fit: cover;
     object-position: 80% center;
+    transform: translateY(-4%) scale(1.1);
+    transform-origin: center;
   }
   .front-bottom-group {
     position: absolute;
@@ -441,6 +452,15 @@
   }
   /* --- PANEL: COLLECTION (center, inside) --- */
   .collection-panel {
+    background: var(--wall);
+  }
+  .collection-panel::before {
+    content: '';
+    position: absolute;
+    top: -0.0625in;
+    left: 0;
+    right: 0;
+    bottom: -0.0625in;
     background: var(--wall);
   }
   .collection-panel .panel-inner {
