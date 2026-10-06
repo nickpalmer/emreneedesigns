@@ -14,8 +14,16 @@ import bag_20 from '../assets/images/bag_20_black-fringe-crossbody.jpg';
 import bag_21 from '../assets/images/bag_21_tan-fringe-hip.jpg';
 import bag_22 from '../assets/images/bag_22_teal-crossbody.jpg';
 import bag_23 from '../assets/images/bag_23_fringe-hip-olive.jpg';
-import bag_24 from '../assets/images/bag_24_fringe-hip-olive-back.jpg';
-import bag_25 from '../assets/images/bag_25_black-fringe-crossbody-back.jpg';
+import bag_26 from '../assets/images/bag_26_choc-messenger.jpg';
+import bag_27 from '../assets/images/bag_27_teal-messenger.jpg';
+import bag_28 from '../assets/images/bag_28_tobacco-messenger.jpg';
+import bag_29 from '../assets/images/bag_29_brown-clutch.jpg';
+import bag_30 from '../assets/images/bag_30_seafoam-clutch.jpg';
+import bag_31 from '../assets/images/bag_31_seafoam-crossbody.jpg';
+import bag_32 from '../assets/images/bag_32_red-fringe.jpg';
+import bag_33 from '../assets/images/bag_33_gold-fringe.jpg';
+import bag_34 from '../assets/images/bag_34_green-fringe.jpg';
+import bag_35 from '../assets/images/bag_35_backpack.jpg';
 
 const MOBILE_BREAKPOINT = 768;
 const ETSY_SHOP_URL = 'https://www.etsy.com/shop/nuancejournals';
@@ -23,7 +31,7 @@ const ETSY_SHOP_URL = 'https://www.etsy.com/shop/nuancejournals';
 // One shot per design for variety — messenger, fringe purse, crossbody, teal, hip purse...
 const titleGalleryImages = [bag_02, bag_04, bag_20, bag_22];
 const craftGalleryImages = [bag_21, bag_05, bag_23, bag_07];
-const designGalleryImages = [bag_03, bag_06, bag_24, bag_25];
+const designGalleryImages = [bag_03, bag_06, bag_26, bag_27, bag_28, bag_29, bag_30, bag_31, bag_32, bag_33, bag_34, bag_35];
 const allGalleryImages = [...titleGalleryImages, ...craftGalleryImages, ...designGalleryImages];
 
 const EtsyButton = ({ label }) => (
@@ -127,7 +135,7 @@ const Bags = () => {
                   images={designGalleryImages}
                   altPrefix="Nuance bag designs"
                   noPadding
-                  gridClassName="grid grid-cols-2 gap-3"
+                  gridClassName="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3"
                 />
               </div>
             )}
