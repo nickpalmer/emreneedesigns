@@ -1,70 +1,103 @@
 #!/usr/bin/env python3
 """
-Replace a flat light studio background with a soft grey gradient that
-matches the neighbouring studio shots in the brochure collection grid.
+Studio-background tools for the brochure collection grid.
 
-Usage: replace_white_bg.py INPUT OUTPUT [--height N]
+MODES
+  gradient  (default)  replace a flat/white background with a generated grey
+                       gradient matching the neighbouring studio shots.
+  lighten              keep the existing (grey) background but remap its tonal
+                       range into a lighter target range so a too-dark backdrop
+                       matches the other grids. Preserves the gradient shape.
 
-Approach:
-  1. Downscale for manageable processing.
-  2. Build a "background" mask = low-saturation + light pixels that are
-     connected to the image border (so interior highlights/jewellery and
-     the figures themselves are never treated as background).
-  3. Erode + feather the mask to kill the light edge fringe and blend.
-  4. Composite the subject over a generated vertical grey gradient
-     (with a gentle radial highlight) tuned to the neighbour backdrops.
+Usage:
+  replace_white_bg.py INPUT OUTPUT [--mode gradient|lighten]
+                      [--height N] [--sat S] [--lo L --hi H]
+
+Both modes build the background mask the same way: neutral (low-saturation)
+pixels that are connected to the image border, so the subject and any interior
+greys (jewellery, caps) are never touched. The mask is eroded + feathered to
+avoid edge halos.
 """
-import sys, argparse
+import argparse
 import numpy as np
 from PIL import Image
 from scipy import ndimage
 
-def build_gradient(h, w):
-    # vertical: darker grey at top -> lighter grey toward the bottom
+
+def _keep_border(mask):
+    lbl, _ = ndimage.label(mask)
+    border = set(lbl[0, :]) | set(lbl[-1, :]) | set(lbl[:, 0]) | set(lbl[:, -1])
+    border.discard(0)
+    return np.isin(lbl, list(border))
+
+def bg_mask(img, sat_thr, light_only, warm=7.0, open_iters=1):
+    r, g, b = img[..., 0], img[..., 1], img[..., 2]
+    mx = img.max(2); mn = img.min(2)
+    # background = low-saturation AND neutral (not warm: excludes brown jacket,
+    # skin, beard, tan cap -> their edges never bridge the mask into the subject)
+    cand = ((mx - mn) < sat_thr) & ((r - b) < warm) & ((r - g) < warm)
+    if light_only:
+        cand &= img.mean(2) > 150
+    mask = _keep_border(cand)
+    if open_iters:
+        mask = ndimage.binary_opening(mask, iterations=open_iters)
+        mask = _keep_border(mask)
+    # fill small interior speckles (noise), never the subject
+    inv = ~mask
+    lbl, n = ndimage.label(inv)
+    touch = set(lbl[0, :]) | set(lbl[-1, :]) | set(lbl[:, 0]) | set(lbl[:, -1])
+    sizes = ndimage.sum(np.ones_like(lbl), lbl, index=range(1, n + 1))
+    small = {i + 1 for i, sz in enumerate(sizes)
+             if (i + 1) not in touch and sz < 0.0015 * mask.size}
+    if small:
+        mask |= np.isin(lbl, list(small))
+    mask = ndimage.binary_erosion(mask, iterations=1)
+    return mask
+
+def make_gradient(h, w):
     top = np.array([184, 184, 187], float)
     bot = np.array([223, 223, 225], float)
     t = np.linspace(0, 1, h)[:, None]
-    grad = (top[None, :] * (1 - t) + bot[None, :] * t)      # (h,3)
-    grad = np.repeat(grad[:, None, :], w, axis=1)           # (h,w,3)
-    # gentle radial highlight centred a bit low, behind the figures
+    grad = np.repeat((top * (1 - t) + bot * t)[:, None, :], w, axis=1)
     yy, xx = np.mgrid[0:h, 0:w]
-    cy, cx = 0.52 * h, 0.5 * w
-    r = np.sqrt(((yy - cy) / (0.7 * h))**2 + ((xx - cx) / (0.6 * w))**2)
-    glow = np.clip(1 - r, 0, 1)[..., None] * 14.0           # up to +14 brightness
-    return np.clip(grad + glow, 0, 255)
+    r = np.sqrt(((yy - 0.52 * h) / (0.7 * h))**2 + ((xx - 0.5 * w) / (0.6 * w))**2)
+    return np.clip(grad + np.clip(1 - r, 0, 1)[..., None] * 14.0, 0, 255)
+
+
+def lighten_bg(img, mask, out_lo, out_hi):
+    lum = img.mean(2)
+    vals = lum[mask]
+    in_lo, in_hi = np.percentile(vals, 2), np.percentile(vals, 98)
+    scale = (out_hi - out_lo) / max(in_hi - in_lo, 1e-3)
+    # same linear map on every channel keeps the neutral grey neutral
+    return np.clip((img - in_lo) * scale + out_lo, 0, 255)
+
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("inp"); ap.add_argument("out")
+    ap.add_argument("--mode", choices=["gradient", "lighten"], default="gradient")
     ap.add_argument("--height", type=int, default=2600)
+    ap.add_argument("--sat", type=float, default=None)
+    ap.add_argument("--lo", type=float, default=178.0)
+    ap.add_argument("--hi", type=float, default=236.0)
     a = ap.parse_args()
 
     im = Image.open(a.inp).convert("RGB")
     if im.height > a.height:
-        w = round(im.width * a.height / im.height)
-        im = im.resize((w, a.height), Image.LANCZOS)
+        im = im.resize((round(im.width * a.height / im.height), a.height), Image.LANCZOS)
     img = np.asarray(im, float)
     h, w, _ = img.shape
 
-    mx = img.max(2); mn = img.min(2)
-    sat = mx - mn
-    bright = img.mean(2)
-    # background candidate: greyish AND light
-    bg = (sat < 20) & (bright > 150)
-    # keep only the component(s) connected to the border
-    lbl, n = ndimage.label(bg)
-    border = set(lbl[0, :]) | set(lbl[-1, :]) | set(lbl[:, 0]) | set(lbl[:, -1])
-    border.discard(0)
-    bgmask = np.isin(lbl, list(border))
-    # erode 2px to eat the light fringe, then feather
-    bgmask = ndimage.binary_erosion(bgmask, iterations=2)
-    alpha = ndimage.gaussian_filter(bgmask.astype(float), sigma=1.6)
-    alpha = np.clip(alpha, 0, 1)[..., None]
+    sat = a.sat if a.sat is not None else (20 if a.mode == "gradient" else 16)
+    mask = bg_mask(img, sat, light_only=(a.mode == "gradient"))
+    alpha = np.clip(ndimage.gaussian_filter(mask.astype(float), 1.6), 0, 1)[..., None]
 
-    grad = build_gradient(h, w)
-    out = img * (1 - alpha) + grad * alpha
+    new_bg = make_gradient(h, w) if a.mode == "gradient" else lighten_bg(img, mask, a.lo, a.hi)
+    out = img * (1 - alpha) + new_bg * alpha
     Image.fromarray(np.clip(out, 0, 255).astype(np.uint8)).save(a.out, quality=90)
-    print(f"wrote {a.out}  {w}x{h}  bg pixels replaced: {bgmask.mean()*100:.1f}%")
+    print(f"wrote {a.out}  {w}x{h}  mode={a.mode}  bg={mask.mean()*100:.1f}%")
+
 
 if __name__ == "__main__":
     main()
